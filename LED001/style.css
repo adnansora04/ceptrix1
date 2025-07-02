@@ -1,0 +1,46 @@
+.form-subtitle {
+  display: none;
+}
+
+.fixture-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px 38px;
+      margin-left: 40px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  max-width: 100%;
+}
+
+.fixture-box h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.fixture-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.fixture-box img {
+  margin-left: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .fixture-box{
+    margin-left: 0px;
+  }
+}
+
