@@ -36,6 +36,30 @@
 }
 
 
+.hide-this-title {
+  display: none !important;
+}
+
+
+body.cpl-001 .hide-this-subtitle {
+  display: none;
+}
+
+body.cpl-001 .hide-this-span {
+  display: none;
+}
+.subtitle {
+  display: none;
+}
+.subtitle-banner{
+    display: none;
+}
+
+.hide-with-css {
+  display: none !important;
+}
+
+
 
 
 @media (max-width: 767px) {
@@ -43,4 +67,3 @@
     margin-left: 0px;
   }
 }
-
