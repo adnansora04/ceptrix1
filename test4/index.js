@@ -46,12 +46,28 @@ if (target) {
  
       </div>
        <div class="logos-wrapper">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751630232/TRUSTED_BY_1_xvtvnx.png" alt="Trusted By" class="trusted-by">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751783070/Frame_1000003568_1_hofzlc.png" alt="Verizon">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751783127/Frame_1000003571_zw673n.png" alt="Dell">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751783169/AEP_logo_white.svg_fill_1_a11o5v.png" alt="American Electric Power">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751783212/Frame_1000003573_owqboy.png" alt="Bharti">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751783254/Frame_1000003574_c3tkgc.png" alt="Rogers"class="rogers">
+      <div class="trusted-by">TRUSTED BY</div>
+ 
+<picture>
+<!-- Mobile first -->
+<source
+    srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1752047692/Frame_1000003578_qbqmgv.png"
+    media="(max-width: 599px)"
+  />
+ 
+  <!-- Tablet -->
+<source
+    srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1752047640/Frame_1000003700_shkfsf.png"
+    media="(min-width: 600px) and (max-width: 991px)"
+  />
+ 
+  <!-- Desktop (default/fallback) -->
+<img
+    src="https://res.cloudinary.com/diilhbcp9/image/upload/v1752047640/Frame_1000003700_shkfsf.png"
+    alt="Trusted by logos"
+    style="width: 100%; height: auto"
+  />
+</picture>
     </div>
     </div>
     </div>
