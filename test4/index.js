@@ -1,6 +1,6 @@
 document.body.classList.add('cpl-001');
 
-document.querySelectorAll('.ribbon-two-column .region.region-main-content.container')
+// document.querySelectorAll('.ribbon-two-column .region.region-main-content.container')
 
 
 
@@ -30,7 +30,7 @@ if (target) {
 <source media="(max-width: 767px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1751869296/Dashboard_mobile_tbjqgs.png" />
  
     <!-- Tablet image (768px to 1023px) -->
-<source media="(max-width: 1023px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1751869244/Frame_1000003672_uojnxs.png" />
+<source media="(max-width: 1023px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1752148499/Group_19231_xpwcwi.png" />
  
     <!-- Desktop image (default/fallback) -->
 <img
@@ -57,7 +57,7 @@ if (target) {
  
   <!-- Tablet -->
 <source
-    srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1752047640/Frame_1000003700_shkfsf.png"
+    srcset="https://res.cloudinary.com/spiralyze/image/upload/f_auto/ribboncommunications/1003/logos_t.webp"
     media="(min-width: 600px) and (max-width: 991px)"
   />
  
@@ -76,7 +76,7 @@ if (target) {
 
     <!-- Left Card -->
     <div class="card-item-left">
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751630897/image_427_1_utijub.png" alt="Ribbon SBCs">
+      <img src="https://res.cloudinary.com/spiralyze/image/upload/f_auto/ribboncommunications/1003/session_border_controller_d.webp" alt="Ribbon SBCs">
       <h5 class="card-subtitle-left">Session Border Controller</h5>
       <h3 class="card-title-left">Enable Microsoft Teams & Zoom as a Business Phone System</h3>
       <p class="card-desc-left">
