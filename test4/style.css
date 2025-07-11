@@ -144,14 +144,15 @@ border: none;
 
 .cpl-001 .custom-block-image {
     width: 46%;
+    position: relative;
 }
 
 .cpl-001 .custom-block-image img {
-         max-width: 942px;
+        max-width: 942px;
     position: absolute;
-    top: 30%;
-    left: 53.2%;
-  
+    top: -240px;
+    /* left: 53.2%; */
+    right: -378px;
 }
 
 /* Trusted by section */
@@ -389,6 +390,7 @@ color: #D81990;
         padding-top: 131px;
         padding-left: 25px;
         padding-right: 25px;
+                padding-bottom: 56px;
   }
   .cpl-001 .custom-block-wrapper {
            flex-direction: column;
@@ -403,15 +405,15 @@ color: #D81990;
         max-width:527px;
 }
 .cpl-001 .custom-block-content li{
-   margin-bottom: 19px;
+         margin-bottom: 19px;
         list-style: none;
         /* position: relative; */
-        max-width: 837px;
+        max-width: 100%;
         letter-spacing: 0px;
         width: 100%;
         /* margin: 0 auto; */
         padding-left: -3px;
-        /* padding-left: 4px*/
+        /* padding-left: 4px;*/
 }
 .cpl-001 .card-subtitle-left{
            margin-top: 33px;
@@ -440,13 +442,12 @@ color: #D81990;
   }
 
   .cpl-001 .custom-block-content ul {
-          
-              text-align: left;
+                 text-align: left;
         margin: 0 auto;
-        max-width: 743px;
         letter-spacing: 0;
         padding-bottom: 17px;
         padding-left: 36px;
+    
 
   }
   .cpl-001 .custom-block-content li::before{
@@ -570,14 +571,15 @@ color: #D81990;
   .cpl-001 .custom-block-image {
     order: 2;
     width: 100%;
+    
     /* max-width: 600px;
-    margin: 0 auto; */
+    margin: 0 auto; */  
   }
 
   .cpl-001 .custom-block-image img {
                    position: relative;
-        top: 60px;
-        left: auto;
+               top: 59px;
+        left: 1px;
         margin: 24px auto;
         display: block;
         width: 100%;
@@ -591,7 +593,7 @@ color: #D81990;
         gap: 42px;
         gap: 32px 67px;
         left: 10px;
-        margin-top: 63px;
+        margin-top: 64px;
         margin-bottom: 9px;
         margin-left: 1px;
     
@@ -619,7 +621,7 @@ color: #D81990;
     
   }
   .cpl-001 .card-section{
-        padding: 59px 0px;
+        padding: 66px 0px;
         background-color: #f9f9f9;
   }
 
@@ -647,15 +649,22 @@ color: #D81990;
 /* Mobile View (up to 767px) */
 @media (max-width: 767px) {
   .cpl-001 .custom-block-wrapper {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 15px;
-    gap: 30px;
-    text-align: center;
-            grid-row-gap: 64px;
+            /* flex-direction: column; */
+        align-items: center;
+        /* padding: 20px 15px; */
+        /* gap: 30px; */
+        text-align: center;
+        grid-row-gap: 0px;
         flex-direction: column;
+    
   }
-
+  .cpl-001 .hero-wrapper{
+                padding-top: 131px;
+        /* padding-left: 25px; */
+        padding-right: 22px;
+        padding-left: 0px;
+                padding-bottom: 31px;
+  }
   .cpl-001 .custom-block-content {
     width: 100%;
     max-width: 100%;
@@ -664,45 +673,44 @@ color: #D81990;
     order: 1;
   }
     .cpl-001 .hero-wrapper .container{
-          padding: 0 40px;
-        width: 100%;
+          /* padding: 0 40px;
+        width: 100%; */
 }
   .cpl-001 .custom-block-content h2 {
-    font-size: 36px;
-        margin: 24px -11px;
-        color: #ffffff;
-        font-weight: 700;
-        line-height: 120%;
+font-size: 36px;
+        /* margin: 24px -11px; */
+        /* color: #ffffff; */
+        /* font-weight: 700; */
+        line-height: 127%;
         text-align: left;
+        margin-top: 56px;
+        /* margin-bottom: -26px; */
+        margin-left: 4px;
   }
 .cpl-001 .hero-wrapper .container{
   content: none!important ;
 }
   .cpl-001 .custom-block-content .highlight {
-    font-size: 36px;
-    background: linear-gradient(180deg, #ED37CE 58.06%, #4D1543 96.37%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    display: block;
-    margin-top: 8px;
+        font-size: 36px;
+        background: linear-gradient(180deg, #ED37CE 58.06%, #4D1543 96.37%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        /* display: block; */
+        /* margin-top: 10px;*/
   }
 
   .cpl-001 .custom-block-content ul {
-                   /* padding-left: 20px; */
-        text-align: left;
-        margin: 0 auto;
-        max-width: 327px;
-        /* margin-left: 21px; */
-        margin-top: -37px;
-        letter-spacing: 0.2px;
-        padding-bottom: 11px;
+           padding-bottom: 14px;
+        margin-top: 25px;
+        margin-left: 4px;
   }
 
   .cpl-001 .custom-block-content li {
-    margin-bottom: 14px;
-    font-size: 15px;
+           margin-bottom: 15px;
+               font-size: 16px;
+        letter-spacing: 0px;
   }
 
 .cpl-001 .card-item-right img{
@@ -712,33 +720,44 @@ color: #D81990;
         margin: 0 auto;
 }
   .cpl-001 .email-signup {
-    display: contents;
+                display: contents;
         align-items: center;
         border-radius: 99px;
-        
         background: white;
-        width: 100%;
-        max-width: 386px;
-        gap: 0;
+        width: 104%;
+        max-width: 407px;
+
 
   }
 
   .cpl-001 .email-signup input {
-               border-radius: 99px;
-        width: 100%;
+                 border-radius: 99px;
+        width: 99%;
         font-size: 17px;
-        padding: 13px;
+        padding: 15px 22px;
+        max-width: 328px;
+        margin-left: 4px;
+    
        
   }
 
   .cpl-001 .email-signup button {
               border-radius: 99px;
-        width: 100%;
+        width: 99%;
         font-size: 16px;
         padding: 15px;
         height: auto;
-        margin-top: 19px;
-        /* margin-left: -9px;*/
+        margin-top: 18px;
+        margin-left: 3px;
+    
+  }
+  .cpl-001 .custom-block-content li::before{
+            content: '';
+        position: absolute;
+        left: -38px;
+        top: 3px;
+        width: 20px;
+        height: 24px;
   }
 
   .cpl-001 .email-signup button:hover {
@@ -746,15 +765,15 @@ color: #D81990;
   }
 
  .cpl-001 .custom-block-image {
- width: 105%;
-        max-width: 432px;
-        margin: 13px;
+               width: 99%;
+        /* max-width: 432px; */
+        /* margin: 13px;*/
   }
 
   .cpl-001 .custom-block-image img {
-          
-        margin: 0 auto;
-        top: 54px;
+                  margin: 0 auto;
+        top: 40px;
+        left: 3px;
 
   }
 
@@ -764,6 +783,7 @@ color: #D81990;
         gap: 20px 51px;
 
         max-width: 335px;
+                margin-top: 36px;
   }
  .cpl-001 .card-item-left img{
               
@@ -803,14 +823,17 @@ color: #D81990;
   }
 
   .cpl-001 .card-title-left {
-              font-size: 26px;
-        margin: 4px 0;
-        width: 100%;
+                  font-size: 26px;
+        /* margin: 4px 0; */
+        /* width: 100%; */
         /* margin-left: 19px; */
-        letter-spacing: 0.6px;
-        text-align: center;
-        max-width: 762px;
+        letter-spacing: 0.1px;
+        /* text-align: center; */
+        /* max-width: 774px; */
         margin: 0 0px;
+        margin-top: 11px;
+        width: 90%;
+        margin-left: 8px;
   }
 
   .cpl-001 .card-title-right {
@@ -831,10 +854,10 @@ color: #D81990;
              font-size: 16px;
         max-width: 321px;
         width: 100%;
-        margin: 4px 0px;
+              margin: 14px 5px;
   }
 .cpl-001 .card-section{
-          padding: 94px 0px;
+          padding: 53px 0px;
         background-color: #f9f9f9;
 }
   .cpl-001 .card-desc-right {
@@ -847,7 +870,9 @@ color: #D81990;
   }
 
   .cpl-001 .card-subtitle-left {
-                      font-size: 14px;
+                          font-size: 14px;
+        margin-top: 37px;
+        margin-left: 4px;
   }
 
   .cpl-001 .card-subtitle-right {
@@ -861,7 +886,9 @@ color: #D81990;
   /* Separate button styles */
  .cpl-001 .card-btn-left {
         
-    
+    font-size: 17px;
+        margin-left: 4px;
+        margin-top: -2px;
   }
 
   .cpl-001 .card-btn-left:hover {
