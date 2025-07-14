@@ -1,4 +1,4 @@
-.content-panel__inner{
+.cpl-001 .content-panel__inner{
     max-width: 1080px;
 }
 html,
@@ -16,7 +16,7 @@ body {
   box-sizing: border-box;
   text-align: center;
 }
-.cpl-001.h2{
+.cpl-001 .h2{
 
 font-family: "Expensify New Kansas";
 font-size: 36px;
@@ -48,6 +48,8 @@ line-height: 40px; /* 111.111% */
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 97px;
+border: 1px solid var(--Neutrals-Dark-Beige, #EBE6DF);
 }
 
 .cpl-001 .custom-tabs button.active {
@@ -100,7 +102,7 @@ line-height: 40px; /* 111.111% */
     /* height: 59px; */
     object-fit: contain;
     display: block;
-    margin-top: 26px;
+    margin-top: 2px;
     margin-bottom: 11px;
 }
 
@@ -163,6 +165,7 @@ line-height: 40px; /* 111.111% */
   gap: 27px;
   justify-content: center;
   /* flex-wrap: wrap; */
+  padding-top: 24px;
 }
 
 /* tablet */
@@ -243,7 +246,7 @@ line-height: 40px; /* 111.111% */
 /* phone  */
 @media (max-width: 767px) {
   .cpl-001 .expensify-container {
-    padding: 64px 24px;
+    padding: 64px 22px;
     gap: 18px;
   }
 
@@ -257,8 +260,8 @@ line-height: 40px; /* 111.111% */
 
         /* flex-wrap: nowrap; */
         overflow-x: scroll;
-        gap: 12px;
-        padding: 0 16px 6px;
+        /* gap: 12px;
+        padding: 0 16px 6px; */
         /* margin: 0; */
         /* scroll-padding-left: 16px; */
         width: 100%;
@@ -280,7 +283,7 @@ line-height: 40px; /* 111.111% */
 
   .cpl-001 .custom-tabs button {
     flex-shrink: 0;
-    min-width: 220px;
+    /* min-width: 220px; */
     white-space: nowrap;
     font-size: 16px;
     padding: 10px 20px;
@@ -288,15 +291,15 @@ line-height: 40px; /* 111.111% */
 
   .cpl-001 .steps {
     flex-direction: column;
-    gap: 24px;
+    gap: 4px;
     align-items: stretch;
-    padding-bottom: 40px;
-    padding-top: 25px;
+    padding-bottom: 4px;
+    padding-top: 31px;
   }
 
   .cpl-001 .step {
             width: 100%;
-        padding: 5px;
+               padding: 9px 15px;
         /* align-items: flex-start; */
         text-align: left;
         max-width: 100%;
