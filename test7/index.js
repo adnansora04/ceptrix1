@@ -74,7 +74,7 @@ document.querySelectorAll('.col.sqs-col-12.span-12 > .sqs-block.image-block.sqs-
     `);
   });
 
-  document.querySelectorAll('.custom-tabs button').forEach(button => {
+  document.querySelectorAll('.custom-tabs button').forEach(button => {  
   button.addEventListener('click', () => {
     // Remove active state from all buttons
     document.querySelectorAll('.custom-tabs button').forEach(btn => btn.classList.remove('active'));

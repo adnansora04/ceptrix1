@@ -1,7 +1,10 @@
 .content-panel__inner{
     max-width: 1080px;
 }
-
+html,
+body {
+  background: none !important;
+}
 
 .cpl-001 .expensify-container {
   display: flex;
@@ -65,12 +68,12 @@ line-height: 40px; /* 111.111% */
      display: flex;
     gap: 27px;
     justify-content: center;
-    padding-bottom: 44px;
+    padding-bottom: 0px;
 }
 
 .cpl-001 .step {
         max-width: 353px;
-    height: 242px;
+    /* height: 242px; */
     padding: 21px 17px;
     border-radius: 12px;
     background-color: #fffefc;
@@ -126,8 +129,8 @@ line-height: 40px; /* 111.111% */
 
 .cpl-001 .get-started {
   display: flex;
-  width: 313px;
-  height: 52px;
+     max-width: 314px;
+    width: 100%;
   padding: 14px 64px;
   justify-content: center;
   align-items: center;
@@ -231,7 +234,7 @@ line-height: 40px; /* 111.111% */
     margin: 0 auto;
     max-width: 313px;
     width: 100%;
-    height: 52px;
+    /* height: 52px; */
     padding: 14px 20px;
   }
 }
@@ -263,7 +266,7 @@ line-height: 40px; /* 111.111% */
   }
 
   .cpl-001 .custom-tabs::-webkit-scrollbar {
-    height: 4px;
+    /* height: 4px; */
   }
 
   .cpl-001 .custom-tabs::-webkit-scrollbar-thumb {
@@ -296,8 +299,8 @@ line-height: 40px; /* 111.111% */
         padding: 5px;
         /* align-items: flex-start; */
         text-align: left;
-        max-width: 282px;
-        height: 186px;
+        max-width: 100%;
+        /* height: 186px; */
   }
 
   .cpl-001 .step img {
