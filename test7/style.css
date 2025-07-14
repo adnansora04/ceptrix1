@@ -1,0 +1,312 @@
+.cpl-001 .expensify-container {
+  display: flex;
+  padding: 80px 160px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.cpl-001.h2{
+
+font-family: "Expensify New Kansas";
+font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: 40px; /* 111.111% */
+}
+.cpl-001 .custom-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.cpl-001 .custom-tabs button {
+    font-family: "Expensify New Kansas";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+    width: 270px;
+    padding: 11px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #14342b;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cpl-001 .custom-tabs button.active {
+  background-color: #eee8e1;
+  bottom: none;
+  
+}
+.cpl-001 .custom-tabs button:hover {
+  background-color: #f7f3ed; /* Light beige */
+}
+
+/* .tab-buttons button.active {
+  background: #f5f1ed;
+  border-color: #ccc;
+} */
+
+.steps {
+     display: flex;
+    gap: 27px;
+    justify-content: center;
+    padding-bottom: 46px;
+}
+
+.cpl-001 .step {
+        width: 353px;
+    height: 242px;
+    padding: 24px 17px;
+    border-radius: 12px;
+    background-color: #fffefc;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    gap: 7px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.cpl-001 .step .icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpl-001 .step img {
+     width: 66px;
+    /* height: 59px; */
+    object-fit: contain;
+    display: block;
+    margin-top: 26px;
+    margin-bottom: 11px;
+}
+
+.cpl-001 .step h3 {
+     color: var(--Neutrals-Primary-Text, #002E22);
+    font-family: "Expensify Neue";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    margin: 0;
+
+}
+
+.cpl-001 .step p {
+    color: var(--Neutrals-Primary-Text, #002E22);
+    font-family: "Expensify Neue";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23.9px;
+}
+
+
+
+
+.cpl-001 .get-started {
+  display: flex;
+  width: 313px;
+  height: 52px;
+  padding: 14px 64px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  background-color: #00d26a;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+
+  /* Text styles */
+  color: #FFF;
+  text-align: center;
+  font-family: "Expensify Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+}
+.cpl-001 .get-started:hover {
+  background-color: #03C775;
+}
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: flex;
+  flex-direction: row;
+  gap: 27px;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+}
+
+/* tablet */
+@media (max-width: 1023px) {
+  .cpl-001 .expensify-container {
+    padding: 64px 29px;
+    gap: 14px;
+  }
+
+  .cpl-001.h2 {
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  .cpl-001 .custom-tabs {
+    /* flex-direction: row;
+    justify-content: center; */
+    gap: 18px;
+    /* flex-wrap: wrap; */
+  }
+  .cpl-001 .custom-tabs button.active{
+    background-color: #eee8e1;
+    bottom: none;
+    padding: 11px 55px;
+  }
+  .cpl-001 .custom-tabs button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .cpl-001 .steps {
+            flex-direction: row;
+        gap: 9px;
+        justify-content: center;
+        padding-bottom: 39px;
+        /* flex-wrap: wrap; */
+        padding-top: 25px;  
+  }
+
+  .cpl-001 .step {
+           width: 100%;
+        max-width: 220px;
+        /* height: auto; */
+        padding: 18px;
+        text-align: left;
+        align-items: flex-start;
+                gap: 5.4px;
+  }
+
+  .cpl-001 .step img {
+          width: 53px;
+        margin: 0 0px 8px 0;
+  }
+
+  .cpl-001 .step h3{
+            text-align: left;
+        font-size: 16px;
+  }
+  .cpl-001 .step p {
+         text-align: left;
+        font-size: 14px;
+        line-height: 20.5px;
+                letter-spacing: -0.1px;
+  }
+
+  .cpl-001 .get-started {
+    margin: 0 auto;
+    max-width: 313px;
+    width: 100%;
+    height: 52px;
+    padding: 14px 20px;
+  }
+}
+
+
+/* phone  */
+@media (max-width: 767px) {
+  .cpl-001 .expensify-container {
+    padding: 64px 24px;
+    gap: 18px;
+  }
+
+  .cpl-001.h2 {
+    font-size: 28px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .cpl-001 .custom-tabs {
+
+        /* flex-wrap: nowrap; */
+        overflow-x: scroll;
+        gap: 12px;
+        padding: 0 16px 6px;
+        /* margin: 0; */
+        /* scroll-padding-left: 16px; */
+        width: 100%;
+    
+  }
+
+  .cpl-001 .custom-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .cpl-001 .custom-tabs::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+  }
+
+  .cpl-001 .custom-tabs::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .cpl-001 .custom-tabs button {
+    flex-shrink: 0;
+    min-width: 220px;
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .cpl-001 .steps {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+    padding-bottom: 40px;
+    padding-top: 25px;
+  }
+
+  .cpl-001 .step {
+            width: 100%;
+        padding: 5px;
+        /* align-items: flex-start; */
+        text-align: left;
+        max-width: 282px;
+        height: 186px;
+  }
+
+  .cpl-001 .step img {
+   width: 48px;
+        margin: 0 0px 11px 0;
+  }
+
+  .cpl-001 .step h3,
+  .cpl-001 .step p {
+    text-align: left;
+  }
+
+  .cpl-001 .get-started {
+    width: 100%;
+    padding: 14px 20px;
+    max-width: none;
+  }
+}
