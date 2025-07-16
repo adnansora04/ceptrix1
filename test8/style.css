@@ -1,0 +1,110 @@
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #E3E5E7;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+  display: none; /* Hidden by default */
+}
+
+.sticky-bar .info-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex: 1; /* Allow center alignment */
+}
+
+.info-items span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #292B2C;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.info-items img {
+  height: 16px;
+  width: 16px;
+}
+
+.buy-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.buy-section .price {
+  color: #f60;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.buy-section button {
+  border-radius: 4px;
+  background: #F78E27;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ✅ Add this for sticky bar visibility */
+.sticky-bar.visible {
+  display: flex;
+}
+.cart-icon {
+  max-width: 24px;
+  width: 100%;
+  padding-right: 5px;
+}
+@media (max-width: 768px) {
+  .sticky-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .sticky-bar .info-items {
+    display: none; /* Hide on mobile */
+  }
+
+  .buy-section {
+    text-align: center;
+  }
+
+  .buy-section .price,
+  .buy-section #StickyPrice {
+    font-size: 18px;
+    color: #f60;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .buy-section button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+  .cart-icon {
+    max-width: 20px;
+    width: auto;
+    height: 20px;
+    padding-right: 2px;
+  }
+}
