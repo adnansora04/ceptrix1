@@ -1,9 +1,29 @@
-// Inject sticky bar after .large_divider.clearfix
+
+
+function waitForElement(el) {
+  return new Promise((resolve) => {
+    function checkElement() {
+      if (document.querySelector(el)) {
+        resolve();
+      } else {
+
+        setTimeout(checkElement, 100);
+      }
+    }
+    checkElement();
+  });
+}
+ 
+waitForElement('.large_divider.clearfix').then(() => {
+  //your code
+  document.body.classList.add('cpl-001');
+
 document.querySelector('.large_divider.clearfix')
   ?.insertAdjacentHTML('afterend', `
 <div id="stickyBar" class="sticky-bar">
   <div class="info-items">
     <span>
+    <strong class="product_gallery_item" id="StickyGallery">✓</strong>
       <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1752663649/Icon_1_pmktiw.png" alt="1 dag levering*" />
       1 dag levering*
     </span>
@@ -52,6 +72,13 @@ if (productCartButton && stickyBarButton) {
   });
 }
 
+const originalGallery = document.querySelector('.product_gallery_item');
+const stickyGallery = document.getElementById('StickyGallery');
+
+if (originalGallery && stickyGallery) {
+  stickyGallery.innerHTML = originalGallery.innerHTML;
+}
+
 
 // Copy the real product price into sticky bar
 const originalPrice = document.getElementById('ProductPrice');
@@ -60,3 +87,7 @@ const stickyPrice = document.getElementById('StickyPrice');
 if (originalPrice && stickyPrice) {
   stickyPrice.textContent = originalPrice.textContent;
 }
+
+
+});
+ 
