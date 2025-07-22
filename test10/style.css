@@ -1,0 +1,172 @@
+.cpl-001 .cpl-partners-referral {
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 5px 0px;
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    font-family: system-ui, sans-serif;
+}
+
+.cpl-001 .left-content-side {
+        display: flex;
+    align-items: center;
+    gap: 44px;
+}
+
+.cpl-001 .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cpl-001 .image-wrapper img {
+  width: 20px;
+height: 20px;
+}
+
+.cpl-001 .product-price {
+   font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    padding-top: 4px;
+}
+
+.cpl-001 .promo-text {
+       font-size: 13px;
+    color: #333;
+    white-space: nowrap;
+    padding-top: 4px;
+}
+
+.cpl-001 .promo-button {
+    background: #e9eef6;
+    color: #111;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.cpl-001 .arrow {
+  line-height: 1;
+    width: 18px;
+    height: 18px;
+}
+
+.cpl-001 .img-relay-box {
+    width: 20px;
+    height: 20px;
+}
+.cpl-001 .extra-sticky-content {
+         display: flex;
+    gap: 10px;
+    padding-top: 3px;
+}
+.cpl-001 .right-content-side{
+           display: flex;
+    align-items: center;
+    gap: 64px;
+}
+.cpl-001 .gallery-echo {
+    color: #212529;
+font-family: Figtree;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 34px; /* 114.286% */
+}
+.cpl-001 .visual-spot {
+        width: 20px;
+    height: 20px;
+}
+.cpl-001 .sides-content {
+    display: flex;
+    align-items: center;
+    gap: 47px;
+}
+.cpl-001 .extra-content{
+        display: flex;
+    gap: 12px;
+        padding-top: 4px;
+}
+.cpl-001 .img-port {
+    color: #212529;
+font-family: Figtree;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 35px; /* 114.286% */
+}
+
+.cpl-001 .cpl-referral-box{
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 13px 0px;
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    font-family: system-ui, sans-serif;
+}
+
+.cpl-001 .cpl-referral-section{
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2px 0px;
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    font-family: system-ui, sans-serif;
+}
+.cpl-001 .promo-buttons{
+        background: #e9eef6;
+    color: #111;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+.cpl-001 .promos-button{
+        background: #e9eef6;
+    color: #111;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+.cpl-001 .promo-button:hover {
+    background-color: #dbe2ee;
+    color: #17171a;
+}
+.cpl-001 .promo-buttons:hover{
+    background-color: #dbe2ee;
+    color: #17171a;
+}
+.cpl-001 .promos-button:hover{
+    background-color: #dbe2ee;
+    color: #17171a;
+}
