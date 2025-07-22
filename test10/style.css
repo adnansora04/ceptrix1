@@ -38,7 +38,7 @@ height: 20px;
        font-size: 13px;
     color: #333;
     white-space: nowrap;
-    padding-top: 4px;
+    /* padding-top: 4px; */
 }
 
 .cpl-001 .promo-button {
@@ -46,14 +46,16 @@ height: 20px;
     color: #111;
     text-decoration: none;
     border: none;
-    padding: 6px 14px;
+    padding: 0px 11px;
     border-radius: 9999px;
     font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     font-size: 14px;
+    max-width: 83px;
+    width: 100%;
 }
 
 .cpl-001 .arrow {
@@ -62,14 +64,15 @@ height: 20px;
     height: 18px;
 }
 
-.cpl-001 .img-relay-box {
+.cpl-001 .img-relay-box img{
     width: 20px;
     height: 20px;
+    border-radius: 7px;
 }
 .cpl-001 .extra-sticky-content {
          display: flex;
     gap: 10px;
-    padding-top: 3px;
+    /* padding-top: 3px; */
 }
 .cpl-001 .right-content-side{
            display: flex;
@@ -84,9 +87,10 @@ font-style: normal;
 font-weight: 700;
 line-height: 34px; /* 114.286% */
 }
-.cpl-001 .visual-spot {
+.cpl-001 .visual-spot img{
         width: 20px;
     height: 20px;
+    border-radius: 7px;
 }
 .cpl-001 .sides-content {
     display: flex;
@@ -96,7 +100,7 @@ line-height: 34px; /* 114.286% */
 .cpl-001 .extra-content{
         display: flex;
     gap: 12px;
-        padding-top: 4px;
+        /* padding-top: 4px; */
 }
 .cpl-001 .img-port {
     color: #212529;
@@ -111,24 +115,18 @@ line-height: 35px; /* 114.286% */
         display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
-    padding: 13px 0px;
+    padding: 12px 0px;
     border-radius: 12px;
     max-width: 100%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-    font-family: system-ui, sans-serif;
 }
 
 .cpl-001 .cpl-referral-section{
-     display: flex;
+     /* display: flex; */
     align-items: center;
     justify-content: space-between;
-    background: #fff;
-    padding: 2px 0px;
     border-radius: 12px;
     max-width: 100%;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-    font-family: system-ui, sans-serif;
+    margin-bottom: 20px;
 }
 .cpl-001 .promo-buttons{
         background: #e9eef6;
@@ -169,4 +167,16 @@ line-height: 35px; /* 114.286% */
 .cpl-001 .promos-button:hover{
     background-color: #dbe2ee;
     color: #17171a;
+}
+
+.cpl-001 .cpl-referral-box:nth-child(2){
+   /* padding: 6px 0px; */
+       border-top: 1px solid #EFF2F7;
+    border-bottom: 1px solid #EFF2F7;
+}
+.cpl-001 .exp-sharing__header .affiliate-dropdown {
+    display: none !important;
+}
+.cpl-001 .wp-bootstrap-blocks-container .wp-bootstrap-blocks-row .exp-sharing{
+    margin-bottom: 30px;
 }
