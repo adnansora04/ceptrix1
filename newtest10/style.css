@@ -1,0 +1,218 @@
+.cpl-001 .cpl-partners-referral {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 5px 0px;
+    border-radius: 12px;
+    max-width: 100%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+    font-family: system-ui, sans-serif;
+}
+
+.cpl-001 .cpl-referral-box .left-content-side {
+    display: flex;
+    align-items: center;
+    gap: 39px;
+    width: 100%;
+}
+
+.cpl-001 .cpl-referral-box .logo-block {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    max-width: 85px;
+    width: 100%;
+}
+
+.cpl-001 .cpl-referral-box .image-wrapper img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.cpl-001 .cpl-referral-box .logo-text-wrapper {
+    color: #212529;
+    font-family: Figtree;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    /* padding-top: 4px; */
+}
+
+.cpl-001 .cpl-referral-box .promo-text {
+    color: #212529;
+    font-family: 'DMSans';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    /* 133.333% */
+}
+
+.cpl-001 .cpl-referral-box .promo-button {
+    background: #e9eef6;
+    text-decoration: none;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    color: #212529;
+    text-align: center;
+    font-family: Figtree;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 80px;
+    width: 100%;
+}
+
+.cpl-001 .cpl-referral-box .arrow {
+    line-height: 1;
+    width: 18px;
+    height: 18px;
+}
+
+.cpl-001 .cpl-referral-box .img-relay-box img {
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+}
+
+.cpl-001 .cpl-referral-box .extra-sticky-content {
+    display: flex;
+    gap: 10px;
+    /* padding-top: 3px; */
+}
+
+.cpl-001 .cpl-referral-box .right-content-side {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.cpl-001 .gallery-echo {
+    color: #212529;
+    font-family: Figtree;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 34px;
+    /* 114.286% */
+}
+
+.cpl-001 .visual-spot img {
+    width: 20px;
+    height: 20px;
+    border-radius: 7px;
+}
+
+.cpl-001 .cpl-referral-box .sides-content {
+    display: flex;
+    align-items: center;
+    gap: 47px;
+}
+
+.cpl-001 .cpl-referral-box .extra-content {
+    display: flex;
+    gap: 12px;
+    /* padding-top: 4px; */
+}
+
+.cpl-001 .img-port {
+    color: #212529;
+    font-family: Figtree;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 35px;
+    /* 114.286% */
+}
+
+.cpl-001 .cpl-referral-section .cpl-referral-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0px;
+    /* border-radius: 12px; */
+    max-width: 100%;
+}
+
+.cpl-001 .cpl-referral-section {
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.cpl-001 .cpl-referral-box .promo-buttons {
+    background: #e9eef6;
+    color: #212529;
+    text-decoration: none;
+    border: none;
+    padding: 0px 8px;
+    border-radius: 28px;
+    background: #DBE2EE;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    max-width: 80px;
+    width: 100%;
+}
+
+.cpl-001 .promos-button {
+    background: #e9eef6;
+    color: #111;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.cpl-001 .cpl-referral-box .promo-button:hover {
+    background-color: #dbe2ee;
+    color: #17171a;
+}
+
+.cpl-001 .promo-buttons:hover {
+    background-color: #dbe2ee;
+    color: #17171a;
+}
+
+.cpl-001 .promos-button:hover {
+    background-color: #dbe2ee;
+    color: #17171a;
+}
+
+.cpl-001 .cpl-referral-box:nth-child(2) {
+    /* padding: 6px 0px; */
+    border-top: 1px solid #EFF2F7;
+    border-bottom: 1px solid #EFF2F7;
+}
+
+.cpl-001 .exp-sharing__header .affiliate-dropdown {
+    display: none !important;
+}
+
+.cpl-001 .wp-bootstrap-blocks-container .wp-bootstrap-blocks-row .exp-sharing {
+    margin-bottom: 30px;
+}
+
+.cpl-001 .cpl-referral-box .image-wrapper {
+    line-height: 0;
+}
