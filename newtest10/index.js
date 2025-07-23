@@ -93,17 +93,18 @@ waitForElement('.wp-bootstrap-blocks-container .wp-bootstrap-blocks-row .exp-sha
 
         if (originalTitle && targetText) {
             targetText.textContent = originalTitle.textContent;
-        }
+        }   
     });
-   const linkClasses = ['link-bitvavo', 'link-okx', 'link-kraken'];
+const buttonTargets = ['.promo-button.link-bitvavo', '.promo-button.link-okx', '.promo-button.link-kraken'];
 
-linkClasses.forEach((className, index) => {
-    const original = document.querySelectorAll('.exp-sharing .affiliate-dropdown .dropdown-menu__item .external-link')[index];
-    const stickyButton = document.querySelector(`.promo-button.${className}`);
+buttonTargets.forEach((buttonSelector, index) => {
+    const originalLink = document.querySelectorAll('.exp-sharing .affiliate-dropdown .dropdown-menu__item .external-link')[index];
+    const targetButton = document.querySelector(buttonSelector);
 
-    if (original && stickyButton) {
-        stickyButton.href = original.href;
+    if (originalLink && targetButton) {
+        targetButton.href = originalLink.href;
     }
+
 });
 
 });

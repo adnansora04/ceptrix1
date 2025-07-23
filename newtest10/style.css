@@ -54,7 +54,7 @@
     background: #DBE2EE;
     text-decoration: none;
     padding: 4px 8px;
-    border-radius: 9999px;
+    border-radius: 28px;
     color: #212529;
     font-family: Figtree;
     font-size: 14px;
@@ -92,21 +92,6 @@
     gap: 64px;
 }
 
-.cpl-001 .gallery-echo {
-    color: #212529;
-    font-family: Figtree;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 34px;
-    /* 114.286% */
-}
-
-.cpl-001 .visual-spot img {
-    width: 20px;
-    height: 20px;
-    border-radius: 7px;
-}
 
 .cpl-001 .cpl-referral-box .sides-content {
     display: flex;
@@ -120,15 +105,6 @@
     /* padding-top: 4px; */
 }
 
-.cpl-001 .img-port {
-    color: #212529;
-    font-family: Figtree;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 35px;
-    /* 114.286% */
-}
 
 .cpl-001 .cpl-referral-section .cpl-referral-box {
     display: flex;
@@ -140,11 +116,6 @@
 }
 
 .cpl-001 .cpl-referral-section {
-    /* display: flex; */
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 12px;
-    max-width: 100%;
     margin-bottom: 20px;
 }
 
@@ -166,38 +137,14 @@
     width: 100%;
 }
 
-.cpl-001 .promos-button {
-    background: #e9eef6;
-    color: #111;
-    text-decoration: none;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 9999px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 14px;
-}
 
 .cpl-001 .cpl-referral-box .promo-button:hover {
     background-color: #dbe2ee;
     color: #17171a;
 }
 
-.cpl-001 .promo-buttons:hover {
-    background-color: #dbe2ee;
-    color: #17171a;
-}
-
-.cpl-001 .promos-button:hover {
-    background-color: #dbe2ee;
-    color: #17171a;
-}
 
 .cpl-001 .cpl-referral-box:nth-child(2) {
-    /* padding: 6px 0px; */
     border-top: 1px solid #EFF2F7;
     border-bottom: 1px solid #EFF2F7;
 }
