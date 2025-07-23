@@ -71,7 +71,7 @@ waitForElement('.wp-bootstrap-blocks-container .wp-bootstrap-blocks-row .exp-sha
 </div>
 `;
 
-    if (target) {
+    if (target && !document.querySelector('.cpl-referral-section')) {
         target.insertAdjacentHTML('afterend', referralSection);
     }
 
