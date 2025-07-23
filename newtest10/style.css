@@ -53,17 +53,14 @@
 .cpl-001 .cpl-referral-box .promo-button {
     background: #DBE2EE;
     text-decoration: none;
-    border: none;
     padding: 4px 8px;
     border-radius: 9999px;
     color: #212529;
-    text-align: center;
     font-family: Figtree;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 16px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
