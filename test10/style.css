@@ -13,14 +13,14 @@
 .cpl-001 .cpl-referral-box .left-content-side {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 39px;
     width: 100%;
 }
 
 .cpl-001 .cpl-referral-box .logo-block {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 11px;
     max-width: 85px;
     width: 100%;
 }
@@ -28,7 +28,7 @@
 .cpl-001 .cpl-referral-box .image-wrapper img {
     width: 20px;
     height: 20px;
-    border-radius: 7px;
+    border-radius: 4px;
 }
 
 .cpl-001 .cpl-referral-box .logo-text-wrapper {
@@ -41,33 +41,33 @@
 }
 
 .cpl-001 .cpl-referral-box .promo-text {
-       font-size: 13px;
-    /* color: #333; */
-    /* white-space: nowrap; */
-    /* padding-top: 4px; */
     color: #212529;
-    /* font-family: "DM Sans"; */
-    /* font-size: 12px; */
+    font-family: 'DMSans';
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
-    /* padding-top: 4px; */
+    /* 133.333% */
 }
 
 .cpl-001 .cpl-referral-box .promo-button {
     background: #e9eef6;
-    color: #111;
     text-decoration: none;
     border: none;
-    padding: 0px 11px;
+    padding: 4px 8px;
     border-radius: 9999px;
+    color: #212529;
+    text-align: center;
+    font-family: Figtree;
+    font-size: 14px;
+    font-style: normal;
     font-weight: 500;
+    line-height: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
-    max-width: 83px;
+    max-width: 80px;
     width: 100%;
 }
 
