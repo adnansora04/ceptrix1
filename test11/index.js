@@ -72,7 +72,7 @@ waitForElement('.page-title-wrapper').then(() => {
 </div>
     `;
     container.insertAdjacentHTML('afterend', html);
-  }
+  } 
 
   // op-maat
   if (!location.pathname.includes("/jaloezieen/op-maat/")) {
