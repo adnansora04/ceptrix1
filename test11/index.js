@@ -7,9 +7,9 @@ if (
 }
 
 const description = document.querySelector('.category-description');
-const target = document.querySelectorAll('.columns .grid12-6')[0];
+const target = document.querySelector('#amasty-shopby-product-list');
 if (description && target) {
-  target.parentNode.insertBefore(description, target);
+  target.insertAdjacentElement("afterend", description);
 }
 
 function waitForElement(selector) {
@@ -32,7 +32,8 @@ waitForElement('.page-title-wrapper').then(() => {
 <div class="product-type-wrapper">
   <h2 class="product-type-title">Type collectie</h2>
   <div class="product-type-section">
-    <a class="product-type-card" href="https://www.raamdecoratie.com/jaloezieen/kant-en-klaar/">
+    <a class="product-type-card kant-en-klaar">
+      <div class="loader-overlay" style="display: none;"><div class="spinner"></div></div>
       <div class="product-type-icon">
         <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1753278227/image_2_jwj8sy.png" alt="Kant en klaar">
       </div>
@@ -51,7 +52,8 @@ waitForElement('.page-title-wrapper').then(() => {
       </div>
     </a>
 
-    <a class="product-type-card" href="https://www.raamdecoratie.com/jaloezieen/op-maat/">
+    <a class="product-type-card Op-maat">
+      <div class="loader-overlay" style="display: none;"><div class="spinner"></div></div>
       <div class="product-type-icon">
         <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1753278230/image_3_y7kmkk.png" alt="Op maat">
       </div>
@@ -72,43 +74,67 @@ waitForElement('.page-title-wrapper').then(() => {
 </div>
     `;
     container.insertAdjacentHTML('afterend', html);
-  } 
+  }
 
-  // op-maat
-  if (!location.pathname.includes("/jaloezieen/op-maat/")) {
-  fetch("https://www.raamdecoratie.com/jaloezieen/op-maat/")
-    .then(r => r.text())
-    .then(html => {
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
+  // Show/hide loader during fetch
+  function toggleLoader(selector, show) {
+    const card = document.querySelector(selector);
+    if (card) {
+      const loader = card.querySelector('.loader-overlay');
+      if (loader) loader.style.display = show ? 'flex' : 'none';
+    }
+  }
 
-      const source = temp.querySelector(".toolbar-products .toolbar-amount");
-      const target = document.querySelector(".product-count.Op-maat");
+  function fetchAndInsertProductCount({ path, targetClass, cardSelector }) {
+    if (!location.pathname.includes(path)) {
+      toggleLoader(cardSelector, true);
+      fetch(`https://www.raamdecoratie.com${path}`)
+        .then((r) => r.text())
+        .then((html) => {
+          const temp = document.createElement("div");
+          temp.innerHTML = html;
 
-      if (source && target) {
-        const count = source.textContent.match(/\d+/)?.[0];
-        if (count) target.textContent = count;
-      }
-    });
-}
+          const source = temp.querySelector(".toolbar-products .toolbar-amount");
+          const target = document.querySelector(`.product-count.${targetClass}`);
 
-  // kant-en-klaar
-    if (!location.pathname.includes("/jaloezieen/kant-en-klaar/")) {
-  fetch("https://www.raamdecoratie.com/jaloezieen/kant-en-klaar/")
-    .then(r => r.text())
-    .then(html => {
-      const temp = document.createElement("div");
-      temp.innerHTML = html;
+          if (source && target) {
+            const count = source.textContent.match(/\d+/)?.[0];
+            if (count) target.textContent = count;
+          }
+        })
+        .finally(() => toggleLoader(cardSelector, false));
+    }
+  }
 
-      const source = temp.querySelector(".toolbar-products .toolbar-amount");
-      const target = document.querySelector(".product-count.Kant-en-klaar");
+  fetchAndInsertProductCount({
+    path: "/jaloezieen/op-maat/",
+    targetClass: "Op-maat",
+    cardSelector: ".product-type-card.Op-maat",
+  });
 
-      if (source && target) {
-        const count = source.textContent.match(/\d+/)?.[0];
-        if (count) target.textContent = count;
-      }
-    });
-}
+  fetchAndInsertProductCount({
+    path: "/jaloezieen/kant-en-klaar/",
+    targetClass: "Kant-en-klaar",
+    cardSelector: ".product-type-card.kant-en-klaar",
+  });
 
+  const buttonTargets = [
+    {
+      selector: '.product-type-card.kant-en-klaar',
+      linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-6 a[href*="kant-en-klaar"]'
+    },
+    {
+      selector: '.product-type-card.Op-maat',
+      linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-5 a[href*="op-maat"]'
+    }
+  ];
 
+  buttonTargets.forEach(({ selector, linkSelector }) => {
+    const targetButton = document.querySelector(selector);
+    const navLink = document.querySelector(linkSelector);
+
+    if (targetButton && navLink) {
+      targetButton.href = navLink.href;
+    }
+  });
 });
