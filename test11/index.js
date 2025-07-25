@@ -125,11 +125,11 @@ if (window.location.pathname === "/jaloezieen/" || window.location.pathname === 
         const buttonTargets = [
             {
                 selector: '.product-type-card.kant-en-klaar',
-                linkSelector: ' #mainmenu .nav-submenu > .nav-item a[href="https://www.raamdecoratie.com/jaloezieen/kant-en-klaar/"]'
+                linkSelector: `#mainmenu .nav-submenu > .nav-item a[href="https://www.raamdecoratie.com${base}/kant-en-klaar/"]`
             },
             {
-                selector: '.product-type-card.Op-maat',
-                linkSelector: ' #mainmenu .nav-submenu > .nav-item a[href="https://www.raamdecoratie.com/jaloezieen/op-maat/"]'
+                selector: '.product-type-card.op-maat',
+                linkSelector: `#mainmenu .nav-submenu > .nav-item a[href="https://www.raamdecoratie.com${base}/op-maat/"]`
             }
         ];
 
@@ -138,7 +138,7 @@ if (window.location.pathname === "/jaloezieen/" || window.location.pathname === 
             const navLink = document.querySelector(linkSelector);
 
             if (targetButton && navLink) {
-                targetButton.href = navLink.href;
+                targetButton.setAttribute("href", navLink.href);
             }
         });
     });
