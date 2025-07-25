@@ -1,34 +1,30 @@
 const path = window.location.pathname;
 if (
-  path === "/jaloezieen/kant-en-klaar/" ||
-  path === "/jaloezieen/op-maat/"
+    path === "/jaloezieen/kant-en-klaar/" ||
+    path === "/jaloezieen/op-maat/"
 ) {
-  return;
+    return;
 }
 
-const description = document.querySelector('.category-description');
-const target = document.querySelector('#amasty-shopby-product-list');
-if (description && target) {
-  target.insertAdjacentElement("afterend", description);
-}
+
 
 function waitForElement(selector) {
-  return new Promise((resolve) => {
-    function check() {
-      const el = document.querySelector(selector);
-      if (el) resolve(el);
-      else setTimeout(check, 100);
-    }
-    check();
-  });
+    return new Promise((resolve) => {
+        function check() {
+            const el = document.querySelector(selector);
+            if (el) resolve(el);
+            else setTimeout(check, 100);
+        }
+        check();
+    });
 }
 
 waitForElement('.page-title-wrapper').then(() => {
-  document.body.classList.add('cpl-001');
+    document.body.classList.add('cpl-001');
 
-  const container = document.querySelector('.page-title-wrapper');
-  if (container) {
-    const html = `
+    const container = document.querySelector('.page-title-wrapper');
+    if (container) {
+        const html = `
 <div class="product-type-wrapper">
   <h2 class="product-type-title">Type collectie</h2>
   <div class="product-type-section">
@@ -73,68 +69,74 @@ waitForElement('.page-title-wrapper').then(() => {
   </div>
 </div>
     `;
-    container.insertAdjacentHTML('afterend', html);
-  }
-
-  // Show/hide loader during fetch
-  function toggleLoader(selector, show) {
-    const card = document.querySelector(selector);
-    if (card) {
-      const loader = card.querySelector('.loader-overlay');
-      if (loader) loader.style.display = show ? 'flex' : 'none';
+        container.insertAdjacentHTML('afterend', html);
     }
-  }
-
-  function fetchAndInsertProductCount({ path, targetClass, cardSelector }) {
-    if (!location.pathname.includes(path)) {
-      toggleLoader(cardSelector, true);
-      fetch(`https://www.raamdecoratie.com${path}`)
-        .then((r) => r.text())
-        .then((html) => {
-          const temp = document.createElement("div");
-          temp.innerHTML = html;
-
-          const source = temp.querySelector(".toolbar-products .toolbar-amount");
-          const target = document.querySelector(`.product-count.${targetClass}`);
-
-          if (source && target) {
-            const count = source.textContent.match(/\d+/)?.[0];
-            if (count) target.textContent = count;
-          }
-        })
-        .finally(() => toggleLoader(cardSelector, false));
+    
+    const description = document.querySelector('.category-description');
+    const target = document.querySelector('#amasty-shopby-product-list');
+    if (description && target) {
+        target.insertAdjacentElement("afterend", description);
     }
-  }
 
-  fetchAndInsertProductCount({
-    path: "/jaloezieen/op-maat/",
-    targetClass: "Op-maat",
-    cardSelector: ".product-type-card.Op-maat",
-  });
-
-  fetchAndInsertProductCount({
-    path: "/jaloezieen/kant-en-klaar/",
-    targetClass: "Kant-en-klaar",
-    cardSelector: ".product-type-card.kant-en-klaar",
-  });
-
-  const buttonTargets = [
-    {
-      selector: '.product-type-card.kant-en-klaar',
-      linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-6 a[href*="kant-en-klaar"]'
-    },
-    {
-      selector: '.product-type-card.Op-maat',
-      linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-5 a[href*="op-maat"]'
+    // Show/hide loader during fetch
+    function toggleLoader(selector, show) {
+        const card = document.querySelector(selector);
+        if (card) {
+            const loader = card.querySelector('.loader-overlay');
+            if (loader) loader.style.display = show ? 'flex' : 'none';
+        }
     }
-  ];
 
-  buttonTargets.forEach(({ selector, linkSelector }) => {
-    const targetButton = document.querySelector(selector);
-    const navLink = document.querySelector(linkSelector);
+    function fetchAndInsertProductCount({ path, targetClass, cardSelector }) {
+        if (!location.pathname.includes(path)) {
+            toggleLoader(cardSelector, true);
+            fetch(`https://www.raamdecoratie.com${path}`)
+                .then((r) => r.text())
+                .then((html) => {
+                    const temp = document.createElement("div");
+                    temp.innerHTML = html;
 
-    if (targetButton && navLink) {
-      targetButton.href = navLink.href;
+                    const source = temp.querySelector(".toolbar-products .toolbar-amount");
+                    const target = document.querySelector(`.product-count.${targetClass}`);
+
+                    if (source && target) {
+                        const count = source.textContent.match(/\d+/)?.[0];
+                        if (count) target.textContent = count;
+                    }
+                })
+                .finally(() => toggleLoader(cardSelector, false));
+        }
     }
-  });
+
+    fetchAndInsertProductCount({
+        path: "/jaloezieen/op-maat/",
+        targetClass: "Op-maat",
+        cardSelector: ".product-type-card.Op-maat",
+    });
+
+    fetchAndInsertProductCount({
+        path: "/jaloezieen/kant-en-klaar/",
+        targetClass: "Kant-en-klaar",
+        cardSelector: ".product-type-card.kant-en-klaar",
+    });
+
+    const buttonTargets = [
+        {
+            selector: '.product-type-card.kant-en-klaar',
+            linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-6 a[href*="kant-en-klaar"]'
+        },
+        {
+            selector: '.product-type-card.Op-maat',
+            linkSelector: '.nav-regular .nav-item.level0.nav-2 .nav-panel .nav-submenu .nav-2-5 a[href*="op-maat"]'
+        }
+    ];
+
+    buttonTargets.forEach(({ selector, linkSelector }) => {
+        const targetButton = document.querySelector(selector);
+        const navLink = document.querySelector(linkSelector);
+
+        if (targetButton && navLink) {
+            targetButton.href = navLink.href;
+        }
+    });
 });
