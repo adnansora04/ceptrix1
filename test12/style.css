@@ -1,0 +1,109 @@
+.cpl-001 .header .top-header {
+  display: none;
+}
+
+.cpl-001-banner {
+  background-color: #D96768;
+  margin-bottom: 16px;
+}
+
+.cpl-001-banner-inner {
+  display: flex;
+  align-items: center;
+  padding: 11px 70px;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.cpl-001-banner-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cpl-001-banner-icons {
+  display: flex;
+  align-items: center;
+}
+
+.cpl-001-banner-text {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.cpl-001-banner-item strong {
+  font-weight: 700;
+  color: #FFF;
+}
+
+.cpl-001-banner-item img {
+  width: 15px;
+  height: 14px;
+}
+
+.cpl-001-check-icon {
+  width: 14.917px;
+  height: 10.25px;
+}
+
+.cpl-001-star-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.cpl-001-banner-icons.stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Swiper-specific styles */
+.cpl-001-swiper {
+  height: 50px;
+  overflow: hidden;
+}
+
+.cpl-001-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+.cpl-001-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 1299px) {
+  .cpl-001-banner-inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 8px 16px;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .cpl-001-banner-item {
+    flex: 0 0 auto;
+  }
+
+  .cpl-001-banner-text {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .cpl-001-banner-item:not(:first-child) {
+    display: none;
+  }
+
+  .cpl-001-banner {
+    margin-bottom: 12px;
+  }
+
+  .cpl-001-banner-icons img,
+  .cpl-001-check-icon {
+    width: 12px;
+    height: auto;
+  }
+}
