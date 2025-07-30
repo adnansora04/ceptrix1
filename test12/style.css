@@ -50,7 +50,12 @@
     color: #fff;
     justify-content: center;
 }
-
+.cpl-001 .swiper-mySwiper .banner-content-text{
+    font-size: 14px;
+}
+.cpl-001 .swiper-mySwiper .banner-content-text strong{
+    font-size: 14px;
+}
 /* 🖼 Image/Icon styling */
 .cpl-001 .swiper-mySwiper .banner-content-item img {
     width: 16px;
@@ -72,10 +77,10 @@
     color: #fff;
 }
 
-.cpl-001 .dekstop-slides-wrapper .swiper-slide:nth-child(4) img {
+.cpl-001 .swiper-mySwiper .swiper-slide.text-3 img {
     width: 90px !important;
-    /* height: 14px; */
 }
+
 
 /*  dekstop-slides-wrapper */
 .cpl-001 .dekstop-slides-wrapper {
@@ -92,8 +97,7 @@
 
 /* Banner items desktop */
 .cpl-001 .dekstop-slides-wrapper .swiper-slide {
-    flex: 1; /* Equal width for all items */
-    display: flex;
+max-width: 333px;
     align-items: center;
     justify-content: center;
     /* padding: 0 12px;
