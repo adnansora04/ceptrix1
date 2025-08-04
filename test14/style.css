@@ -1,4 +1,4 @@
-.gmd-usp-section {
+.gmd-001 .gmd-usp-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,14 +12,14 @@
     height: 44px !important;
 }
 
-.gmd-usp-item {
+.gmd-001 .gmd-usp-item {
     display: flex;
     align-items: center; /* Ensures vertical centering */
     gap: 8px;
     white-space: nowrap;
 }
 
-.gmd-usp-icon {
+.gmd-001 .gmd-usp-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,19 +28,19 @@
     flex-shrink: 0;
 }
 
-.gmd-usp-icon img {
+.gmd-001 .gmd-usp-icon img {
     max-width: 17px;
     width: 100%;
 }
 
-.gmd-content {
+.gmd-001 .gmd-content {
     font-family: "Roboto", Helvetica Neue, Helvetica, sans-serif !important;
     font-size: 14px;
     color: #2d2d2d;
     line-height: 22px;
     font-weight: 400;
 }
-.gmd-text {
+.gmd-001 .gmd-text {
   color: #50B550;
   font-family: Roboto;
   font-size: 13px;
@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .gmd-text {
+  .gmd-001 .gmd-text {
     display: block;
   }
 }

@@ -30,59 +30,44 @@ function handleStock() {
           </div>
         `;
 
+        document.querySelectorAll('.gmd-usp-section').forEach(el => el.remove());
+
+        const total = items.length;
+
         const keuzeBlock = document.querySelector('.product-items .keuzehulp-block');
-
-        if (keuzeBlock && !document.querySelector('.gmd-usp-section')) {
+        if (keuzeBlock) {
             keuzeBlock.insertAdjacentHTML('beforebegin', uspHTML);
-        } else {
-            // items.forEach((item, index) => {
-            document.querySelectorAll('.gmd-usp-section').forEach(el => el.remove());
+        }
 
-            const total = items.length;
-
-            if (total >= 6) {
-                for (let i = 5; i < total; i += 6) {
-                    items[i].insertAdjacentHTML('afterend', uspHTML);
-                }
-            } else if (total === 5) {
-                items[4].insertAdjacentHTML('afterend', uspHTML);
+        if (total >= 6) {
+            for (let i = 5; i < total; i += 6) {
+                items[i].insertAdjacentHTML('afterend', uspHTML);
             }
-
+        } if ((total - 1) % 6 !== 5) {
+            items[total - 1].insertAdjacentHTML('afterend', uspHTML);
+        }
+        else if (total === 5) {
+            items[4].insertAdjacentHTML('afterend', uspHTML);
+        }
+        else if (total === 4) {
+            items[3].insertAdjacentHTML('afterend', uspHTML);
         }
 
 
-        document.querySelectorAll('.product-items .product-item-img').forEach((element) => {
-            if (!element.document.querySelector('gmd-text')) {
-                element.insertAdjacentHTML('afterend', '<div class="gmd-text">Gratis aan huis bezorgd</div>');
+        document.querySelectorAll('.items-grid .product-items li.product-item').forEach((item) => {
+            if (!item.querySelector('.gmd-text')) {
+                const image = item.querySelector('.product-item-img');
+                if (image) {
+                    image.insertAdjacentHTML('afterend', '<div class="gmd-text">Gratis aan huis bezorgd</div>');
+                }
             }
         });
     });
 }
 
-// Initial execution
 handleStock();
-
-// Setup MutationObserver
 const observer = new MutationObserver(handleStock);
 observer.observe(document.body, {
     childList: true,
     subtree: true,
 });
-
-
-// const total = items.length;
-
-//         if (!document.querySelector('.gmd-usp-section')) {
-//             if (total >= 6) {
-//                 items[5].insertAdjacentHTML('afterend', uspHTML);
-//             }
-
-//             if (total === 5) {
-//                 items[4].insertAdjacentHTML('afterend', uspHTML);
-//             }
-
-//             if (total === 4) {
-//                 items[3].insertAdjacentHTML('afterend', uspHTML);
-//             }
-
-//         }
