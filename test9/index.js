@@ -26,7 +26,6 @@ waitForElement('.entry-content .cart-collaterals .cart_totals .order-total', (el
     const totalRow = elements[0];
     totalRow.insertAdjacentHTML('afterend', shippingHTML);
 
-
     const totalAmountEl = totalRow.querySelector('.woocommerce-Price-amount');
     if (!totalAmountEl) return;
 
@@ -50,6 +49,10 @@ waitForElement('.entry-content .cart-collaterals .cart_totals .order-total', (el
     const costElement = document.querySelector('.gmd-price.costs');
     if (costElement) {
         costElement.textContent = shippingCostText;
+
+        if (shippingCostText === 'Gratis') {
+            costElement.style.color = '#079455';
+        }
     }
 
     const subtotalValue = orderTotal + shippingCostValue;
@@ -60,7 +63,7 @@ waitForElement('.entry-content .cart-collaterals .cart_totals .order-total', (el
         subtotalElement.textContent = subtotalText;
     }
 });
-    ;
+
 
 
 
