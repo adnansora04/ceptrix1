@@ -12,8 +12,8 @@
       margin-top: 10px;
     margin-bottom: 10px;
 }
-.gmd-001 .gmd-price {
-   color: #70707b;
+.gmd-001 .gmd-price.content{
+  color: #70707b;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -32,8 +32,33 @@
 .gmd-001 .order-total-novat{
   display: none;
 }
-
-
+.gmd-001 .gmd-price.costs{
+  color: #70707b;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.gmd-001 .order-total h6{
+  color: #70707b;
+}
+.gmd-001 .gmd-price.subtotaal{
+    color: #131316;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.gmd-001 .order-total .woocommerce-Price-amount bdi span{
+  color: #70707b;
+}
+.gmd-001 .order-total .woocommerce-Price-amount bdi {
+  color: #70707b;
+}
+.gmd-001 .gmd-label.section{
+    color: #131316;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
 /* .cpl-001 .stick-container{
      max-width: 1200px;
      width: 100%;

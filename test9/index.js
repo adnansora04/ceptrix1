@@ -14,11 +14,11 @@ waitForElement('.entry-content .cart-collaterals .cart_totals .order-total', (el
 
     const shippingHTML = `
         <div class="gmd-row">
-            <span class="gmd-label">Verzendkosten</span>
+            <span class="gmd-label content">Verzendkosten</span>
             <span class="gmd-price costs"></span>
         </div>
         <div class="gmd-row">
-            <span class="gmd-label">Subtotaal</span>
+            <span class="gmd-label section">Subtotaal</span >
             <span class="gmd-price subtotaal"></span>
         </div>
     `;
