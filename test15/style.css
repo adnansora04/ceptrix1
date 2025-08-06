@@ -1,0 +1,204 @@
+.cpl-001 {
+    line-height: 0;
+}
+
+.cpl-001 .cpl-section {
+   background: #2D2D2D;;
+    margin-bottom: 16px;
+}
+
+/* Hide original header if needed */
+.cpl-001 .header .top-header,
+.gmd-hero-slider {
+    display: none;
+}
+
+/* 🎯 Swiper for Mobile View*/
+.cpl-001 .swiper-mySwiper {
+    display: block; 
+    height: 42px !important;
+    overflow: hidden;
+    /* background-color: #d96768; */
+    background: #FFF;
+    padding: 0 0px;
+}
+
+.cpl-001 .swiper-mySwiper .swiper-wrapper {
+    height: 100% !important;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+.cpl-001 .swiper-mySwiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 42px !important;
+    width: 100% !important; */
+}
+
+/* Banner content inside Swiper */
+.cpl-001 .swiper-mySwiper .banner-content-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    /* flex-wrap: wrap; */
+    color: #fff;
+    justify-content: center;
+}
+
+.cpl-001 .swiper-mySwiper .banner-content-text {
+    font-size: 14px;
+   color: #000;
+   font-weight: 500;
+}
+
+.cpl-001 .swiper-mySwiper .banner-content-text strong {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+}
+
+/* 🖼 Image/Icon styling */
+.cpl-001 .swiper-mySwiper .banner-content-item img {
+    max-width: 16px;
+     width: 100%;
+    height: 16px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* .cpl-001 .swiper-mySwiper .swiper-wrapper .swiper-slide:nth-child(4) img {
+     width: 90px !important;
+} */
+/* Swiper icon sizes */
+.cpl-001 .swiper-mySwiper .content-check-icon {
+    max-width: 16px;
+    width: 100%;
+    height: 16px;
+}
+
+.cpl-001 .swiper-mySwiper .banner-content-text strong {
+    font-weight: 700;
+    /* color: #fff; */
+}
+
+.cpl-001 .swiper-mySwiper .swiper-slide.text-3 img {
+    max-width: 90px !important;
+    width: 100%;
+}
+
+
+/*  dekstop-slides-wrapper */
+.cpl-001 .dekstop-slides-wrapper {
+    display: none;
+    /* background-color: #D96768; */
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* equal spacing between items */
+    /* padding: 0 24px;
+  gap: 32px; 
+  overflow: hidden; */
+}
+
+/* Banner items desktop */
+.cpl-001 .dekstop-slides-wrapper .swiper-slide {
+    max-width: 333px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /* padding: 0 12px;
+    min-width: 0;
+    box-sizing: border-box; */
+}
+
+.cpl-001 .dekstop-slides-wrapper .banner-content-text {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cpl-001 .dekstop-slides-wrapper .swiper-slide .banner-content-text strong {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.cpl-001 .dekstop-slides-wrapper .swiper-slide .banner-content-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.cpl-001 .dekstop-slides-wrapper .swiper-slide img {
+    max-width: 11.917px;
+    width: 100%;
+    /* height: 8.25px;
+    object-fit: contain; */
+}
+
+/* Icon sizes */
+.cpl-001 .dekstop-slides-wrapper .content-check-icon {
+    max-width: 11.917px;
+    width: 100%;
+}
+.cpl-001 .dekstop-slides-wrapper .text-3 img{
+    max-width: 90px;
+    width: 100%;
+}
+/* Star icons */
+.cpl-001 .banner-content-icons.stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.cpl-001 .dekstop-slides-wrapper {
+    display: none;
+}
+
+.cpl-001 .swiper-mySwiper {
+    display: block;
+}
+
+/* Desktop view: only dekstop wrapper visible */
+@media (min-width: 1300px) {
+    .cpl-001 .dekstop-slides-wrapper {
+        display: flex;
+    }
+
+    .cpl-001 .swiper-mySwiper {
+        display: none;
+    }
+}
+
+.cpl-001 .cpl-section .cpl-conatiner {
+    max-width: 1306px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.cpl-001 .dekstop-slides-wrapper .cpl-delivery-message{
+    margin-bottom: 0px;
+}
+.cpl-001 .swiper-mySwiper .cpl-delivery-message{
+    margin-bottom:0px;
+}
