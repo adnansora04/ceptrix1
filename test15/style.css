@@ -4,7 +4,7 @@
 
 .cpl-001 .cpl-section {
    background: #2D2D2D;;
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
 }
 
 /* Hide original header if needed */
@@ -112,7 +112,7 @@
 
 /* Banner items desktop */
 .cpl-001 .dekstop-slides-wrapper .swiper-slide {
-    max-width: 333px;
+    max-width: 329px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -176,6 +176,11 @@
 
 .cpl-001 .swiper-mySwiper {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
 
 /* Desktop view: only dekstop wrapper visible */
@@ -186,6 +191,11 @@
 
     .cpl-001 .swiper-mySwiper {
         display: none;
+         position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
     }
 }
 
@@ -201,4 +211,11 @@
 }
 .cpl-001 .swiper-mySwiper .cpl-delivery-message{
     margin-bottom:0px;
+}
+
+.cpl-001 .grid-container{
+        min-height: 34px;
+}
+.cpl-001 .grid-container .slick-track {
+        padding: 4px;
 }

@@ -60,27 +60,52 @@ function initBannerSwiper() {
         if (container) {
             const cplSection = document.querySelector('.cpl-section');
             if (!cplSection) {
-                container.insertAdjacentHTML('beforebegin', htmldata);
+                const isMobile = window.innerWidth < 1300  // or any breakpoint you use
+
+                if (isMobile) {
+                    document.body.insertAdjacentHTML("afterbegin", htmldata);
+                } else {
+                    const container = document.querySelector('.header-container2');
+                    if (container) {
+                        container.insertAdjacentHTML("beforebegin", htmldata);
+                    }
+                }
+
 
                 bannerData.forEach((item, i) => {
-                    const slideHtml = `
-                        <div class="swiper-slide text-${i}">
-                            <span class="banner-content-item">
-                                <span class="banner-content">
-                                    <img class="content-check-icon" src="${item.icon}" alt="icon">
-                                </span>
-                                <span class="banner-content-text">
-                                    ${item.text}
-                                </span>
-                            </span>
-                        </div>`;
+                    const mobileSlideHtml = `
+        <div class="swiper-slide text-${i}">
+            <span class="banner-content-item">
+                <span class="banner-content">
+                    <img class="content-check-icon" src="${item.icon}" alt="icon">
+                </span>
+                <span class="banner-content-text">
+                    ${item.text}
+                </span>
+            </span>
+        </div>`;
 
+                    const desktopSlideHtml = `
+        <div class="swiper-slide text-${i}">
+            <span class="banner-content-item">
+                <span class="banner-content">
+                    <img class="content-check-icon" src="${item.icon}" alt="icon">
+                </span>
+                <span class="banner-content-text">
+                    ${item.text}
+                </span>
+            </span>
+        </div>`;
+
+                    // Inject into mobile Swiper
                     document.querySelector('.swiper-mySwiper .swiper-wrapper')
-                        .insertAdjacentHTML('beforeend', slideHtml);
+                        .insertAdjacentHTML('beforeend', mobileSlideHtml);
 
+                    // Inject into desktop container
                     document.querySelector('.dekstop-slides-wrapper')
-                        .insertAdjacentHTML('beforeend', slideHtml);
+                        .insertAdjacentHTML('beforeend', desktopSlideHtml);
                 });
+
 
                 waitForElement('.swiper-mySwiper').then(() => {
 
@@ -106,22 +131,22 @@ function initBannerSwiper() {
                 })
 
 
-     waitForElement('.inner-container .item-left a[rel="nofollow noopener noreferrer"]').then(() => {
-    const originalReviews = document.querySelectorAll('.inner-container .item-left a[rel="nofollow noopener noreferrer"]');
-    const reviewTargets = document.querySelectorAll('.dynamic-review-text');
+                waitForElement('.inner-container .item-left a[rel="nofollow noopener noreferrer"]').then(() => {
+                    const originalReviews = document.querySelectorAll('.inner-container .item-left a[rel="nofollow noopener noreferrer"]');
+                    const reviewTargets = document.querySelectorAll('.dynamic-review-text');
 
-    if (originalReviews.length && reviewTargets.length) {
-        const fullText = originalReviews[0].textContent.trim();
+                    if (originalReviews.length && reviewTargets.length) {
+                        const fullText = originalReviews[0].textContent.trim();
 
-        // Extract "24011 beoordelingen" from "9.0 uit 24011 beoordelingen"
-        const match = fullText.match(/(\d[\d.,]*) beoordelingen/);
-        const reviewText = match ? match[0] : fullText; // fallback to fullText if no match
+                        // Extract "24011 beoordelingen" from "9.0 uit 24011 beoordelingen"
+                        const match = fullText.match(/(\d[\d.,]*) beoordelingen/);
+                        const reviewText = match ? match[0] : fullText; // fallback to fullText if no match
 
-        reviewTargets.forEach((target) => {
-            target.textContent = reviewText;
-        });
-    }
-});
+                        reviewTargets.forEach((target) => {
+                            target.textContent = reviewText;
+                        });
+                    }
+                });
 
 
                 // GM_xmlhttpRequest({
@@ -150,55 +175,35 @@ function initBannerSwiper() {
                 //             console.error("Error parsing response:", err);
                 //         }
                 //     },
-            
+
                 // });
 
                 const deliveryElements = document.querySelectorAll('.cpl-delivery-message');
 
                 const now = new Date();
-                const day = now.getDay();
+                const day = now.getDay(); // 0 = Sunday, 6 = Saturday
                 const hour = now.getHours();
                 const isBefore11PM = hour < 23;
 
                 let orderText = '';
                 let deliveryDay = '';
 
-                if (day === 6 || day === 0 || (day === 5 && !isBefore11PM)) {
-                    orderText = 'Vandaag besteld';
-                    deliveryDay = 'dinsdag';
-                } else if (day === 1 && isBefore11PM) {
-                    orderText = 'Voor 23.00 besteld';
-                    deliveryDay = 'dinsdag';
-                } else if (day === 1 && !isBefore11PM) {
-                    orderText = 'Vandaag besteld';
-                    deliveryDay = 'woensdag';
-                } else if (day === 2 && isBefore11PM) {
-                    orderText = 'Voor 23.00 besteld';
-                    deliveryDay = 'woensdag';
-                } else if (day === 2 && !isBefore11PM) {
-                    orderText = 'Vandaag besteld';
-                    deliveryDay = 'donderdag';
-                } else if (day === 3 && isBefore11PM) {
-                    orderText = 'Voor 23.00 besteld';
-                    deliveryDay = 'donderdag';
-                } else if (day === 3 && !isBefore11PM) {
-                    orderText = 'Vandaag besteld';
-                    deliveryDay = 'vrijdag';
-                } else if (day === 4 && isBefore11PM) {
-                    orderText = 'Voor 23.00 besteld';
-                    deliveryDay = 'vrijdag';
-                } else if (day === 4 && !isBefore11PM) {
-                    orderText = 'Vandaag besteld';
-                    deliveryDay = 'maandag';
-                } else if (day === 5 && isBefore11PM) {
-                    orderText = 'Voor 23.00 besteld';
-                    deliveryDay = 'maandag';
-                }
+                const schedule = {
+                    0: ['Vandaag besteld', 'dinsdag'],
+                    1: isBefore11PM ? ['Voor 23.00 besteld', 'dinsdag'] : ['Vandaag besteld', 'woensdag'],
+                    2: isBefore11PM ? ['Voor 23.00 besteld', 'woensdag'] : ['Vandaag besteld', 'donderdag'],
+                    3: isBefore11PM ? ['Voor 23.00 besteld', 'donderdag'] : ['Vandaag besteld', 'vrijdag'],
+                    4: isBefore11PM ? ['Voor 23.00 besteld', 'vrijdag'] : ['Vandaag besteld', 'maandag'],
+                    5: isBefore11PM ? ['Voor 23.00 besteld', 'maandag'] : ['Vandaag besteld', 'dinsdag'],
+                    6: ['Vandaag besteld', 'dinsdag']
+                };
 
-          
+                [orderText, deliveryDay] = schedule[day];
+
                 deliveryElements.forEach(el => {
                     el.textContent = `${orderText}, ${deliveryDay} in huis`;
                 });
+
 
             }
         }
