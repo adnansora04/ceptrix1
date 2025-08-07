@@ -45,6 +45,14 @@ function initBannerSwiper() {
     <div class="cpl-conatiner">
         <div class="banner-content ">
             <div class="dekstop-slides-wrapper"></div>
+        </div>
+    </div>
+</div>`;
+
+ const html = ` 
+   <div class="cpl-section">
+    <div class="cpl-conatiner">
+        <div class="banner-content ">
             <div class="swiper-mySwiper">
                 <div class="swiper-wrapper">
                 </div>
@@ -52,7 +60,6 @@ function initBannerSwiper() {
         </div>
     </div>
 </div>`;
-
     waitForElement('.header-container2').then(() => {
         document.body.classList.add('cpl-001');
 
@@ -62,14 +69,14 @@ function initBannerSwiper() {
             if (!cplSection) {
                 const isMobile = window.innerWidth < 1300  // or any breakpoint you use
 
-                if (isMobile) {
-                    document.body.insertAdjacentHTML("afterbegin", htmldata);
-                } else {
+              
+                    document.body.insertAdjacentHTML("afterbegin", html);
+                
                     const container = document.querySelector('.header-container2');
                     if (container) {
                         container.insertAdjacentHTML("beforebegin", htmldata);
                     }
-                }
+               
 
 
                 bannerData.forEach((item, i) => {
