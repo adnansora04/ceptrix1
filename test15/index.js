@@ -104,34 +104,54 @@ function initBannerSwiper() {
                         }
                     }, 500);
                 })
-                GM_xmlhttpRequest({
-                    method: "GET",
-                    url: "https://www.feedbackcompany.com/nl-nl/reviews/raamdecoratie-com/",
-                    onload: function (response) {
-                        try {
-                            console.log("Response received from FeedbackCompany");
 
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(response.responseText, "text/html");
 
-                            const reviewElement = doc.querySelectorAll("#__nuxt .h-screen .font-semibold .mr-1")[2];
-                            const reviewCount = reviewElement ? reviewElement.textContent.trim() : "";
+     waitForElement('.inner-container .item-left a[rel="nofollow noopener noreferrer"]').then(() => {
+    const originalReviews = document.querySelectorAll('.inner-container .item-left a[rel="nofollow noopener noreferrer"]');
+    const reviewTargets = document.querySelectorAll('.dynamic-review-text');
 
-                            console.log("Extracted Review Count:", reviewCount);
+    if (originalReviews.length && reviewTargets.length) {
+        const fullText = originalReviews[0].textContent.trim();
 
-                            if (reviewCount) {
-                                document.querySelectorAll(".dynamic-review-text").forEach(target => {
-                                    target.textContent = `${reviewCount}`;
-                                });
-                            } else {
-                                console.warn("Review count element not found!");
-                            }
-                        } catch (err) {
-                            console.error("Error parsing response:", err);
-                        }
-                    },
+        // Extract "24011 beoordelingen" from "9.0 uit 24011 beoordelingen"
+        const match = fullText.match(/(\d[\d.,]*) beoordelingen/);
+        const reviewText = match ? match[0] : fullText; // fallback to fullText if no match
+
+        reviewTargets.forEach((target) => {
+            target.textContent = reviewText;
+        });
+    }
+});
+
+
+                // GM_xmlhttpRequest({
+                //     method: "GET",
+                //     url: "https://www.feedbackcompany.com/nl-nl/reviews/raamdecoratie-com/",
+                //     onload: function (response) {
+                //         try {
+                //             console.log("Response received from FeedbackCompany");
+
+                //             const parser = new DOMParser();
+                //             const doc = parser.parseFromString(response.responseText, "text/html");
+
+                //             const reviewElement = doc.querySelectorAll("#__nuxt .h-screen .font-semibold .mr-1")[2];
+                //             const reviewCount = reviewElement ? reviewElement.textContent.trim() : "";
+
+                //             console.log("Extracted Review Count:", reviewCount);
+
+                //             if (reviewCount) {
+                //                 document.querySelectorAll(".dynamic-review-text").forEach(target => {
+                //                     target.textContent = `${reviewCount}`;
+                //                 });
+                //             } else {
+                //                 console.warn("Review count element not found!");
+                //             }
+                //         } catch (err) {
+                //             console.error("Error parsing response:", err);
+                //         }
+                //     },
             
-                });
+                // });
 
                 const deliveryElements = document.querySelectorAll('.cpl-delivery-message');
 
