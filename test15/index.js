@@ -67,7 +67,7 @@ function initBannerSwiper() {
         if (container) {
             const cplSection = document.querySelector('.cpl-section');
             if (!cplSection) {
-                const isMobile = window.innerWidth < 1300  // or any breakpoint you use
+                const isMobile = window.innerWidth < 769      // or any breakpoint you use
 
               
                     document.body.insertAdjacentHTML("afterbegin", html);
