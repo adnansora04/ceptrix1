@@ -6,7 +6,7 @@
     background: #2D2D2D;
     ;
     /* margin-bottom: 16px; */
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
@@ -206,15 +206,15 @@
     }
 
     .cpl-001 .dekstop-slides-wrapper .cpl-delivery-message {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .cpl-001 .dekstop-slides-wrapper .banner-content-text {
-        font-size: 10px;
+        font-size: 8px;
     }
 
     .cpl-001 .dekstop-slides-wrapper .swiper-slide .banner-content-text strong {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .cpl-001 .dekstop-slides-wrapper .swiper-slide img {
