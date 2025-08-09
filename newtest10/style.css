@@ -1,4 +1,90 @@
-.cpl-001 .cpl-partners-referral {
+.gmd-001 .trending-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #E53935;
+    padding: 6px 14px;
+    border-radius: 50px;
+    gap: 8px;
+}
+
+.gmd-001 .trending-badge .flame img {
+    width: 17px;
+    height: 24px;
+    display: block;
+}
+
+.gmd-001 .trending-badge .trending-text {
+    color: #FFF;
+    font-family: 'Figtree', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.gmd-001 .trending-badge .hash {
+    color: #FFF;
+    font-family: 'Figtree', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.gmd-001 .trending-badge .rank {
+    color: #FFF;
+    font-family: 'Figtree', sans-serif;
+    font-size: 29px;
+    font-weight: 700;
+}
+
+
+.gmd-001 .netbinnen-badge {
+  display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    gap: 6px;
+    border-radius: 27.064px;
+    background: #BE750A;
+}
+
+.gmd-001 .netbinnen-badge .lightning img
+ {
+    max-width: 18.5px;
+    width: 100%;
+}
+
+.gmd-001 .netbinnen-badge .netbinnen-text {
+
+    color: #FFF;
+    font-family: Figtree;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.gmd-001 .netbinnen-badge .hash {
+     color: #FFF;
+    font-family: Figtree;
+    font-size: 21.049px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.064px;
+}
+
+.gmd-001 .netbinnen-badge .rank {
+        color: #FFF;
+    font-family: Figtree;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 27.064px;
+}
+
+
+
+
+/* .cpl-001 .cpl-partners-referral {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,7 +123,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    /* padding-top: 4px; */
+
 }
 
 .cpl-001 .cpl-referral-box .promo-text {
@@ -47,7 +133,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 16px;
-    /* 133.333% */
+
 }
 
 .cpl-001 .cpl-referral-box .promo-button {
@@ -83,7 +169,7 @@
 .cpl-001 .cpl-referral-box .extra-sticky-content {
     display: flex;
     gap: 10px;
-    /* padding-top: 3px; */
+  
 }
 
 .cpl-001 .cpl-referral-box .right-content-side {
@@ -102,7 +188,7 @@
 .cpl-001 .cpl-referral-box .extra-content {
     display: flex;
     gap: 12px;
-    /* padding-top: 4px; */
+ 
 }
 
 
@@ -111,8 +197,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 14px 0px;
-    /* border-radius: 12px; */
     max-width: 100%;
+    text-decoration: none;
 }
 
 .cpl-001 .cpl-referral-section {
@@ -159,4 +245,6 @@
 
 .cpl-001 .cpl-referral-box .image-wrapper {
     line-height: 0;
-}
+} */
+
+
