@@ -12,14 +12,13 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 waitForElement('[data-test="search-results-list"]', (listEl) => {
     document.body.classList.add('gmd-001');
 
-
     function getGlobalAveragePrice() {
         const allPriceEls = document.querySelectorAll(
-            '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
+            '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
         );
 
         const allPrices = Array.from(allPriceEls)
-            .map(el => parseFloat(el.textContent.replace(/[^0-9.]/g, '')))
+            .map(el => parseFloat(el.textContent.trim().replace(/[^0-9.]/g, '')))
             .filter(p => !isNaN(p));
 
         if (allPrices.length === 0) return null;
@@ -42,48 +41,66 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
             container.classList.add("badge-container");
 
             const reviewCountEl = productCard.querySelector('.tiny-text [data-test="product-rating-count"]');
-            const priceEl = productCard.querySelector('[data-test="search-results-price"]');
+            const priceEl = productCard.querySelector('[data-test="search-results-price"]:not([data-test="product-card-original-price"])');
             const hasSalePrice = productCard.querySelector('[data-test="product-card-original-price"]');
 
             let reviewCount = parseInt(reviewCountEl?.textContent.replace(/\D/g, '') || "0", 10);
-            let priceValue = parseFloat(priceEl?.textContent.replace(/[^0-9.]/g, '') || "NaN");
+            let priceValue = parseFloat(priceEl?.textContent.trim().replace(/[^0-9.]/g, '') || "NaN");
 
-
+         
             if (hasSalePrice) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale">SALE</div>`);
             }
 
-
+          
             if (!isNaN(priceValue) && priceValue < globalAvg) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-value-pick">VALUE PICK</div>`);
+
+                if (hasSalePrice) {
+                    const newEvent = {
+                        timestamp: new Date().toISOString(),
+                        event: "[CONV] Value Pick + Sale Product Clicked",
+                        productName: productCard.querySelector('[data-test="product-card-name"]')?.textContent.trim() || "",
+                        publisher: productCard.querySelector('[data-test="product-card-publisher"]')?.textContent.trim() || "",
+                        price: priceEl?.textContent.trim() || "",
+                        originalPrice: productCard.querySelector('[data-test="product-card-original-price"]')?.textContent.trim() || "",
+                        rating: parseFloat(productCard.querySelector('[data-test="product-card-rating"]')?.textContent.trim() || "NaN") || null
+                    };
+
+                  
+                    let events = JSON.parse(localStorage.getItem("valuePickSaleEvents")) || [];
+                    events.push(newEvent);
+                    localStorage.setItem("valuePickSaleEvents", JSON.stringify(events));
+
+                    
+                    console.log(" Value Pick + Sale Detected:", newEvent);
+                }
             }
 
-
+           
             if (!isNaN(priceValue) && priceValue > globalAvg && reviewCount > 300) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-premium">PREMIUM</div>`);
             }
 
-
-
-            if (reviewCount > 100) {
+           
+            if (reviewCount > 100 && !hasSalePrice) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
             }
         });
     }
-
 
     function addPriceComparisonLabels() {
         const globalAvg = getGlobalAveragePrice();
         if (!globalAvg) return;
 
         const allPriceEls = document.querySelectorAll(
-            '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
+            '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
         );
 
         allPriceEls.forEach(priceEl => {
             if (priceEl.dataset.priceCompared) return;
 
-            const priceValue = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, ''));
+            const priceValue = parseFloat(priceEl.textContent.trim().replace(/[^0-9.]/g, ''));
             if (isNaN(priceValue)) return;
 
             const diffPercent = ((priceValue - globalAvg) / globalAvg) * 100;
@@ -102,13 +119,11 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
         });
     }
 
-
     function runAll() {
         addBadgesToImages();
         addPriceComparisonLabels();
     }
 
     runAll();
-
     new MutationObserver(runAll).observe(listEl, { childList: true, subtree: true });
 });
