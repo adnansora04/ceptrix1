@@ -1,0 +1,58 @@
+.badge-container {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+}
+
+.badge-value-pick {
+    left: 10px;
+    background-color: green;
+}
+
+.badge-sale {
+    right: 10px;
+    background-color: orange;
+}
+
+.badge-popular {
+    right: 10px;
+    background-color: hotpink;
+}
+
+.badge-premium {
+    left: 10px;
+    top: 10px;
+    background-color: purple;
+}
+
+.price-label {
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.price-label.below {
+    background: #9fe29f;
+    color: green;
+    max-width: 181px;
+    width: 100%;
+}
+
+.price-label.above {
+    background: #ffb3b3;
+    color: red;
+    max-width: 188px;
+    width: 100%;
+}
