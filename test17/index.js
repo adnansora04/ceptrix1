@@ -12,88 +12,106 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 waitForElement('[data-test="search-results-list"]', (listEl) => {
     document.body.classList.add('gmd-001');
 
-    const processedProducts = new WeakSet(); 
+    const processedProducts = new WeakSet();
 
     function getGlobalAveragePrice() {
         const allPriceEls = document.querySelectorAll(
             '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
         );
-
         const allPrices = Array.from(allPriceEls)
             .map(el => parseFloat(el.textContent.trim().replace(/[^0-9.]/g, '')))
             .filter(p => !isNaN(p));
 
         if (allPrices.length === 0) return null;
-
         return allPrices.reduce((sum, p) => sum + p, 0) / allPrices.length;
     }
 
-    function addBadgesToImages(isNewLoad = false) {
-        const globalAvg = getGlobalAveragePrice();
-        if (!globalAvg) return;
+    function saveClickEvent(eventData) {
+        let events = JSON.parse(localStorage.getItem("productClickEvents")) || [];
+        events.push(eventData);
+        if (events.length > 100) {
+            events = events.slice(events.length - 100); 
+        }
+        localStorage.setItem("productClickEvents", JSON.stringify(events));
+    }
+function addBadgesToImages(isNewLoad = false) {
+    const globalAvg = getGlobalAveragePrice();
+    if (!globalAvg) return;
 
-        listEl.querySelectorAll('img').forEach(img => {
-            if (img.dataset.badgesAdded) return;
-            img.dataset.badgesAdded = "true";
+    listEl.querySelectorAll('.hydrated [data-test="search-results-list"] article').forEach(article => {
+        if (processedProducts.has(article)) return;
+        processedProducts.add(article);
 
-            const productCard = img.closest('[data-test="product-card"]') || img.closest('li');
-            if (!productCard) return;
+        const img = article.querySelector('img');
+        if (!img) return;
 
-            if (!processedProducts.has(productCard)) {
-                processedProducts.add(productCard);
-                if (isNewLoad) {
-                    const container = img.closest('div') || img.parentElement;
-                    container.insertAdjacentHTML("beforeend", `<div class="badge badge-new">NEW</div>`);
-                }
+        img.dataset.badgesAdded = "true";
+        const container = img.closest('div') || img.parentElement;
+        container.classList.add("badge-container");
+
+        const newReleaseTag = article.querySelector('[data-test="product-card-tag-New-Release"]');
+        const hasSalePrice = article.querySelector('[data-test="product-card-original-price"]');
+        const reviewCountEl = article.querySelector('.tiny-text [data-test="product-rating-count"]');
+        const priceEl = article.querySelector('[data-test="search-results-price"]:not([data-test="product-card-original-price"])');
+
+        let reviewCount = parseInt(reviewCountEl?.textContent.replace(/\D/g, '') || "0", 10);
+        let priceValue = parseFloat(priceEl?.textContent.trim().replace(/[^0-9.]/g, '') || "NaN");
+
+        
+        if (newReleaseTag && !article.querySelector('.badge-new')) {
+            container.insertAdjacentHTML("beforeend", `<div class="badge badge-new">NEW</div>`);
+
+           
+            if (hasSalePrice && !container.querySelector('.badge-sale')) {
+                container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale section">SALE</div>`);
             }
-
-            const container = img.closest('div') || img.parentElement;
-            container.classList.add("badge-container");
-
-            const reviewCountEl = productCard.querySelector('.tiny-text [data-test="product-rating-count"]');
-            const priceEl = productCard.querySelector('[data-test="search-results-price"]:not([data-test="product-card-original-price"])');
-            const hasSalePrice = productCard.querySelector('[data-test="product-card-original-price"]');
-
-            let reviewCount = parseInt(reviewCountEl?.textContent.replace(/\D/g, '') || "0", 10);
-            let priceValue = parseFloat(priceEl?.textContent.trim().replace(/[^0-9.]/g, '') || "NaN");
-
+        } else {
             
-            if (hasSalePrice && reviewCount > 100) {
+            if (hasSalePrice && reviewCount > 100 && !container.querySelector('.badge-popular')) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale content">SALE</div>`);
-            } else if (hasSalePrice) {
+            } else if (hasSalePrice && !container.querySelector('.badge-sale')) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale">SALE</div>`);
-            } else if (reviewCount > 100) {
+            } else if (reviewCount > 100 && !container.querySelector('.badge-popular')) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
             }
+        }
 
-            if (!isNaN(priceValue) && priceValue < globalAvg) {
-                container.insertAdjacentHTML("beforeend", `<div class="badge badge-value-pick">VALUE PICK</div>`);
+        if (!isNaN(priceValue) && priceValue < globalAvg && !container.querySelector('.badge-value-pick')) {
+            container.insertAdjacentHTML("beforeend", `<div class="badge badge-value-pick">VALUE PICK</div>`);
+        }
 
-                if (hasSalePrice) {
-                    const newEvent = {
+        if (!isNaN(priceValue) && priceValue > globalAvg && reviewCount > 300 && !container.querySelector('.badge-premium')) {
+            container.insertAdjacentHTML("beforeend", `<div class="badge badge-premium">PREMIUM</div>`);
+        }
+
+        if (!article.dataset.listenerAdded) {
+            article.addEventListener("click", () => {
+                const badges = Array.from(article.querySelectorAll(".badge"))
+                    .map(b => b.textContent.trim())
+                    .filter(Boolean);
+
+                if (badges.length > 0) {
+                    const eventName = `[CONV] ${badges.join(" + ")} Product Clicked`;
+                    const eventData = {
                         timestamp: new Date().toISOString(),
-                        event: "[CONV] Value Pick + Sale Product Clicked",
-                        productName: productCard.querySelector('[data-test="product-card-name"]')?.textContent.trim() || "",
-                        publisher: productCard.querySelector('[data-test="product-card-publisher"]')?.textContent.trim() || "",
+                        event: eventName,
+                        productName: article.querySelector('[data-test="product-card-name"]')?.textContent.trim() || "",
+                        publisher: article.querySelector('[data-test="product-card-publisher"]')?.textContent.trim() || "",
                         price: priceEl?.textContent.trim() || "",
-                        originalPrice: productCard.querySelector('[data-test="product-card-original-price"]')?.textContent.trim() || "",
-                        rating: parseFloat(productCard.querySelector('[data-test="product-card-rating"]')?.textContent.trim() || "NaN") || null
+                        originalPrice: article.querySelector('[data-test="product-card-original-price"]')?.textContent.trim() || "",
+                        rating: parseFloat(article.querySelector('[data-test="product-card-rating"]')?.textContent.trim() || "NaN") || null
                     };
 
-                    let events = JSON.parse(localStorage.getItem("valuePickSaleEvents")) || [];
-                    events.push(newEvent);
-                    localStorage.setItem("valuePickSaleEvents", JSON.stringify(events));
-
-                    console.log("Value Pick + Sale Detected:", newEvent);
+                    console.log(eventName, eventData);
+                    saveClickEvent(eventData);
                 }
-            }
+            });
+            article.dataset.listenerAdded = "true";
+        }
+    });
+}
 
-            if (!isNaN(priceValue) && priceValue > globalAvg && reviewCount > 300) {
-                container.insertAdjacentHTML("beforeend", `<div class="badge badge-premium">PREMIUM</div>`);
-            }
-        });
-    }
 
     function addPriceComparisonLabels() {
         const globalAvg = getGlobalAveragePrice();
@@ -108,10 +126,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
 
             let priceValue = parseFloat(priceEl.textContent.trim().replace(/[^0-9.]/g, ''));
             if (isNaN(priceValue)) return;
-
             priceValue = parseFloat(priceValue.toFixed(2));
-
-            console.log(`${index + 1}: ${priceValue}`);
 
             const diffPercent = ((priceValue - globalAvg) / globalAvg) * 100;
 

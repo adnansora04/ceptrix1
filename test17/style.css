@@ -72,3 +72,9 @@
     font-weight: bold;
     z-index: 10;
 }
+.gmd-001 .badge.badge-sale.section{
+    top: 45px;
+}
+.gmd-001 .badge-popular.content{
+    top: 45px;
+}
