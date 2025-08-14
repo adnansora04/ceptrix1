@@ -12,6 +12,8 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 waitForElement('[data-test="search-results-list"]', (listEl) => {
     document.body.classList.add('gmd-001');
 
+    const processedProducts = new WeakSet(); 
+
     function getGlobalAveragePrice() {
         const allPriceEls = document.querySelectorAll(
             '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
@@ -26,7 +28,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
         return allPrices.reduce((sum, p) => sum + p, 0) / allPrices.length;
     }
 
-    function addBadgesToImages() {
+    function addBadgesToImages(isNewLoad = false) {
         const globalAvg = getGlobalAveragePrice();
         if (!globalAvg) return;
 
@@ -36,6 +38,14 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
 
             const productCard = img.closest('[data-test="product-card"]') || img.closest('li');
             if (!productCard) return;
+
+            if (!processedProducts.has(productCard)) {
+                processedProducts.add(productCard);
+                if (isNewLoad) {
+                    const container = img.closest('div') || img.parentElement;
+                    container.insertAdjacentHTML("beforeend", `<div class="badge badge-new">NEW</div>`);
+                }
+            }
 
             const container = img.closest('div') || img.parentElement;
             container.classList.add("badge-container");
@@ -47,12 +57,16 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
             let reviewCount = parseInt(reviewCountEl?.textContent.replace(/\D/g, '') || "0", 10);
             let priceValue = parseFloat(priceEl?.textContent.trim().replace(/[^0-9.]/g, '') || "NaN");
 
-         
-            if (hasSalePrice) {
+            
+            if (hasSalePrice && reviewCount > 100) {
+                container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
+                container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale content">SALE</div>`);
+            } else if (hasSalePrice) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-sale">SALE</div>`);
+            } else if (reviewCount > 100) {
+                container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
             }
 
-          
             if (!isNaN(priceValue) && priceValue < globalAvg) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-value-pick">VALUE PICK</div>`);
 
@@ -67,24 +81,16 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                         rating: parseFloat(productCard.querySelector('[data-test="product-card-rating"]')?.textContent.trim() || "NaN") || null
                     };
 
-                  
                     let events = JSON.parse(localStorage.getItem("valuePickSaleEvents")) || [];
                     events.push(newEvent);
                     localStorage.setItem("valuePickSaleEvents", JSON.stringify(events));
 
-                    
-                    console.log(" Value Pick + Sale Detected:", newEvent);
+                    console.log("Value Pick + Sale Detected:", newEvent);
                 }
             }
 
-           
             if (!isNaN(priceValue) && priceValue > globalAvg && reviewCount > 300) {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-premium">PREMIUM</div>`);
-            }
-
-           
-            if (reviewCount > 100 && !hasSalePrice) {
-                container.insertAdjacentHTML("beforeend", `<div class="badge badge-popular">POPULAR</div>`);
             }
         });
     }
@@ -97,11 +103,15 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
             '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
         );
 
-        allPriceEls.forEach(priceEl => {
+        allPriceEls.forEach((priceEl, index) => {
             if (priceEl.dataset.priceCompared) return;
 
-            const priceValue = parseFloat(priceEl.textContent.trim().replace(/[^0-9.]/g, ''));
+            let priceValue = parseFloat(priceEl.textContent.trim().replace(/[^0-9.]/g, ''));
             if (isNaN(priceValue)) return;
+
+            priceValue = parseFloat(priceValue.toFixed(2));
+
+            console.log(`${index + 1}: ${priceValue}`);
 
             const diffPercent = ((priceValue - globalAvg) / globalAvg) * 100;
 
@@ -119,11 +129,11 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
         });
     }
 
-    function runAll() {
-        addBadgesToImages();
+    function runAll(isNewLoad = false) {
+        addBadgesToImages(isNewLoad);
         addPriceComparisonLabels();
     }
 
-    runAll();
-    new MutationObserver(runAll).observe(listEl, { childList: true, subtree: true });
+    runAll(false);
+    new MutationObserver(() => runAll(true)).observe(listEl, { childList: true, subtree: true });
 });

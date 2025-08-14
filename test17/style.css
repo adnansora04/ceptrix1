@@ -1,8 +1,8 @@
-.badge-container {
+.gmd-001 .badge-container {
     position: relative;
 }
 
-.badge {
+.gmd-001 .badge {
     position: absolute;
     top: 10px;
     padding: 4px 8px;
@@ -13,28 +13,28 @@
     z-index: 10;
 }
 
-.badge-value-pick {
+.gmd-001 .badge-value-pick {
     left: 10px;
     background-color: green;
 }
 
-.badge-sale {
+.gmd-001 .badge-sale {
     right: 10px;
     background-color: orange;
 }
 
-.badge-popular {
+.gmd-001 .badge-popular {
     right: 10px;
     background-color: hotpink;
 }
 
-.badge-premium {
+.gmd-001 .badge-premium {
     left: 10px;
     top: 10px;
     background-color: purple;
 }
 
-.price-label {
+.gmd-001 .price-label {
     font-weight: bold;
     padding: 3px 6px;
     border-radius: 4px;
@@ -43,16 +43,32 @@
     display: inline-block;
 }
 
-.price-label.below {
+.gmd-001 .price-label.below {
     background: #9fe29f;
     color: green;
     max-width: 181px;
     width: 100%;
 }
 
-.price-label.above {
+.gmd-001 .price-label.above {
     background: #ffb3b3;
     color: red;
     max-width: 188px;
     width: 100%;
+}
+
+.gmd-001 .badge.badge-sale.content {
+    top: 45px;
+}
+.gmd-001 .badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgb(0, 106, 255);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
 }
