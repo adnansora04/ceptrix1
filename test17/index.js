@@ -14,6 +14,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
 
     const processedProducts = new WeakSet();
 
+ 
     function getGlobalAveragePrice() {
         const allPriceEls = document.querySelectorAll(
             '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
@@ -26,15 +27,28 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
         return allPrices.reduce((sum, p) => sum + p, 0) / allPrices.length;
     }
 
+  
     function saveClickEvent(eventData) {
         let events = JSON.parse(localStorage.getItem("productClickEvents")) || [];
         events.push(eventData);
+
+        // FIFO 100
         if (events.length > 100) {
-            events = events.slice(events.length - 100);
+            events = events.slice(-100);
         }
+
         localStorage.setItem("productClickEvents", JSON.stringify(events));
     }
 
+    function getClickEvents() {
+        return JSON.parse(localStorage.getItem("productClickEvents")) || [];
+    }
+
+    function clearClickEvents() {
+        localStorage.removeItem("productClickEvents");
+    }
+
+  
     function addBadgesToImages(isNewLoad = false) {
         const globalAvg = getGlobalAveragePrice();
         if (!globalAvg) return;
@@ -82,7 +96,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                 container.insertAdjacentHTML("beforeend", `<div class="badge badge-premium">PREMIUM</div>`);
             }
 
-           
+            //  click listener
             if (!article.dataset.listenerAdded) {
                 article.addEventListener("click", () => {
                     const badges = Array.from(article.querySelectorAll(".badge"))
@@ -90,11 +104,9 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                         .filter(Boolean);
 
                     if (badges.length > 0) {
-                        
                         const leftBadges = badges.filter(b => ["VALUE PICK", "PREMIUM"].includes(b));
                         const rightBadges = badges.filter(b => ["POPULAR", "NEW", "SALE"].includes(b));
 
-                        
                         let eventName = "[CONV] ";
                         if (leftBadges.length > 0) {
                             eventName += leftBadges.join(" + ");
@@ -105,7 +117,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                         }
                         eventName += " Clicked";
 
-                        // Price 
+                        // Price
                         let priceValue = parseFloat(
                             (priceEl?.textContent.match(/[\d,.]+/)?.[0] || "").replace(/,/g, "")
                         );
@@ -113,7 +125,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                             (article.querySelector('[data-test="product-card-original-price"]')?.textContent.match(/[\d,.]+/)?.[0] || "").replace(/,/g, "")
                         );
 
-                        // Rating 
+                        // Rating
                         let ratingEl = article.querySelector('.tiny-text [data-test="product-rating"]');
                         let ratingValue = null;
                         if (ratingEl) {
@@ -137,10 +149,10 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
                 });
                 article.dataset.listenerAdded = "true";
             }
-
         });
     }
 
+   
     function addPriceComparisonLabels() {
         const globalAvg = getGlobalAveragePrice();
         if (!globalAvg) return;
@@ -149,7 +161,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
             '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]:not([data-test="product-card-original-price"])'
         );
 
-        allPriceEls.forEach((priceEl, index) => {
+        allPriceEls.forEach((priceEl) => {
             if (priceEl.dataset.priceCompared) return;
 
             let priceValue = parseFloat(priceEl.textContent.trim().replace(/[^0-9.]/g, ''));
@@ -172,6 +184,7 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
         });
     }
 
+ 
     function runAll(isNewLoad = false) {
         addBadgesToImages(isNewLoad);
         addPriceComparisonLabels();
