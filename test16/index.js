@@ -9,11 +9,12 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     setTimeout(() => clearInterval(check), timeout);
 }
 
-waitForElement('.wijcbf_form_wrapper', (wrapper) => {
+waitForElement('[id*="bookly_form"]', (wrapper) => {
     document.body.classList.add('gmd-001');
 
     function insertLabels() {
-        document.querySelectorAll('.wijcbf_form_wrapper .wijcbf_form_options_wrapper.dates')
+  
+        wrapper.querySelectorAll('[class*="options_wrapper"].dates')
             .forEach(el => {
                 if (!el.previousElementSibling?.classList.contains('gmd-label')) {
                     el.insertAdjacentHTML('beforebegin', `
@@ -25,7 +26,8 @@ waitForElement('.wijcbf_form_wrapper', (wrapper) => {
                 }
             });
 
-        document.querySelectorAll('.wijcbf_form_wrapper #wijcbf_date_row')
+        
+        wrapper.querySelectorAll('[id*="date_row"]')
             .forEach(el => {
                 if (!el.nextElementSibling?.classList.contains('gmd-label')) {
                     el.insertAdjacentHTML('afterend', `
@@ -39,9 +41,9 @@ waitForElement('.wijcbf_form_wrapper', (wrapper) => {
     }
 
     function bindDateClick() {
-        const dateEls = document.querySelectorAll('.wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date');
-        const slotEls = document.querySelectorAll('.wijcbf_form_wrapper .wijcbf_flex_container .wijcbf_slot_container');
-        const timeLabel = document.querySelector('.gmd-label.section');
+        const dateEls = wrapper.querySelectorAll('[class*="date_container"] [class*="date"]');
+        const slotEls = wrapper.querySelectorAll('[class*="flex_container"] [class*="slot_container"]');
+        const timeLabel = wrapper.querySelector('.gmd-label.section');
 
         dateEls.forEach(dateEl => {
             dateEl.addEventListener('click', () => {
@@ -52,7 +54,6 @@ waitForElement('.wijcbf_form_wrapper', (wrapper) => {
                 const index = [...dateEls].indexOf(dateEl);
                 if (slotEls[index]) slotEls[index].classList.add('active');
 
-                // Show "Kies een tijd" label when a date is selected
                 if (timeLabel) timeLabel.style.display = 'flex';
             });
         });
