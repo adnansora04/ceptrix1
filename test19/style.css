@@ -108,6 +108,31 @@
 @media (max-width: 767px) {
     .gmd-001 .gmd-shipping-bar {
         width: 100%;
-        max-width: 300px;
+        max-width: 300px !important;
+    }
+    .gmd-001 .gmd-row{
+        display: none;
+    }
+}
+
+/* Hide the duplicate subtotal in mobile if both show */
+/* @media (max-width: 768px) {
+  .gmd-001 .cart-collaterals .shop_table tr.cart-subtotal:first-of-type {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gmd-001 .cart-collaterals .shop_table tr.cart-subtotal:first-of-type {
+    display: none;
+  }
+} */
+@media (max-width: 1023px) {
+    .gmd-001 .gmd-shipping-bar {
+        width: 100%;
+        max-width: 713px;
+    }
+    .gmd-001 .gmd-row{
+        display: none;
     }
 }
