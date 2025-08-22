@@ -13,7 +13,7 @@
     height: 100%;
     background: linear-gradient(90deg, #FCDE28 0%, #FCDE28 100%);
     border-radius: 2px;
-    width: 90%;
+    width: 0%;
     position: relative;
     transition: width 0.8s ease-in-out;
     /* animate changes */
@@ -28,11 +28,12 @@
 .gmd-001 .gmd-row {
     display: flex;
     /* justify-content: space-between; */
-        gap: 73px;
+    gap: 73px;
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .gmd-001 span.gmd-label.content {
     font-family: Roboto;
     font-size: 16px;
@@ -43,11 +44,11 @@
 
 .gmd-001 .gmd-content {
     position: absolute;
-    top: -19px;
+    top: -25px;
     right: 0px;
     background: #FFD700;
     border-radius: 2px;
-    padding: 6px 5px;
+    padding: 8.2px 3px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,6 +99,7 @@
     font-weight: 400;
     line-height: 150%;
 }
+
 .gmd-001 span.gmd-price.costs {
     color: var(--totals-color, #69727d);
     font-weight: 700;
@@ -106,6 +108,6 @@
 @media (max-width: 767px) {
     .gmd-001 .gmd-shipping-bar {
         width: 100%;
-        max-width: 326px;
+        max-width: 300px;
     }
 }
