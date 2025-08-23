@@ -29,10 +29,29 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
   const text = document.querySelector(".gmd-shipping-text");
 
   const FREE_SHIPPING_THRESHOLD = 1000;
-  let observer; 
+  let observer;
+
+
+  function parsePrice(str) {
+    if (!str) return 0;
+    return parseFloat(
+      str.replace(/[^\d,\.]/g, "") 
+         .replace(/\./g, "")      
+         .replace(",", ".")       
+    ) || 0;
+  }
+
+
+  function formatPrice(num) {
+    let formatted = num
+      .toFixed(2)
+      .replace(".", ",")
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return "€ " + formatted.replace(/,00$/, "");
+  }
 
   function updateShippingBar(isFirstLoad = false) {
-    if (observer) observer.disconnect(); 
+    if (observer) observer.disconnect();
 
     const totalEl = document.querySelector('.cart-collaterals .order-total .woocommerce-Price-amount');
     if (!totalEl) {
@@ -40,27 +59,14 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
       return;
     }
 
-    let total = parseFloat(
-      totalEl.textContent
-        .replace(/[^\d,\.]/g, "")
-        .replace(/\./g, "")
-        .replace(",", ".")
-    );
+    let total = parsePrice(totalEl.textContent);
 
     document.querySelectorAll('.cart-collaterals .order-total .woocommerce-Price-amount').forEach(el => {
-      let raw = el.textContent
-        .replace(/[^\d,\.]/g, "")
-        .replace(/\./g, "")
-        .replace(",", ".");
-      let value = parseFloat(raw);
-
+      let value = parsePrice(el.textContent);
       if (value < FREE_SHIPPING_THRESHOLD) {
         if (!el.dataset.adjusted) {
           value += 4.95;
-          el.textContent = "€ " + value
-            .toFixed(2)
-            .replace(".", ",")
-            .replace(/,00$/, "");
+          el.textContent = formatPrice(value);
           el.dataset.adjusted = "true";
         }
       }
@@ -70,7 +76,6 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
     const targetWidth = (progress * 100).toFixed(2) + "%";
 
     if (isFirstLoad) {
-
       fill.style.width = "0%";
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -84,23 +89,20 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
     if (total >= FREE_SHIPPING_THRESHOLD) {
       text.innerHTML = `<span>Uw bestelling wordt <strong class="green">GRATIS</strong> verzonden!</span>`;
     } else {
-      const remaining = (FREE_SHIPPING_THRESHOLD - total)
-        .toFixed(2)
-        .replace(".", ",")
-        .replace(/,00$/, "") + ",-";
+      const remaining = FREE_SHIPPING_THRESHOLD - total;
       text.innerHTML = `
         <strong>Je bent er bijna...</strong> 
         <span class="shipping-note">
-          Besteed nog <span class="green">€ ${remaining}</span> voor gratis verzending.
+          Besteed nog <span class="green">${formatPrice(remaining)}</span> voor gratis verzending.
         </span>
       `;
     }
 
-    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true }); 
+    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true });
   }
 
   function addSubtotalRow() {
-    if (observer) observer.disconnect(); 
+    if (observer) observer.disconnect();
 
     document.querySelectorAll('.cart-collaterals .order-total').forEach(el => {
       if (!el.previousElementSibling || !el.previousElementSibling.classList.contains('gmd-row')) {
@@ -113,39 +115,27 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
       }
     });
 
-    const originalReviews = document.querySelectorAll('.woocommerce-cart-form .product-subtotal .woocommerce-Price-amount');
+    const productSubtotals = document.querySelectorAll('.woocommerce-cart-form .product-subtotal .woocommerce-Price-amount');
     let grandSubtotal = 0;
 
-    originalReviews.forEach(el => {
-      let raw = el.textContent
-        .replace(/[^\d,\.]/g, "")
-        .replace(/\./g, "")
-        .replace(",", ".");
-      grandSubtotal += parseFloat(raw) || 0;
+    productSubtotals.forEach(el => {
+      grandSubtotal += parsePrice(el.textContent);
     });
 
-    let formattedSubtotal = grandSubtotal
-      .toFixed(2) 
-      .replace(".", ",") 
-      .replace(/\B(?=(\d{3})+(?!\d))/g, "."); 
+    const formattedSubtotal = formatPrice(grandSubtotal);
 
-    formattedSubtotal = formattedSubtotal.replace(/,00$/, "");
-    formattedSubtotal = "€ " + formattedSubtotal;
-
-    const reviewTargets = document.querySelectorAll('.gmd-price.costs');
-    reviewTargets.forEach(target => {
+    document.querySelectorAll('.gmd-price.costs').forEach(target => {
       target.textContent = formattedSubtotal;
     });
 
-    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true }); 
+    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true });
   }
 
   addSubtotalRow();
-  updateShippingBar(true); 
+  updateShippingBar(true);
 
   observer = new MutationObserver((mutations) => {
     let needsUpdate = false;
-
     mutations.forEach(mutation => {
       if (mutation.addedNodes.length || mutation.removedNodes.length) {
         needsUpdate = true;

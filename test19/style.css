@@ -6,7 +6,6 @@
     border-radius: 2px;
     background: #DADADA;
     margin: 0px 20px;
-
 }
 
 .gmd-001 .gmd-shipping-fill {
@@ -15,8 +14,7 @@
     border-radius: 2px;
     width: 0%;
     position: relative;
-    transition: width 0.8s ease-in-out;
-    /* animate changes */
+    transition: width 0.8s ease-in-out; 
 }
 
 .gmd-001 .gmd-shipping-truck {
@@ -27,7 +25,6 @@
 
 .gmd-001 .gmd-row {
     display: flex;
-    /* justify-content: space-between; */
     gap: 73px;
     align-items: center;
     margin-top: 10px;
@@ -79,7 +76,6 @@
     font-style: normal;
     font-weight: 600;
     line-height: 150%;
-
 }
 
 .gmd-001 .gmd-shipping-text .green {
@@ -105,12 +101,24 @@
     font-weight: 700;
 }
 
+
 @media (max-width: 767px) {
     .gmd-001 .gmd-shipping-bar {
         width: 100%;
-        max-width: 300px !important;
+        max-width: 100%; 
+        margin: 0;       
     }
-    .gmd-001 .gmd-row{
+    .gmd-001 .gmd-row {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .gmd-001 .gmd-shipping-bar {
+        width: 100%;    
+        max-width: 713px;
+    }
+    .gmd-001 .gmd-row {
         display: none;
     }
 }
@@ -127,12 +135,3 @@
     display: none;
   }
 } */
-@media (max-width: 1023px) {
-    .gmd-001 .gmd-shipping-bar {
-        width: 100%;
-        max-width: 713px;
-    }
-    .gmd-001 .gmd-row{
-        display: none;
-    }
-}
