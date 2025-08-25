@@ -11,14 +11,12 @@ function waitForElement(selector, interval = 50, timeout = 10000) {
   });
 }
 
-
 function euroToNumber(euroStr) {
   if (!euroStr) return 0;
   let clean = euroStr.replace(/[^\d,,-.]/g, "").trim();
   clean = clean.replace(/\./g, "").replace(",", ".");
   return parseFloat(clean) || 0;
 }
-
 
 function numberToEuro(num) {
   return new Intl.NumberFormat("nl-NL", {
@@ -119,6 +117,7 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
     let grandSubtotal = 0;
 
     originalReviews.forEach(el => {
+      if (el.closest('del')) return;  
       grandSubtotal += euroToNumber(el.textContent);
     });
 
