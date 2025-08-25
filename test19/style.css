@@ -102,7 +102,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
     .gmd-001 .gmd-shipping-bar {
         width: 100%;
         max-width: 100%; 
@@ -113,7 +113,7 @@
     }
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
     .gmd-001 .gmd-shipping-bar {
         width: 100%;    
         max-width: 713px;
@@ -121,7 +121,7 @@
     .gmd-001 .gmd-row {
         display: none;
     }
-}
+} */
 
 /* Hide the duplicate subtotal in mobile if both show */
 /* @media (max-width: 768px) {
