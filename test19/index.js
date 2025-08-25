@@ -89,15 +89,11 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
     if (total >= FREE_SHIPPING_THRESHOLD) {
       text.innerHTML = `<span>Uw bestelling wordt <strong class="green">GRATIS</strong> verzonden!</span>`;
     } else {
-      const remaining = (FREE_SHIPPING_THRESHOLD - total)
-        .toFixed(2)
-        .replace(".", ",")
-        .replace(/,00$/, "") + ",-";
-
+      const remaining = FREE_SHIPPING_THRESHOLD - total;
       text.innerHTML = `
         <strong>Je bent er bijna...</strong> 
         <span class="shipping-note">
-          Besteed nog <span class="green">€ ${remaining}</span> voor gratis verzending.
+          Besteed nog <span class="green">${numberToEuro(remaining)}</span> voor gratis verzending.
         </span>
       `;
     }
