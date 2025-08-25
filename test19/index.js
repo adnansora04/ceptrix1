@@ -11,6 +11,24 @@ function waitForElement(selector, interval = 50, timeout = 10000) {
   });
 }
 
+
+function euroToNumber(euroStr) {
+  if (!euroStr) return 0;
+  let clean = euroStr.replace(/[^\d,,-.]/g, "").trim();
+  clean = clean.replace(/\./g, "").replace(",", ".");
+  return parseFloat(clean) || 0;
+}
+
+
+function numberToEuro(num) {
+  return new Intl.NumberFormat("nl-NL", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(num);
+}
+
 waitForElement('.elementor-element .e-cart__container').then((content) => {
   document.body.classList.add('gmd-001');
 
@@ -29,29 +47,10 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
   const text = document.querySelector(".gmd-shipping-text");
 
   const FREE_SHIPPING_THRESHOLD = 1000;
-  let observer;
-
-
-  function parsePrice(str) {
-    if (!str) return 0;
-    return parseFloat(
-      str.replace(/[^\d,\.]/g, "") 
-         .replace(/\./g, "")      
-         .replace(",", ".")       
-    ) || 0;
-  }
-
-
-  function formatPrice(num) {
-    let formatted = num
-      .toFixed(2)
-      .replace(".", ",")
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return "€ " + formatted.replace(/,00$/, "");
-  }
+  let observer; 
 
   function updateShippingBar(isFirstLoad = false) {
-    if (observer) observer.disconnect();
+    if (observer) observer.disconnect(); 
 
     const totalEl = document.querySelector('.cart-collaterals .order-total .woocommerce-Price-amount');
     if (!totalEl) {
@@ -59,14 +58,15 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
       return;
     }
 
-    let total = parsePrice(totalEl.textContent);
+    let total = euroToNumber(totalEl.textContent);
 
     document.querySelectorAll('.cart-collaterals .order-total .woocommerce-Price-amount').forEach(el => {
-      let value = parsePrice(el.textContent);
+      let value = euroToNumber(el.textContent);
+
       if (value < FREE_SHIPPING_THRESHOLD) {
         if (!el.dataset.adjusted) {
           value += 4.95;
-          el.textContent = formatPrice(value);
+          el.textContent = numberToEuro(value);
           el.dataset.adjusted = "true";
         }
       }
@@ -89,20 +89,24 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
     if (total >= FREE_SHIPPING_THRESHOLD) {
       text.innerHTML = `<span>Uw bestelling wordt <strong class="green">GRATIS</strong> verzonden!</span>`;
     } else {
-      const remaining = FREE_SHIPPING_THRESHOLD - total;
+      const remaining = (FREE_SHIPPING_THRESHOLD - total)
+        .toFixed(2)
+        .replace(".", ",")
+        .replace(/,00$/, "") + ",-";
+
       text.innerHTML = `
         <strong>Je bent er bijna...</strong> 
         <span class="shipping-note">
-          Besteed nog <span class="green">${formatPrice(remaining)}</span> voor gratis verzending.
+          Besteed nog <span class="green">€ ${remaining}</span> voor gratis verzending.
         </span>
       `;
     }
 
-    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true });
+    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true }); 
   }
 
   function addSubtotalRow() {
-    if (observer) observer.disconnect();
+    if (observer) observer.disconnect(); 
 
     document.querySelectorAll('.cart-collaterals .order-total').forEach(el => {
       if (!el.previousElementSibling || !el.previousElementSibling.classList.contains('gmd-row')) {
@@ -115,27 +119,29 @@ waitForElement('.elementor-element .e-cart__container').then((content) => {
       }
     });
 
-    const productSubtotals = document.querySelectorAll('.woocommerce-cart-form .product-subtotal .woocommerce-Price-amount');
+    const originalReviews = document.querySelectorAll('.woocommerce-cart-form .product-subtotal .woocommerce-Price-amount');
     let grandSubtotal = 0;
 
-    productSubtotals.forEach(el => {
-      grandSubtotal += parsePrice(el.textContent);
+    originalReviews.forEach(el => {
+      grandSubtotal += euroToNumber(el.textContent);
     });
 
-    const formattedSubtotal = formatPrice(grandSubtotal);
+    const formattedSubtotal = numberToEuro(grandSubtotal);
 
-    document.querySelectorAll('.gmd-price.costs').forEach(target => {
+    const reviewTargets = document.querySelectorAll('.gmd-price.costs');
+    reviewTargets.forEach(target => {
       target.textContent = formattedSubtotal;
     });
 
-    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true });
+    if (observer) observer.observe(document.querySelector('.cart-collaterals'), { childList: true, subtree: true }); 
   }
 
   addSubtotalRow();
-  updateShippingBar(true);
+  updateShippingBar(true); 
 
   observer = new MutationObserver((mutations) => {
     let needsUpdate = false;
+
     mutations.forEach(mutation => {
       if (mutation.addedNodes.length || mutation.removedNodes.length) {
         needsUpdate = true;
