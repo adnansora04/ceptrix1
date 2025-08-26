@@ -31,7 +31,12 @@ waitForElement('.minicart-content', () => {
         })
 
 
-      
+      document.querySelectorAll('.container-fluid #minicart-content span').forEach(Element => {
+        if(Element.querySelector('.text-primary')){
+            Element.classList.add('gmd-image ')
+        }
+        console.log(Element)
+      })
 
 
         document.querySelectorAll('.minicart-goToCart .gmd-view a').forEach(el => {
@@ -78,28 +83,56 @@ if (target) {
 
 
 
-document
-  .querySelector('.container-fluid [title="Winkelwagen bekijken"]')
-  .setAttribute('href', 'javascript:void(0)');
-
-
+document.querySelector('.container-fluid [title="Winkelwagen bekijken"]') .setAttribute('href', 'javascript:void(0)');
 const cartLink = document.querySelector('.container-fluid [title="Winkelwagen bekijken"]');
-
 const minicart = document.querySelector('.container-fluid .minicart-container');
-
 if (minicart && cartLink) {
-  cartLink.addEventListener('click', () => {
-    minicart.click(); 
-    
-  });
+    cartLink.addEventListener('click', () => {
+        minicart.click();
+
+    });
 }
 
+document.querySelectorAll('.container-fluid .main-container > div:first-child')
+  .forEach(el => el.classList.add('your-class-name'));
+document.querySelector('.container-fluid .main-container > div:nth-child(2)').classList.add('gmd-load')
 
 
 
 
+const productsDesktop = document.querySelectorAll('.container-fluid #minicart-content #minicart-explorer .border-bottom');
+const productsMobile = document.querySelectorAll('.container-fluid .shopping-cart-count');
+const popupTrigger = document.querySelector('.container-fluid #minicart-content .minicart-container');
+
+const hasProducts = (productsDesktop.length > 0 || productsMobile.length > 0);
+
+if (hasProducts && popupTrigger) {
+    if (!sessionStorage.getItem('popupShown')) {
+        popupTrigger.click();
+        sessionStorage.setItem('popupShown', 'true'); 
+    }
+}
+
+document.querySelectorAll('.container-fluid #minicart-content a.text-primary').forEach(Element => {
+    const span = Element.parentElement.querySelector("span");
+    if (span) {
+        span.classList.add("gmd-products"); 
+    }
+});
+
+document.querySelectorAll('.container-fluid #minicart-content a.text-primary').forEach(el => {
+  const count = el.parentElement.querySelector('.gmd-products')?.textContent || '1';
+  el.insertAdjacentHTML("afterend", `<div class="gmd-pro">Aantal: ${count}</div>`);
+});
 
 
+// const product = document.querySelectorAll('.container-fluid #minicart-content #minicart-explorer')
+// if (product.length > 0) {
+//   const popup = document.querySelectorAll('.container-fluid #minicart-content .minicart-container') 
+//    if(popup) {
+//     popup.click();
+//    }
+// }
 
 
 
