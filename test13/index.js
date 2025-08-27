@@ -8,6 +8,8 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     }, interval);
     setTimeout(() => clearInterval(check), timeout);
 }
+
+    function handleStock() {
 waitForElement('.minicart-content', () => {
     document.body.classList.add('gmd-001');
     document.querySelectorAll('.minicart-content .page-title').forEach(el => {
@@ -24,43 +26,62 @@ waitForElement('.minicart-content', () => {
             if(!el.querySelector('.btn')){
                 el.querySelector('div:first-child').classList.add('gmd-content')
             }
+
+
             // else{
             //     el.querySelector('div:first-child').classList.add('gmd-content')
             // }
         
         })
+        
+        const items = document.querySelectorAll(' .minicart-content .border-bottom');
+  
+        if (items.length >= 4) {
+            document.querySelector('.gmd-001 .minicart-content ').classList.add('show-scroll');
+        }   
+        // else {
+        //   document.querySelector('.gmd-001 .minicart-content').classList.remove('.show-scroll');
+        // }
+  
+        document.querySelectorAll('.minicart-content .page-title').forEach(el => {
+            el.textContent = "Hey, welkom terug";
+        });
+        
+        document.querySelectorAll('.gmd-view .btn').forEach(el => {
+          el.textContent = "Bestellen";
+        })
 
-
-      document.querySelectorAll('.container-fluid #minicart-content span').forEach(Element => {
-        if(Element.querySelector('.text-primary')){
-            Element.classList.add('gmd-image ')
-        }
-        console.log(Element)
-      })
-
+        
+   });
+});     
+    }
+    const observer = new MutationObserver(handleStock);
+    console.log(handleStock)
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+    });
+    
+// document.querySelectorAll('.container-fluid #minicart-content span').forEach(Element => {
+      //   if(Element.querySelector('.text-primary')){
+      //       Element.classList.add('gmd-image ')  
+      //   }
+      //   console.log(Element)
+      // })
+document.querySelectorAll('.minicart-goToCart >div :first-child ')[0].parentElement.classList.add('gmd-text')
 
         document.querySelectorAll('.minicart-goToCart .gmd-view a').forEach(el => {
             el.querySelectorAll('btn')
             el.insertAdjacentHTML('beforebegin', `
-            <a href="https://www.badkamerxxl.nl/cart"class="gmd-cart">
+            <a href="https://www.badkamerxxl.nl/cart"class="gmd-cart">  
              Bekijk winkelwagen
             </a>
         `);
         });
 
 
-        const items = document.querySelectorAll(' .minicart-content .border-bottom');
 
-        if (items.length > 4) {
-            document.querySelector('.gmd-001 .minicart-content').classList.add('show-scroll');
-        }
-
-        document.querySelectorAll('.minicart-content .page-title').forEach(el => {
-            el.textContent = "Hey, welkom terug";
-        });
-
-    });
-});
+ 
 
 const target = document.querySelector('.minicart-content');
 
@@ -73,10 +94,26 @@ if (target) {
           <div class="gmd-image">
             <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756146109/Rectangle_1_3_hbqi2w.png" />
           </div>
+          <button class="gmd-close" >
+          <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756234677/material-symbols_close_hvlbtj.png"/>
+          </button>
         `);
       }
     }
   });
+
+
+
+
+  // const closebtn = document.querySelector('.gmd-images');
+  // if (closebtn){
+  //   closebtn.addEventListener('click',() => {
+  //     targets .classList.remove('show-scroll');
+
+  //     document.querySelector('.gmd-images')?.remove();
+  //     closebtn.remove();
+  //   })
+  // }
 
   observer.observe(target, { attributes: true, attributeFilter: ['class'] });
 }
@@ -108,7 +145,7 @@ const hasProducts = (productsDesktop.length > 0 || productsMobile.length > 0);
 
 if (hasProducts && popupTrigger) {
     if (!sessionStorage.getItem('popupShown')) {
-        popupTrigger.click();
+        popupTrigger.click(); 
         sessionStorage.setItem('popupShown', 'true'); 
     }
 }
@@ -124,6 +161,10 @@ document.querySelectorAll('.container-fluid #minicart-content a.text-primary').f
   const count = el.parentElement.querySelector('.gmd-products')?.textContent || '1';
   el.insertAdjacentHTML("afterend", `<div class="gmd-pro">Aantal: ${count}</div>`);
 });
+
+
+
+
 
 
 // const product = document.querySelectorAll('.container-fluid #minicart-content #minicart-explorer')
