@@ -32,10 +32,10 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
         
         const items = document.querySelectorAll(' .minicart-content .border-bottom');
         if (items.length >= 4) {
-            document.querySelector('.gmd-22 .minicart-content ').classList.add('show-scroll');
+            document.querySelector('.minicart-content ').classList.add('show-scroll');
         }   
         else {
-              minicartContent.classList.remove('show-scroll'); // hide scroll
+             document.querySelector('.minicart-content ').classList.remove('show-scroll'); 
               }
   
             document.querySelectorAll('.minicart-content .page-title').forEach(el => {
@@ -46,8 +46,9 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
             if (btn) {
             btn.textContent = "Bestellen";
             }
+            
 
-        
+        document.querySelector('.gmd-view .btn').setAttribute('href', 'https://www.badkamerxxl.nl/checkout');
   
             //adding text
           document.querySelectorAll('.minicart-goToCart >div :first-child ')[0].parentElement.classList.add('gmd-text')
@@ -63,7 +64,11 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
           });
           
           
-          
+                  //  const cartBtn = document.querySelector('.minicart-goToCart');
+
+                  //       if (cartBtn && !document.querySelector('.gmd-hello')) {
+                  //         cartBtn.insertAdjacentHTML('beforebegin', '<hr class="gmd-hello">');
+                  //       }
           
           //image and button 
               const target = document.querySelector('.minicart-content');
@@ -129,13 +134,16 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
             document.querySelectorAll('.container-fluid #minicart-content a.text-primary').forEach(el => {
               const parent = el.parentElement;
               if (!parent.querySelector('.gmd-pro')) {
-                const count = parent.querySelector('.gmd-products')?.textContent || '1';
+                const count = parent.querySelector('.gmd-products')?.textContent || '1x';
                 el.insertAdjacentHTML("afterend", `<div class="gmd-pro">Aantal: ${count}</div>`);
               }
             });  
+    
           }); 
-          
+        
+
         }
+        
         
         handleStock();
         const Observer = new MutationObserver(handleStock);

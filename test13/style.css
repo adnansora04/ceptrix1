@@ -2,6 +2,7 @@
     top: 68px !important;
     width: 100%;
     max-width: 442px;
+    right: 8px;
 }
 
 .gmd-22 .gmd-label {
@@ -11,8 +12,8 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%;
-    margin-top: 4px;
-    margin-bottom: 8px;
+    margin-top: 7px;
+    margin-bottom: 16px;
     width: 100%;
     max-width: 367px;
 }
@@ -26,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 19px !important;
 }
 
 .gmd-22 .gmd-cart {
@@ -44,12 +46,18 @@
     text-underline-position: from-font;
 }
 
+.gmd-22 .gmd-view .btn {
+    padding: 9.2px 47px;
+    border-radius: 60px;
+    background: #00A24D;
+}
+
 .gmd-22 .cart-row {
     border-bottom: none !important;
 }
 
 .gmd-22 .minicart-content.show-scroll {
-    max-height: 707px !important;
+    max-height: 521px !important;
     overflow-y: auto !important;
     border-radius: 3.2px !important;
 }
@@ -61,23 +69,27 @@
 }
 
 .gmd-22 .minicart-goToCart {
-    border-top: 1px solid #dee2e6 !important;
+    /* border-top: 1px solid #dee2e6 !important; */
 }
 
 .gmd-22 .gmd-text {
-    padding-bottom: 16px;
+    padding-bottom: 12px;
 }
 
 .gmd-22 .gmd-image {
     position: absolute;
-    right: 66px;
-    top: -3px;
+    right: 49px;
+    top: -4px;
 }
 
 .gmd-22 .gmd-close {
     display: none;
 }
-
+.gmd-22 .gmd-hello{
+    width:50%;
+    height:0px;
+    background:#D9D9D9;
+}
 .gmd-22 .container-fluid #minicart-content a.text-primary {
     color: #000 !important;
     font-family: "Source Sans Pro";
@@ -89,8 +101,8 @@
 }
 
 .gmd-22 .gmd-image img {
-    width: 20.709px;
-    height: 20.614px;
+    max-width: 25.009px;
+    width: 100%;
 }
 
 .gmd-22 .gmd-pro {
@@ -132,48 +144,64 @@
 
 
 .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
+}
+
+.gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 21px;
+    border-radius: 21px;
+    background: #003062;
+    -webkit-box-shadow: inset 0 0 6px #f1f1f1;
 }
 
 .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 0 6px #f1f1f1;
+    -webkit-border-radius: 21px;
     border-radius: 21px;
-}
-
-
-.gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-thumb {
-    background-color: #003062;
-    border-radius: 21px;
-
+    margin-top: 80px;
 }
 
 .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-thumb:hover {
     background-color: #001f44;
 }
 
-/* For Firefox */
+/* For Firefox
 .gmd-22 .minicart-content.show-scroll {
     scrollbar-width: thin;
     scrollbar-color: #003062 #f1f1f1;
-}
+} */
+
+
+/* For Firefox */
+/* .gmd-22 .minicart-content.show-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #003062 #f1f1f1;
+} */
 
 
 .gmd-22 .minicart-container {
-  display: none;
-}
-.gmd-22 .minicart-container.open {
-  display: block;
+    display: none;
 }
 
-@media (max-width: 991px) {
+.gmd-22 .minicart-container.open {
+    display: block;
+}
+
+.gmd-22 .minicart-content .page-title {
+    font-size: 21.6px !important;
+}
+
+@media (max-width: 992px) {
     .gmd-22 .minicart {
-        top: -68px !important;
-        right: 4px !important;
+        top: -68px;
+        right: 4px;
+        left: unset;
     }
 
     .gmd-22 .gmd-image {
-        top: -3px !important;
-        right: 14px !important;
+        top: -3px;
+        right: 14px;
+        left: unset;
 
     }
 }
@@ -182,6 +210,7 @@
     .gmd-22 .minicart {
         top: -9px !important;
         right: -17px;
+        left: unset;
     }
 
     .gmd-22 .gmd-image {
@@ -210,9 +239,15 @@
 
 @media (max-width: 376px) {
     .gmd-22 .minicart {
-        top: -12px !important;
-        left: 13px !important;
+        top: -4px !important;
+        left: 8px;
+        right: unset;
 
+    }
+
+    .gmd-22 .gmd-image img {
+        max-width: 20.709px;
+        width: 100%;
     }
 
     .gmd-22 .minicart {
@@ -220,11 +255,15 @@
         max-width: 357px;
     }
 
+    .gmd-22 .main-menu {
+        padding: 8px 15px;
+    }
+
     .gmd-22 .gmd-close {
         display: block;
         position: absolute;
-        right: 36px;
-        top: 17px;
+        right: 10px;
+        top: 24px;
         z-index: 9999;
         border: none;
         background: #fff;
@@ -238,12 +277,16 @@
 
 
     .gmd-22 .gmd-image {
-        top: -2px !important;
-        right: 26px !important;
+        top: -3px;
+        right: 6px;
     }
 
     .gmd-22 .minicart-content.show-scroll {
         max-height: 589px;
+    }
+
+    .gmd-22 .container-fluid .search-bar {
+        display: none;
     }
 }
 
