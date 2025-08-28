@@ -86,7 +86,7 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
                       if (minicart && closeBtn) {
                         closeBtn.addEventListener('click', () => {
                           minicart.click();
-                        }, { once: true }); 
+                        }, ); 
                       }
                     }
                   }
