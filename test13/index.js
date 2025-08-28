@@ -66,34 +66,35 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
           
           
           //image and button 
-          const target = document.querySelector('.minicart-content');
-          
-          if (target) {
-            
-            const observer = new MutationObserver(() => {
-              if (target.classList.contains('show-scroll')) {
-                if (!document.querySelector('gmd-image')) {
-                  target.insertAdjacentHTML('afterend', `
-                    <div class="gmd-image">
-                    <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756146109/Rectangle_1_3_hbqi2w.png" />
-                    </div>
-                    <button class="gmd-close" >
-                    <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756234677/material-symbols_close_hvlbtj.png"/>
-                    </button>
-                    `);
+              const target = document.querySelector('.minicart-content');
+
+              if (target) {
+                const observer = new MutationObserver(() => {
+                  if (target.classList.contains('show-scroll')) {
+                    if (!document.querySelector('.gmd-image')) {
+                      target.insertAdjacentHTML('afterend', `
+                        <div class="gmd-image">
+                          <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756146109/Rectangle_1_3_hbqi2w.png" />
+                        </div>
+                        <button class="gmd-close">
+                          <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756234677/material-symbols_close_hvlbtj.png"/>
+                        </button>
+                      `);
+
+                      const minicart = document.querySelector('.container-fluid .minicart-container');
+                      const closeBtn = document.querySelector('.gmd-close');
+                      if (minicart && closeBtn) {
+                        closeBtn.addEventListener('click', () => {
+                          minicart.click();
+                        }, { once: true }); 
+                      }
+                    }
                   }
-                }
-                const minicart = document.querySelector('.container-fluid .minicart-container');
-                const closeBtn = document.querySelector('.gmd-close');
-                if (minicart && closeBtn) {
-                  closeBtn.addEventListener('click', () => {
-                    minicart.click();
-                  });
-                }
-              });
-              observer.observe(target, { attributes: true, attributeFilter: ['class'] });
-            }
-            
+                });
+
+                observer.observe(target, { attributes: true, attributeFilter: ['class'] });
+              }
+
             
             //mobile click 
             
