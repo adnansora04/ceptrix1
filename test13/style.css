@@ -1,8 +1,15 @@
     .gmd-22 .minicart {
-        top: 68px ;
+        top: 68px;
         width: 100%;
         max-width: 442px;
         right: 8px;
+        top: 68px;
+        width: 100%;
+        max-width: 442px;
+        right: 8px;
+        background: #ffff;
+        padding: 17px;
+        border-radius: 3px;
     }
 
     .gmd-22 .gmd-label {
@@ -57,7 +64,7 @@
     }
 
     .gmd-22 .minicart-content.show-scroll {
-        max-height: 521px !important;
+        max-height: 470px !important;
         overflow-y: auto !important;
         border-radius: 3.2px !important;
     }
@@ -68,23 +75,26 @@
         border-radius: 3.2px !important;
     }
 
-    .gmd-22 .minicart-goToCart {
-        /* border-top: 1px solid #dee2e6 !important; */
-    }
+    /* .gmd-22 .minicart-goToCart {
+        border-top: 1px solid #dee2e6 !important;
+    } */
 
     .gmd-22 .gmd-text {
         padding-bottom: 12px;
+        border-top: 1px solid #D9D9D9;
+        padding-top: 15px;
     }
 
     .gmd-22 .gmd-image {
         position: absolute;
         right: 49px;
-        top: -4px;
+        top: -13px;
     }
 
     .gmd-22 .gmd-close {
         display: none;
     }
+
     /* .gmd-22 .gmd-hello{
         width:50%;
         height:0px;
@@ -140,7 +150,11 @@
 
     .gmd-22 .minicart-content.show-scroll {
         overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 0px !important;
+        padding-right: 11px !important;
     }
+
 
 
     .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar {
@@ -158,12 +172,13 @@
         -webkit-box-shadow: inset 0 0 6px #f1f1f1;
         -webkit-border-radius: 21px;
         border-radius: 21px;
-        margin-top: 80px;
+        margin-top: 10px;
     }
 
-    .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-thumb:hover {
+    /* .gmd-22 .minicart-content.show-scroll::-webkit-scrollbar-thumb:hover {
         background-color: #001f44;
-    }
+        
+    } */
 
     /* For Firefox
     .gmd-22 .minicart-content.show-scroll {
@@ -193,7 +208,7 @@
 
     @media (max-width: 1279px) {
         .gmd-22 .minicart {
-            top: -9px ;
+            top: -9px;
             right: -17px;
             left: unset;
         }
@@ -221,25 +236,32 @@
         }
 
     }
+
     @media (max-width: 992px) {
         .gmd-22 .minicart {
             /* top: -68px; */
             right: 4px;
             left: unset;
+            top: -3px;
         }
 
         .gmd-22 .gmd-image {
-            top: -3px;
+            top: -4px;
             right: 14px;
             left: unset;
 
         }
     }
 
+    @media (max-width: 469px) {
+        .gmd-22 .minicart {
+            max-width: 365px;
+        }
+    }
 
     @media (max-width: 376px) {
         .gmd-22 .minicart {
-            top: -4px ;
+            top: -1px;
             left: 8px;
             right: unset;
 
@@ -277,12 +299,12 @@
 
 
         .gmd-22 .gmd-image {
-            top: -3px;
+            top: -4px;
             right: 6px;
         }
 
         .gmd-22 .minicart-content.show-scroll {
-            max-height: 589px;
+            max-height: 431px !important
         }
 
         .gmd-22 .container-fluid .search-bar {

@@ -73,8 +73,8 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
           //image and button 
               const target = document.querySelector('.minicart-content');
 
-              if (target) {
-                const observer = new MutationObserver(() => {
+              
+                
                   if (target.classList.contains('show-scroll')) {
                     if (!document.querySelector('.gmd-image')) {
                       target.insertAdjacentHTML('afterend', `
@@ -95,12 +95,34 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
                       }
                     }
                   }
-                });
+                
 
-                observer.observe(target, { attributes: true, attributeFilter: ['class'] });
-              }
+                  const minicart = document.querySelector('.minicart-content');
+                  if (minicart && !document.querySelector('.gmd-wrapper')) {
+                    minicart.insertAdjacentHTML('beforebegin', '<div class="gmd-wrapper"></div>');
+                  }
 
+                  const wrapper = document.querySelector('.gmd-wrapper');
+
+                  if (wrapper) {
+                    const selectors = ['.minicart-content .page-title', '.minicart-content .gmd-label'];
+                    selectors.forEach(sel => {
+                      document.querySelectorAll(sel).forEach(el => {
+                        wrapper.appendChild(el);
+                      });
+                    });
+                  }
+             
+
+
+// const minicarts = document.querySelector('.minicart-content');
+// if (minicarts && !document.querySelector('.gmd-wrapper')) {
+//   minicarts.insertAdjacentHTML('beforebegin', '<div class="gmd-wrapper"></div>');
+// }
+                  
             
+
+
             //mobile click 
             
             document.querySelectorAll('.container-fluid .main-container > div:first-child')
