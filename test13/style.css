@@ -1,9 +1,5 @@
     .gmd-22 .minicart {
-        top: 68px;
-        width: 100%;
-        max-width: 442px;
-        right: 8px;
-        top: 68px;
+        top: 67px;
         width: 100%;
         max-width: 442px;
         right: 8px;
@@ -20,7 +16,7 @@
         font-weight: 400;
         line-height: 150%;
         margin-top: 7px;
-        margin-bottom: 16px;
+        /* margin-bottom: 16px; */
         width: 100%;
         max-width: 367px;
     }
@@ -87,8 +83,8 @@
 
     .gmd-22 .gmd-image {
         position: absolute;
-        right: 49px;
-        top: -13px;
+        right: 48.4px;
+        top: -14px;
     }
 
     .gmd-22 .gmd-close {
@@ -208,13 +204,13 @@
 
     @media (max-width: 1279px) {
         .gmd-22 .minicart {
-            top: -9px;
+            top: 1px;
             right: -17px;
             left: unset;
         }
 
         .gmd-22 .gmd-image {
-            top: -3px;
+            top: -13px;
             right: 10px;
         }
 
@@ -246,7 +242,7 @@
         }
 
         .gmd-22 .gmd-image {
-            top: -4px;
+            top: -12px;
             right: 14px;
             left: unset;
 
@@ -261,10 +257,9 @@
 
     @media (max-width: 376px) {
         .gmd-22 .minicart {
-            top: -1px;
-            left: 8px;
+            top: 10px;
+            left: 10px;
             right: unset;
-
         }
 
         .gmd-22 .gmd-image img {
@@ -299,7 +294,7 @@
 
 
         .gmd-22 .gmd-image {
-            top: -4px;
+            top: -14px;
             right: 6px;
         }
 
