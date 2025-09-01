@@ -29,18 +29,49 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
                 el.querySelector('div:first-child').classList.add('gmd-content')
             }
         })
-        
-        const items = document.querySelectorAll(' .minicart-content .border-bottom');
-        if (items.length >= 4) {
-            document.querySelector('.minicart-content ').classList.add('show-scroll');
-        }   
-        else {
-             document.querySelector('.minicart-content ').classList.remove('show-scroll'); 
-              }
-  
+
+
+//         let items = document.querySelectorAll(".minicart-content .border-bottom");
+
+// items.forEach((item) => {
+//   console.log(`Div `, item.offsetHeight);
+// }); 
+          const targets = document.querySelector('.minicart-content');
+    const items = document.querySelectorAll('.minicart-content .border-bottom');
+
+    let height = 0;
+
+    for (let i = 0; i < 4 && i < items.length; i++) {
+      height += items[i].offsetHeight;
+    }
+    if (items.length > 4) {
+      targets.classList.add('show-scroll');
+      targets.style.height = height + 'px';
+    } else {
+      targets.classList.remove('show-scroll');
+      targets.style.height = 'auto';
+    }
+    
+
+            // const targets = document.querySelector('.minicart-content');
+            
+            // const items = document.querySelectorAll(' .minicart-content .border-bottom');
+            // if (items.length >= 4) {
+            //   targets.classList.add('show-scroll');
+            //     targets.style.height = targets.scrollHeight + `px`;
+            //   }
+            //   else{
+              
+            //     targets.classList.remove("show-scroll")
+            //     targets.style.height = "auto";
+            //   }   
+        // else {
+        //      document.querySelector('.minicart-content ').classList.remove('show-scroll'); 
+        //       }
             document.querySelectorAll('.minicart-content .page-title').forEach(el => {
             el.textContent = "Hey, welkom terug";
             });
+
         
             const btn = document.querySelector('.gmd-view .btn');
             if (btn) {
@@ -183,100 +214,4 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
               });
             }
         
-        
-        // const product = document.querySelectorAll('.container-fluid #minicart-content #minicart-explorer')
-        // if (product.length > 0) {
-          //   const popup = document.querySelectorAll('.container-fluid #minicart-content .minicart-container') 
-          //    if(popup) {
-            //     popup.click();
-            //    }
-            // }
-            
-            
-            // const closebtn = document.querySelector('.gmd-images');
-            // if (closebtn){
-              //   closebtn.addEventListener('click',() => {
-                //     targets .classList.remove('show-scroll');
-                
-                //     document.querySelector('.gmd-images')?.remove();
-                //     closebtn.remove();
-                //   })
-                // }
-                
-            
-            
-            //   
-            // document.querySelectorAll('.container-fluid #minicart-content span').forEach(Element => {
-              //         if(Element.querySelector('.text-primary')){
-                //             Element.classList.add('gmd-image ')  
-                //         }
-                //         console.log(Element)
-                //       })
-                
-                
-                
-                // document.querySelectorAll('.minicart').forEach(el => {
-                  //     el.insertAdjacentHTML('afterend', `
-                  //         <div class="gmd-image">
-                  //             <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1756146109/Rectangle_1_3_hbqi2w.png" />
-                  //         </div>
-                  //     `);
-                  // });
-                  
-                  
-
-
-
-
-// function togglepopup() {
-//     const popup = document.querySelector('.gmd-22.minicart-content'); 
-//     const products = document.querySelectorAll('.gmd-22.minicart-content .border-bottom');
-
-//     if (popup) {
-//         if (products.length > 1) {
-//             popup.style.display = "block";
-//         } else {
-//             popup.style.display = "none";
-//         }
-//     }
-// }
-
-// togglepopup();
-
-// const cart = document.querySelector('.gmd-22.minicart-content'); // fix typo from 'mincart-content'
-
-// if (cart) {
-//     const observer = new MutationObserver(togglepopup);
-//     observer.observe(cart, { childList: true, subtree: true });
-// }
-
-// function waitForElement(selector, callback, interval = 50, timeout = 10000) {
-//   const check = setInterval(() => {
-//     const el = document.querySelector(selector);
-//     if (el) {
-//       clearInterval(check);
-//       callback(el);
-//     }
-//   }, interval);
-//   setTimeout(() => clearInterval(check), timeout);
-// }
-
-
-// waitForElement(".category-view .category-products .list-unstyled .text-white", () => {
-
-//   console.log('l')
-//   document.body.classList.add('cpl-001');
-//   document.querySelectorAll('.category-products .category-products-grid > li .selection-aid-box').forEach((element) => {
-//     // element.classList.add('cpl-002');
-//     element.parentElement.classList.add('cpl-hide-aid-box')
-//   });
-// })
-// waitForElement(".product-product .product-main-row .sticky-product-image .product-selection-aid", () => {
-
-//   console.log('l')
-//   document.body.classList.add('cpl-001');
-//   document.querySelector('.product-main-row .sticky-product-image .product-selection-aid').parentElement.classList.add('cpl-hide-aid-box')
-
-// })
-
-
+      
