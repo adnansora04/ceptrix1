@@ -32,24 +32,53 @@ function handleStock() {
 
 
     
-    const targets = document.querySelector('.minicart-content');
-    const items = document.querySelectorAll('.minicart-content .border-bottom');
-    
-    let height = 0;
-    
-    for (let i = 0; i < 4 && i < items.length; i++) {
-      height += items[i].offsetHeight;
-    }
-    if (items.length > 4) {
-      targets.classList.add('show-scroll');
-      targets.style.height = (height + 16) + 'px';
-    } else {
-      targets.classList.remove('show-scroll');
-      targets.style.height = (height + 19) + 'px';
-    }
-    document.querySelectorAll('.minicart-content .page-title').forEach(el => {
-      el.textContent = "Hey, welkom terug";
-    });
+      // const targets = document.querySelector('.minicart-content');
+      // const items = document.querySelectorAll('.minicart-content .border-bottom');
+      
+      // let height = 0;
+      
+      // for (let i = 0; i < 4 && i < items.length; i++) {
+      //   height += items[i].offsetHeight;
+      // }
+      // if (items.length > 4) {
+      //   targets.classList.add('show-scroll');
+      //   targets.style.height = (height + 16) + 'px';
+      // } else {
+      //   targets.classList.remove('show-scroll');
+      //   targets.style.height = (height + 19) + 'px';
+      // }
+
+
+
+      const targets = document.querySelector('.minicart-content');
+        const items = document.querySelectorAll('.minicart-content .border-bottom');
+
+        let height = 0;
+
+        if (window.innerWidth <= 767) {
+          for (let i = 0; i < 3 && i < items.length; i++) {
+            height += items[i].offsetHeight;
+          }
+          if (items[3]) height += items[3].offsetHeight / 2;
+
+          targets.classList.add('show-scroll');
+          targets.style.height = height + 'px';
+        } else {
+          for (let i = 0; i < 4 && i < items.length; i++) {
+            height += items[i].offsetHeight;
+          }
+
+          if (items.length > 4) {
+            targets.classList.add('show-scroll');
+            targets.style.height = (height + 16) + 'px';
+          } else {
+            targets.classList.remove('show-scroll');
+            targets.style.height = (height + 19) + 'px';
+          }
+        }
+      document.querySelectorAll('.minicart-content .page-title').forEach(el => {
+        el.textContent = "Hey, welkom terug";
+      });
     
     
     const btn = document.querySelector('.gmd-view .btn');
