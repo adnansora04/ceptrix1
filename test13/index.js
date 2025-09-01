@@ -51,31 +51,41 @@ function handleStock() {
 
 
       const targets = document.querySelector('.minicart-content');
-        const items = document.querySelectorAll('.minicart-content .border-bottom');
+const items = document.querySelectorAll('.minicart-content .border-bottom');
 
-        let height = 0;
+function updateHeight() {
+  let height = 0;
 
-        if (window.innerWidth <= 767) {
-          for (let i = 0; i < 3 && i < items.length; i++) {
-            height += items[i].offsetHeight;
-          }
-          if (items[3]) height += items[3].offsetHeight / 2;
+  if (window.innerWidth <= 767) {
+    // mobile: 3.5 items
+    for (let i = 0; i < 3 && i < items.length; i++) {
+      height += items[i].offsetHeight;
+    }
+    if (items[3]) height += items[3].offsetHeight / 2;
 
-          targets.classList.add('show-scroll');
-          targets.style.height = height + 'px';
-        } else {
-          for (let i = 0; i < 4 && i < items.length; i++) {
-            height += items[i].offsetHeight;
-          }
+    targets.classList.add('show-scroll');
+    targets.style.height = height + 'px';
+  } else {
+    // desktop: 4 items
+    for (let i = 0; i < 4 && i < items.length; i++) {
+      height += items[i].offsetHeight;
+    }
 
-          if (items.length > 4) {
-            targets.classList.add('show-scroll');
-            targets.style.height = (height + 16) + 'px';
-          } else {
-            targets.classList.remove('show-scroll');
-            targets.style.height = (height + 19) + 'px';
-          }
-        }
+    if (items.length > 4) {
+      targets.classList.add('show-scroll');
+      targets.style.height = (height + 16) + 'px';
+    } else {
+      targets.classList.remove('show-scroll');
+      targets.style.height = (height + 19) + 'px';
+    }
+  }
+}
+
+// initial set
+updateHeight();
+
+// update on resize
+window.addEventListener('resize', updateHeight);
       document.querySelectorAll('.minicart-content .page-title').forEach(el => {
         el.textContent = "Hey, welkom terug";
       });

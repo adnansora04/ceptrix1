@@ -322,9 +322,9 @@
             max-height: 431px !important
         }
 
-        .gmd-22 .container-fluid .search-bar {
+        /* .gmd-22 .container-fluid .search-bar {
             display: none;
-        }
+        } */
 
         .gmd-22 .container-fluid #minicart-content a.text-primary {
             font-size: 14px;
