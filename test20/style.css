@@ -1,0 +1,174 @@
+.gmd-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.gmd-popup-content {
+    background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757415382/IMG-Desktop_otcboj.png");
+    padding: 86px 48px;
+    border-radius: 30px;
+    max-width: 880px;
+    width: 100%;
+    color: #fff;
+    font-family: sans-serif;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.gmd-popup-content .gmd-text {
+    color: var(--Theme-Prim, #173B52);
+    font-family: var(--Font-Family-Headlines, "Neuzeit Grotesk");
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+    width: 100%;
+    max-width: 562px;
+    /* 116.667% */
+}
+
+.gmd-popup-content span {
+    color: var(--Theme-White, #FFF);
+    font-family: var(--Font-Family-Headlines, "Neuzeit Grotesk");
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.gmd-popup-content ul {
+    display: flex;
+    width: 406px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Micro-16, 16px);
+    margin-bottom: 40px;
+    
+}
+
+.gmd-close svg {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+}
+
+.gmd-popup-content li {
+    color: var(--Theme-Prim, #173B52);
+
+    /* Paragraphs/P1-18-R */
+    font-family: "Neuzeit Grotesk";
+    font-size: var(--Paragraphs-P1---18, 18px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    width: 100%;
+    max-width: 374px;
+}
+
+
+.gmd-popup-content li strong {
+    color: var(--Theme-Prim, #173B52);
+
+    /* Paragraphs/P1-18-B */
+    font-family: var(--Font-Family-Paragraphs, "Neuzeit Grotesk");
+    font-size: var(--Paragraphs-P1---18, 18px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 135%;
+    /* 24.3px */
+}
+
+.gmd-btn {
+    color: var(--Theme-Prim, #173B52);
+    text-align: center;
+    font-family: var(--Font-Family-Eyebrow-CAPS, "Neuzeit Grotesk");
+    font-size: var(--CAPS-C1-18, 18px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    text-transform: uppercase;
+
+}
+
+.gmd-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.gmd-button {
+    display: flex;
+    width: 100%;
+    max-width: 180px;
+    height: var(--Medium-64, 64px);
+    /* padding: 20px 40px; */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Corner-Radiuses-CTA, 100px);
+    background: var(--Theme-White, #FFF);
+}
+
+@media (max-width: 1025px) {
+    .gmd-popup-content {
+        width: 100%;
+        max-width: 802px;
+        background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757418082/IMG-Tablet_y84nmi.png");
+        padding: 64px 40px;
+    }
+
+    .gmd-popup-content .gmd-text {
+        font-size: 40px;
+        max-width: 520px;
+    }
+
+    .gmd-popup-content span {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .gmd-popup-content {
+        width: 100%;
+        max-width: 658.99px;
+        background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757418623/IMG-Mobile_uxztxu.png");
+        padding: 64px 40px;
+    }
+
+    .gmd-popup-content .gmd-text {
+        font-size: 24px;
+        max-width: 280px;
+        line-height: 120%;
+
+    }
+
+    .gmd-popup-content span {
+        font-size: 24px;
+        line-height: 120%;  
+    }
+
+    .gmd-popup-content li {
+        width: 100%;
+        max-width: 267px;
+    }
+    .gmd-button{
+        max-width: 280px;
+    }
+}
