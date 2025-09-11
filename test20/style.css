@@ -18,7 +18,7 @@
 .gmd-001 .gmd-popup-content {
     background:
         url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757415382/IMG-Desktop_otcboj.png") center/cover no-repeat;
-    padding: 79px 47px;
+    padding: 81px 48px;
     border-radius: 24px;
     color: #fff;
     font-family: sans-serif;
@@ -27,6 +27,7 @@
     margin: auto;
     width: 100%;
     max-width: 880px;
+    padding-left: 85px;
 }
 
 
@@ -84,8 +85,8 @@
     line-height: 135%;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect width="20" height="20" rx="10" fill="white" fill-opacity="0.42"/><path d="M14.4445 6.6665L8.33335 12.7776L5.55557 9.99984" stroke="%23173B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat left center;
     background-size: 20px;
-    padding-left: 33px;
-    background-position: 1px 3px;
+   padding-left: 32px;
+    background-position: 0px 1px;
     /* width: 100%;
     max-width: 374px; */
 }
@@ -165,7 +166,7 @@
         margin-bottom: 38px;
     }
 
-    .gmd-001 .gmd-popup-content span {  
+    .gmd-001 .gmd-popup-content span {
         font-size: 40px;
         line-height: 48px;
         display: block;
@@ -239,16 +240,20 @@
     }
 }
 
-@media (max-width: 609px){
+@media (max-width: 609px) {
 
-    .gmd-001 .gmd-popup-content li{
+    .gmd-001 .gmd-popup-content li {
         max-width: 281px;
+        background-position: -1px 1px;
+        padding-left: 31px;
     }
 
-    .gmd-001 .gmd-popup-content{
-             max-width: 328px; 
+    .gmd-001 .gmd-popup-content {
+        max-width: 328px;
     }
-    .gmd-001 .gmd-images{
-        top: 483px;
+
+    .gmd-001 .gmd-images {
+               top: 480.4px;
+        left: 59.3px;
     }
 }
