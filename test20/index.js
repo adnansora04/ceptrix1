@@ -63,3 +63,111 @@ waitForElement('.elementor .elementor-element  #announcement-banner', () => {
 
 });
 
+
+
+document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
+document.querySelector('.elementor-testimonial-wrapper').parentElement.parentElement.parentElement.classList.add('gmd-contents')
+document.querySelector('.elementor-widget-wrap').parentElement.parentElement.parentElement.classList.add('gmd-contents')
+document.querySelector('.elementor-widget-container h6').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
+el = document.querySelector('.gmd-wrapper');
+if (el)
+    el.parentElement.classList.add('gmd-image')
+
+document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
+document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
+
+el = document.querySelector('.gmd-section');
+if (el)
+    el.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-item');
+
+// el = document.querySelector('.gmd-item>div>div>p');
+// if(el)
+//     el.classList.add('gmd-demo');
+
+
+
+document.querySelectorAll("p").forEach(p => {
+    if (p.textContent.includes("Demo")) {
+        p.classList.add("gmd-hello");
+    }
+});
+
+document.querySelector(':has(>.gmd-hello)').parentElement.parentElement.classList.add('gmd-item')
+
+
+
+const btn = document.querySelector('.gmd-item>div>div>p');
+if (btn) {
+    btn.textContent = "Get a Demo";
+}
+
+el = document.querySelector('.gmd-item>div>div>p');
+if (el)
+    el.parentElement.classList.add('gmd-widget');
+
+
+function waitForElement(selector, callback, interval = 50, timeout = 10000) {
+    const check = setInterval(() => {
+        const el = document.querySelector(selector);
+        if (el) {
+            clearInterval(check);
+            callback(el);
+        }
+    }, interval);
+    setTimeout(() => clearInterval(check), timeout);
+}
+
+waitForElement('form', () => {
+    function addListeners() {
+        el = document.querySelector('.hs_email');
+        console.log(el)
+        if (el)
+            el.parentElement.classList.add('gmd-section');
+
+        document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
+        el = document.querySelector('.gmd-widget');
+        if (el)
+            el.parentElement.classList.add('gmd-badge');
+
+
+        document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
+            .forEach(input => {
+                if (input.dataset.done) return;
+                input.dataset.done = true;
+
+                input.addEventListener('focus', () => {
+                    input.closest('.hs-form-field')?.classList.add('focus');
+                });
+
+                input.addEventListener('blur', () => {
+                    if (!input.value.trim()) {
+                        input.closest('.hs-form-field')?.classList.remove('focus');
+                    }
+                });
+
+                if (input.value.trim()) {
+                    input.closest('.hs-form-field')?.classList.add('focus');
+                }
+            });
+    }
+
+
+    addListeners();
+
+
+    new MutationObserver(addListeners).observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+
+    const emailField = document.querySelector('.hs_email');
+    const companyField = document.querySelector('.hs_company');
+
+    if (emailField && companyField) {
+        emailField.insertAdjacentElement('afterend', companyField);
+    }
+
+});
+// // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-text')
+// document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-wrapper')
