@@ -69,9 +69,7 @@ document.querySelector('h1.elementor-heading-title').parentElement.parentElement
 document.querySelector('.elementor-testimonial-wrapper').parentElement.parentElement.parentElement.classList.add('gmd-contents')
 document.querySelector('.elementor-widget-wrap').parentElement.parentElement.parentElement.classList.add('gmd-contents')
 document.querySelector('.elementor-widget-container h6').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
-el = document.querySelector('.gmd-wrapper');
-if (el)
-    el.parentElement.classList.add('gmd-image')
+
 
 document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
 document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
@@ -105,6 +103,10 @@ el = document.querySelector('.gmd-item>div>div>p');
 if (el)
     el.parentElement.classList.add('gmd-widget');
 
+el = document.querySelector('.gmd-wrapper');
+if (el)
+    el.parentElement.classList.add('gmd-image')
+
 
 function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     const check = setInterval(() => {
@@ -120,7 +122,7 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 waitForElement('form', () => {
     function addListeners() {
         el = document.querySelector('.hs_email');
-        console.log(el)
+        // console.log(el)
         if (el)
             el.parentElement.classList.add('gmd-section');
 
