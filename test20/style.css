@@ -274,7 +274,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 45px;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 
 .gmd-001 .hs_submit .actions input {
@@ -318,12 +318,16 @@
 
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field.focus label {
-    top: 0px;
-    left: 10px;
+    top: -3px;
+    left: 16px;
     font-size: 13px;
     color: #0077cc;
     background: #fff;
     /* padding: 0 4px; */
+}
+.gmd-001 .legal-consent-container .hs-form-booleancheckbox label{
+    top: 0px !important;
+    left: 10px !important;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field input:focus {
@@ -353,13 +357,24 @@
     display: flex;
     justify-content: center !important;
     align-items: center !important;
+    padding-top: 224px;
 
 }
+
+/* body {
+  margin: 0;
+  background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png") !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+} */
+
 
 .gmd-001 .gmd-image {
     background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 124px;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
@@ -369,13 +384,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
-    
+
 
 }
+
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field:has(label.hs-error-msg) input {
-  border-radius: var(--Inputs-Corner-Radius, 4px);
-  border: 1px solid #BE321C;
-  background: #FFF;
+    border-radius: var(--Inputs-Corner-Radius, 4px);
+    border: 1px solid #BE321C;
+    background: #FFF;
 }
 
 .gmd-001 .elementor-widget-container .hs-error-msgs {
@@ -436,16 +452,33 @@
 }
 
 .gmd-001 .gmd-item {
-    padding: 33px 39px;
+    padding: 35px 39px;
     gap: 0;
     border-radius: 16px;
     background: linear-gradient(180deg, #FFF 68.91%, rgba(255, 255, 255, 0.96) 100%);
     box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.20);
 }
 
+.gmd-001 .hs_phone .hs-fieldtype-intl-phone select {
+    display: none;
+}
+
+.gmd-001 .hs_phone .input {
+    margin-right: 0px !important;
+}
+
 .gmd-001 .form-columns-2 {
     display: flex;
     gap: 20px;
+}
+
+.gmd-001 .hs_phone .hs-fieldtype-intl-phone {
+    width: 100% !important;
+    padding-bottom: 12px;
+}
+
+.gmd-001 .hs_phone .hs-field-desc {
+    display: none;
 }
 
 .gmd-001 .form-columns-2 .hs-form-field .input {
@@ -467,7 +500,9 @@
 }
 
 .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-    padding: 6px 15px;
+    padding: 10px 15px;
+    width: 100% !important;
+    max-width: 456px;
 }
 
 .gmd-001 .form-columns-1 .legal-consent-container label input {
@@ -478,6 +513,16 @@
     margin-left: -9px;
 }
 
+.gmd-001 [data-elementor-type="header"] {
+    display: none;
+}
+.iti__selected-dial-code {
+  display: none !important;
+}
+
+.gmd-001 .legal-consent-container .hs-form-booleancheckbox-display>span{
+    line-height: 30%;
+}
 @media (max-width: 1023px) {
     .gmd-001 .hs-form-field [name="company"] {
         padding-bottom: 16px;
@@ -501,7 +546,7 @@
 
     .gmd-001 .hs_submit .actions {
         margin-top: 45px;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
 
     }
 
@@ -511,9 +556,25 @@
     }
 
     .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-        padding: 10px 15px;
+        padding: 13px 15px;
     }
 
+    .gmd-001 .gmd-image {
+        background: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757690416/Mask_1_etbrb6.png") !important;
+        ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 100% 102% !important;
+        padding-bottom: 187px;
+    }
+
+    .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
+        padding-bottom: 13px;
+    }
+
+    .gmd-001 .gmd-wrapper {
+        padding-top: 257px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -583,7 +644,7 @@
     }
 
     .gmd-001 .hs_submit .actions {
-        margin-top: 48.2px;
+             margin-top: 49.2px;
         margin-bottom: 4px;
     }
 
@@ -606,12 +667,29 @@
     }
 
     .gmd-001 .hs-fieldtype-intl-phone.hs-input {
-        padding-bottom: 15px;
+        padding-bottom: 19px;
 
     }
 
     .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-        padding: 5px 15px;
+        padding: 13px 15px;
+    }
+
+    .gmd-001 .gmd-image {
+        background: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757690414/Mask_2_dqmmbi.png") !important;
+        ;
+        background-repeat: no-repeat;
+        background-size: cover;
+           background-size: 100% 103% !important;
+        padding-bottom: 2px;
+    }
+
+    .gmd-001 .gmd-wrapper {
+        padding-top: 79px;
+    }
+
+    .gmd-001 .form-columns-1 .legal-consent-container label input {
+        margin-right: 11px;
     }
 
 }

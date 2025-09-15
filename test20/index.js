@@ -170,6 +170,39 @@ waitForElement('form', () => {
         emailField.insertAdjacentElement('afterend', companyField);
     }
 
+
+    // const phone = document.querySelector('.hs_phone span');
+    // const optional = document.querySelector('.hs_phone .hs-field-desc');
+
+    // if(phone && optional){
+    //     phone.insertAdjacentElement('afterend',optional);
+    // }
+    const btns = document.querySelector('.hs_phone span');
+if (btns) {
+    btns.textContent = "Phone (optional)";
+}
+//  const phoneInput = document.querySelector('input[type="tel"]');
+//   if (phoneInput) {
+//     phoneInput.removeAttribute("value");
+//   }
+
+    // const phoneInputs = document.querySelector('input[type="tel"]'); if (phoneInputs) { phoneInputs.removeAttribute("value"); }
+    const phoneWrapper = document.querySelector('.hs-fieldtype-intl-phone input');
+if (phoneWrapper) {
+  phoneWrapper.value = "";   // removes +91 from input
+  phoneWrapper.setAttribute("placeholder", ""); // removes placeholder
+}
+
+document.querySelectorAll('.hs-form-field.focus').forEach(el => {
+  if (!el.querySelector('input:focus, textarea:focus, select:focus')) {
+    el.classList.remove('focus');
+  }
+});
+
+
+
+
+
 });
 // // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-text')
 // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-wrapper')
