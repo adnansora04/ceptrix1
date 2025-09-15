@@ -279,6 +279,8 @@
 
 .gmd-001 .hs_submit .actions input {
     padding: 20px 64px;
+    border-radius: 99px;
+    background: #1DB1BA;
 }
 
 /* .gmd-001 .elementor-widget-container form label {
@@ -310,28 +312,70 @@
     left: 16px;
     top: 27px;
     transform: translateY(-50%);
-    font-size: 18px;
-    color: #999;
     pointer-events: none;
     transition: all 0.2s ease;
+    color: rgba(104, 110, 119, 0.64);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* font-family: 'Neuzeit Grotesk'; */
+    font-family: 'neuzeit-grotesk';
 }
 
+.gmd-001 .hs-form-field input {
+    font-size: 18px;
+    padding: 14px 70px 14px 16px;
+}
 
-.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.focus label {
-    top: -3px;
-    left: 16px;
+.gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"] {
+    position: relative;
+    pointer-events: auto;
+    opacity: 1;
+    /* make sure it’s visible */
+    z-index: 2;
+}
+
+.gmd-001 .form-columns-1 .legal-consent-container label {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
+    padding: 0 !important;
+}
+
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.focus label,
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.has-value label
+ {
+    top: -1px;
+    left: 6px;
     font-size: 13px;
     color: #0077cc;
     background: #fff;
     /* padding: 0 4px; */
+    padding: 0 10px;
+    background: #fff;
+    display: inline-block;
 }
-.gmd-001 .legal-consent-container .hs-form-booleancheckbox label{
-    top: 0px !important;
-    left: 10px !important;
+/* .gmd-001 .hs-form-field.has-value label :not(.hs-error-msg){
+    top: -1px;
+    left: 6px;
+} */
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field .hs-form-required {
+    display: none;
+}
+
+/* .gmd-001 .hs-form-field .input {} */
+
+.gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
+    top: -1px !important;
+    left: -1px !important
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field input:focus {
-    border-radius: var(--Inputs-Corner-Radius, 4px);
+    border-radius: 4px;
     border: 1px solid #1DB1BA;
     background: #FFF;
     outline: none;
@@ -374,7 +418,9 @@
     background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png") !important;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 124px;
+    /* padding-bottom: 124px; */
+        padding-bottom: 124px;
+    min-height: 100svh;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
@@ -389,7 +435,7 @@
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field:has(label.hs-error-msg) input {
-    border-radius: var(--Inputs-Corner-Radius, 4px);
+    border-radius: 4px;
     border: 1px solid #BE321C;
     background: #FFF;
 }
@@ -500,7 +546,7 @@
 }
 
 .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-    padding: 10px 15px;
+    padding: 15px 15px;
     width: 100% !important;
     max-width: 456px;
 }
@@ -510,19 +556,21 @@
     width: 100% !important;
     max-width: 20px;
     margin-bottom: 14px;
-    margin-left: -9px;
+    /* margin-left: -9px; */
 }
 
 .gmd-001 [data-elementor-type="header"] {
     display: none;
 }
+
 .iti__selected-dial-code {
-  display: none !important;
+    display: none !important;
 }
 
-.gmd-001 .legal-consent-container .hs-form-booleancheckbox-display>span{
+.gmd-001 .legal-consent-container .hs-form-booleancheckbox-display>span {
     line-height: 30%;
 }
+
 @media (max-width: 1023px) {
     .gmd-001 .hs-form-field [name="company"] {
         padding-bottom: 16px;
@@ -545,13 +593,13 @@
     }
 
     .gmd-001 .hs_submit .actions {
-        margin-top: 45px;
-        margin-bottom: 4px;
+        margin-top: 44.2px;
+        margin-bottom: 5px;
 
     }
 
     .gmd-001 .hs_submit .actions input {
-        padding: 20px 64px;
+        padding: 19.3px 64.2px;
         font-size: 18px;
     }
 
@@ -569,19 +617,32 @@
     }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
-        padding-bottom: 13px;
+        padding-bottom: 16px;
     }
 
     .gmd-001 .gmd-wrapper {
         padding-top: 257px;
+    }
+    .gmd-001 .legal-consent-container .hs-form-booleancheckbox label{
+        left: 0px !important;
+    }
+    .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg){
+            left: 16px;
+    top: 24px;
+    }
+    .gmd-001 .hs-form-field input{
+        padding: 13px 70px 14px 16px;
     }
 }
 
 @media (max-width: 767px) {
     .gmd-001 .form-columns-2 {
         display: block;
-
     }
+      .gmd-001 .form-columns-2 .hs-form-field {
+    width: 100% !important;
+    display: block;
+  }
 
     .gmd-001 .gmd-section {
         display: block;
@@ -644,7 +705,7 @@
     }
 
     .gmd-001 .hs_submit .actions {
-             margin-top: 49.2px;
+        margin-top: 51.2px;
         margin-bottom: 4px;
     }
 
@@ -680,7 +741,7 @@
         ;
         background-repeat: no-repeat;
         background-size: cover;
-           background-size: 100% 103% !important;
+        background-size: 100% 103% !important;
         padding-bottom: 2px;
     }
 

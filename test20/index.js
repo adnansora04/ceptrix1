@@ -171,38 +171,82 @@ waitForElement('form', () => {
     }
 
 
-    // const phone = document.querySelector('.hs_phone span');
-    // const optional = document.querySelector('.hs_phone .hs-field-desc');
-
-    // if(phone && optional){
-    //     phone.insertAdjacentElement('afterend',optional);
-    // }
     const btns = document.querySelector('.hs_phone span');
-if (btns) {
-    btns.textContent = "Phone (optional)";
-}
+    if (btns) {
+        btns.textContent = "Phone (optional)";
+    }
+    const phoneWrapper = document.querySelector('.hs-fieldtype-intl-phone input');
+    if (phoneWrapper) {
+        phoneWrapper.value = "";   // removes +91 
+        phoneWrapper.setAttribute("placeholder", ""); // removes placeholder
+    }
+    
+    document.querySelectorAll('.hs-form-field.focus').forEach(el => {
+        if (!el.querySelector('input:focus, textarea:focus, select:focus')) {
+            el.classList.remove('focus');
+        }
+});
+// document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
+//   .forEach(input => {
+//     input.addEventListener('focusout', function () {
+//       const parent = this.closest('.hs-form-field');
+//       if (this.value.trim() !== "") {
+//         parent.classList.add('has-value');
+//       } else {
+//         parent.classList.remove('has-value');
+//       }
+//     });
+//   });
+
+document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
+  .forEach(input => {
+    input.addEventListener('focusout', function () {
+      const parent = this.closest('.hs-form-field');
+      
+      setTimeout(() => {
+        if (this.value.trim() !== "") {
+          parent.classList.add('has-value');
+        } else {
+          parent.classList.remove('has-value');
+        }
+      }, 100);
+    });
+  });
+
+// document.querySelectorAll('.hs-form-field input, .hs-form-field textarea, .hs-form-field select')
+// .forEach(input => {
+//     input.addEventListener('blur', function () {
+//         if (this.value.trim() !== "") {
+//             this.parentElement.classList.add("has-value");
+//         } else {
+//             this.parentElement.classList.remove("has-value");
+//         }
+//     });
+    
+//     if (input.value.trim() !== "") {
+//         input.parentElement.classList.add("has-value");
+//     }
+// });
+
+
+
+
+});
+
+
+
 //  const phoneInput = document.querySelector('input[type="tel"]');
 //   if (phoneInput) {
-//     phoneInput.removeAttribute("value");
-//   }
+    //     phoneInput.removeAttribute("value");
+    //   }
+    
+// const phoneInputs = document.querySelector('input[type="tel"]'); if (phoneInputs) { phoneInputs.removeAttribute("value"); }
 
-    // const phoneInputs = document.querySelector('input[type="tel"]'); if (phoneInputs) { phoneInputs.removeAttribute("value"); }
-    const phoneWrapper = document.querySelector('.hs-fieldtype-intl-phone input');
-if (phoneWrapper) {
-  phoneWrapper.value = "";   // removes +91 from input
-  phoneWrapper.setAttribute("placeholder", ""); // removes placeholder
-}
+// const phone = document.querySelector('.hs_phone span');
+// const optional = document.querySelector('.hs_phone .hs-field-desc');
 
-document.querySelectorAll('.hs-form-field.focus').forEach(el => {
-  if (!el.querySelector('input:focus, textarea:focus, select:focus')) {
-    el.classList.remove('focus');
-  }
-});
-
-
-
-
-
-});
-// // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-text')
-// document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-wrapper')
+// if(phone && optional){
+    //     phone.insertAdjacentElement('afterend',optional);
+    // }
+    // // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-text')
+    // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-wrapper')    
