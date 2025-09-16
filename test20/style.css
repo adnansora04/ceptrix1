@@ -274,13 +274,20 @@
     justify-content: center;
     align-items: center;
     margin-top: 45px;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .gmd-001 .hs_submit .actions input {
-    padding: 20px 64px;
+    padding: 15px 64px;
     border-radius: 99px;
     background: #1DB1BA;
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
 }
 
 /* .gmd-001 .elementor-widget-container form label {
@@ -326,6 +333,16 @@
 .gmd-001 .hs-form-field input {
     font-size: 18px;
     padding: 14px 70px 14px 16px;
+    border-radius: 4px;
+    border: 1px solid #E6E9EC;
+    background: #FFF;
+    color: #173B52;
+    font-family: 'neuzeit-grotesk';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 27px */
 }
 
 .gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"] {
@@ -334,6 +351,7 @@
     opacity: 1;
     /* make sure it’s visible */
     z-index: 2;
+        cursor: pointer;
 }
 
 .gmd-001 .form-columns-1 .legal-consent-container label {
@@ -347,18 +365,31 @@
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field.focus label,
-.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.has-value label
- {
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.has-value label {
     top: -1px;
     left: 6px;
     font-size: 13px;
-    color: #0077cc;
+  color: #0077cc; /* your default focus color */
     background: #fff;
     /* padding: 0 4px; */
     padding: 0 10px;
     background: #fff;
     display: inline-block;
 }
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.error.focus label{
+    color: #BE321C !important;
+}
+
+
+/* When field has value and is valid (no error) */
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.has-value:not(.error) label:not(.hs-error-msg) {
+  color: #19a507!important;
+}
+
+.gmd-001 .elementor-element .elementor-widget-container .hs-form-field.has-value:not(.error) input:not(.hs-error-msg) {
+  border-color: #19a507 !important;
+}
+
 /* .gmd-001 .hs-form-field.has-value label :not(.hs-error-msg){
     top: -1px;
     left: 6px;
@@ -371,7 +402,8 @@
 
 .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
     top: -1px !important;
-    left: -1px !important
+    left: -1px !important;
+        cursor: pointer;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field input:focus {
@@ -401,7 +433,8 @@
     display: flex;
     justify-content: center !important;
     align-items: center !important;
-    padding-top: 224px;
+    padding-top: 0;
+    padding-bottom: 8px;
 
 }
 
@@ -415,12 +448,18 @@
 
 
 .gmd-001 .gmd-image {
-    background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png") !important;
+    background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png) !important;
     background-repeat: no-repeat;
     background-size: cover;
     /* padding-bottom: 124px; */
-        padding-bottom: 124px;
+    /* padding-bottom: 122px; */
     min-height: 100svh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-size: 100% 100%;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
@@ -455,7 +494,7 @@
 } */
 .gmd-001 .gmd-section {
     display: flex;
-    gap: 20px;
+    gap: 21px;
 }
 
 .gmd-001 .hs-form-field .hs-input select {
@@ -520,7 +559,7 @@
 
 .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
     width: 100% !important;
-    padding-bottom: 12px;
+    padding-bottom: 7px;
 }
 
 .gmd-001 .hs_phone .hs-field-desc {
@@ -570,6 +609,9 @@
 .gmd-001 .legal-consent-container .hs-form-booleancheckbox-display>span {
     line-height: 30%;
 }
+.gmd-001 .hs_error_rollup .hs-main-font-element{
+    display: none;
+}
 
 @media (max-width: 1023px) {
     .gmd-001 .hs-form-field [name="company"] {
@@ -599,7 +641,7 @@
     }
 
     .gmd-001 .hs_submit .actions input {
-        padding: 19.3px 64.2px;
+        padding: 14.5px 63.9px;
         font-size: 18px;
     }
 
@@ -612,8 +654,8 @@
         ;
         background-repeat: no-repeat;
         background-size: cover;
-        background-size: 100% 102% !important;
-        padding-bottom: 187px;
+       background-size: 100% 100% !important;
+        padding-bottom: 207px;
     }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
@@ -621,17 +663,20 @@
     }
 
     .gmd-001 .gmd-wrapper {
-        padding-top: 257px;
+        padding-top: 175px;
     }
-    .gmd-001 .legal-consent-container .hs-form-booleancheckbox label{
+
+    .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
         left: 0px !important;
     }
-    .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg){
-            left: 16px;
-    top: 24px;
-    }
-    .gmd-001 .hs-form-field input{
-        padding: 13px 70px 14px 16px;
+
+    /* .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg) {
+        left: 16px;
+        top: 24px;
+    } */
+
+    .gmd-001 .hs-form-field input {
+        padding: 11px 70px 14px 16px
     }
 }
 
@@ -639,10 +684,11 @@
     .gmd-001 .form-columns-2 {
         display: block;
     }
-      .gmd-001 .form-columns-2 .hs-form-field {
-    width: 100% !important;
-    display: block;
-  }
+
+    .gmd-001 .form-columns-2 .hs-form-field {
+        width: 100% !important;
+        display: block;
+    }
 
     .gmd-001 .gmd-section {
         display: block;
@@ -657,34 +703,33 @@
 
     .gmd-001 .hs-form-field [name="firstname"] {
         width: 100%;
-        max-width: 272px;
+        /* max-width: 272px; */
     }
 
     .gmd-001 .hs-form-field [name="lastname"] {
         width: 100%;
-        max-width: 272px;
+        /* max-width: 272px; */
     }
 
     .gmd-001 .hs-form-field [name="email"] {
         width: 100% !important;
-        max-width: 272px;
+        /* max-width: 272px; */
     }
 
     .gmd-001 .hs-form-field [name="company"] {
         width: 100% !important;
-        max-width: 272px;
+        /* max-width: 272px; */
     }
 
     .gmd-001 .hs_submit .actions input {
-        padding: 20px 64px;
-        padding: 21px 112px;
+        padding: 14.4px 83px;
+        
         width: 100%;
         max-width: 272px;
     }
 
     .gmd-001 .gmd-text {
-        width: 100%;
-        max-width: 340px;
+       padding: 0;
     }
 
     .gmd-001 .gmd-widget {
@@ -696,22 +741,28 @@
         font-size: 28px;
     }
 
-    .gmd-001 .form-columns-2 .hs_firstname .input {
+    /* .gmd-001 .form-columns-2 .hs_firstname .input {
         padding-bottom: 11px;
-    }
+    } */
+     .gmd-001 .form-columns-2 .hs_firstname {
+        padding-bottom: 10px;
+     }
 
-    .gmd-001 .gmd-section .hs_email .input {
+    /* .gmd-001 .gmd-section .hs_email .input {
         padding-bottom: 11px;
-    }
+    } */
+     .gmd-001 .gmd-section .hs-email{
+        padding-bottom: 10px;
+     }
 
     .gmd-001 .hs_submit .actions {
-        margin-top: 51.2px;
+        margin-top: 50.2px;
         margin-bottom: 4px;
     }
 
     .gmd-001 .hs_submit .actions input {
         /* padding: 20px 64px; */
-        padding: 19px 85px;
+        /* padding: 19px 85px; */
         width: 100%;
         max-width: 272px;
         font-size: 18px;
@@ -728,7 +779,7 @@
     }
 
     .gmd-001 .hs-fieldtype-intl-phone.hs-input {
-        padding-bottom: 19px;
+        padding-bottom: 21px;
 
     }
 
@@ -741,18 +792,26 @@
         ;
         background-repeat: no-repeat;
         background-size: cover;
-        background-size: 100% 103% !important;
-        padding-bottom: 2px;
+      background-size: 100% 100% !important;
+        padding-bottom: 78px;
     }
 
     .gmd-001 .gmd-wrapper {
-        padding-top: 79px;
+              padding-top: 49px;
+        width: 100%;
+        /* max-width: 320px; */
     }
 
     .gmd-001 .form-columns-1 .legal-consent-container label input {
         margin-right: 11px;
     }
-
+    
+}
+@media (max-width: 361px) {
+    .gmd-001 .gmd-wrapper{
+            width: 100%;
+        max-width: 320px;
+    }
 }
 
 /* .gmd-001 .gmd-banner{

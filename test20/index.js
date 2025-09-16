@@ -70,7 +70,7 @@ document.querySelector('.elementor-testimonial-wrapper').parentElement.parentEle
 document.querySelector('.elementor-widget-wrap').parentElement.parentElement.parentElement.classList.add('gmd-contents')
 document.querySelector('.elementor-widget-container h6').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
 
-
+document.querySelector('.hs-form-frame').parentElement.parentElement.classList.add('gmd-contents')
 document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
 document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
 
