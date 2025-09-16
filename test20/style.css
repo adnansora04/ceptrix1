@@ -433,8 +433,8 @@
     display: flex;
     justify-content: center !important;
     align-items: center !important;
-    padding-top: 9px;
-    padding-bottom: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 
 }
 
@@ -508,22 +508,22 @@
 
 .gmd-001 .hs-form-field [name="firstname"] {
     width: 100% !important;
-    max-width: 218px;
+    /* max-width: 218px; */
 }
 
 .gmd-001 .hs-form-field [name="lastname"] {
     width: 100% !important;
-    max-width: 218px;
+    /* max-width: 218px; */
 }
 
 .gmd-001 .hs-form-field [name="email"] {
     width: 100% !important;
-    max-width: 218px;
+    /* max-width: 218px; */
 }
 
 .gmd-001 .hs-form-field [name="company"] {
     width: 100% !important;
-    max-width: 218px;
+    /* max-width: 218px; */
 }
 
 .gmd-001 .gmd-item>div>div>p {
