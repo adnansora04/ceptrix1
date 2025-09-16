@@ -427,6 +427,10 @@
 .gmd-001 .gmd-text {
     width: 100%;
     max-width: 556px;
+        padding-left: 9px;
+    padding-right: 10px;
+    padding-top: 11px;
+    padding-bottom: 9.8px;
 }
 
 .gmd-001 .gmd-wrapper {
@@ -663,7 +667,7 @@
     }
 
     .gmd-001 .gmd-wrapper {
-        padding-top: 175px;
+        padding-top: 165px;
     }
 
     .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
@@ -678,6 +682,9 @@
     .gmd-001 .hs-form-field input {
         padding: 11px 70px 14px 16px
     }
+    /* .gmd-001 .gmd-text{
+        padding-left: 10px;
+    } */
 }
 
 @media (max-width: 767px) {
@@ -797,7 +804,7 @@
     }
 
     .gmd-001 .gmd-wrapper {
-              padding-top: 49px;
+              padding-top: 47px;
         width: 100%;
         /* max-width: 320px; */
     }
