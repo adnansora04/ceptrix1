@@ -401,8 +401,8 @@
 /* .gmd-001 .hs-form-field .input {} */
 
 .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
-    top: -1px !important;
-    left: -1px !important;
+ top: 0px !important;
+    left: 2px !important;
         cursor: pointer;
 }
 
