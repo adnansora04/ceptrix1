@@ -591,7 +591,7 @@
 .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
     padding: 15px 15px;
     width: 100% !important;
-    max-width: 456px;
+    /* max-width: 456px; */
 }
 
 .gmd-001 .form-columns-1 .legal-consent-container label input {
