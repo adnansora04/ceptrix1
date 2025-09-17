@@ -270,15 +270,15 @@
 }
 
 .gmd-001 .hs_submit .actions {
-    display: flex;
+display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 45px;
+    margin-top: 46px;
     margin-bottom: 4px;
 }
 
 .gmd-001 .hs_submit .actions input {
-    padding: 15px 64px;
+       padding: 14.5px 64.2px;
     border-radius: 99px;
     background: #1DB1BA;
     color: #FFF;
@@ -352,6 +352,9 @@
     /* make sure it’s visible */
     z-index: 2;
         cursor: pointer;
+            border: 1px #E6E9EC;
+    top: 1px;
+
 }
 
 .gmd-001 .form-columns-1 .legal-consent-container label {
@@ -401,8 +404,8 @@
 /* .gmd-001 .hs-form-field .input {} */
 
 .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
- top: 0px !important;
-    left: 2px !important;
+ top: 0.6px  !important;
+    left: 1px !important;
         cursor: pointer;
 }
 
@@ -425,12 +428,13 @@
 }
 
 .gmd-001 .gmd-text {
-    width: 100%;
-    max-width: 556px;
-        padding-left: 9px;
-    padding-right: 10px;
-    padding-top: 11px;
-    padding-bottom: 9.8px;
+  width: 100%;
+    max-width: 536px;
+    /* padding-left: 10px; */
+    /* padding-right: 10px; */
+    /* padding-top: 11px; */
+    padding: 0;
+
 }
 
 .gmd-001 .gmd-wrapper {
@@ -463,7 +467,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-size: 100% 100%;
+    background-size: 100%;
 }
 
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
@@ -489,7 +493,8 @@
 }
 
 .gmd-001 .gmd-text [data-widget_type="html.default"]>div:first-of-type {
-    padding: 0;
+    padding: 1px;
+    margin-top: 17px;
 }
 
 /* .gmd-001 .elementor-element .elementor-widget-container .hs-form-field input{
@@ -541,7 +546,7 @@
 }
 
 .gmd-001 .gmd-item {
-    padding: 35px 39px;
+   padding: 34.6px 39px;
     gap: 0;
     border-radius: 16px;
     background: linear-gradient(180deg, #FFF 68.91%, rgba(255, 255, 255, 0.96) 100%);
@@ -582,6 +587,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 !important;
 }
 
 .gmd-001 .gmd-badge {
@@ -643,7 +649,9 @@
         margin-bottom: 5px;
 
     }
-
+    .gmd-001 .gmd-text [data-widget_type="html.default"]>div:first-of-type{
+        margin-top: 0;
+    }
     .gmd-001 .hs_submit .actions input {
         padding: 14.5px 63.9px;
         font-size: 18px;
@@ -804,13 +812,17 @@
     }
 
     .gmd-001 .gmd-wrapper {
-              padding-top: 47px;
+              padding-top: 39px;
         width: 100%;
         /* max-width: 320px; */
     }
 
     .gmd-001 .form-columns-1 .legal-consent-container label input {
         margin-right: 11px;
+    }
+    .gmd-001 .gmd-text [data-widget_type="html.default"]>div:first-of-type{
+                margin-top: 0;
+        padding: 0.3px;
     }
     
 }
