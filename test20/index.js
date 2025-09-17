@@ -65,11 +65,14 @@ waitForElement('.elementor .elementor-element  #announcement-banner', () => {
 
 
 
-document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
-document.querySelector('.elementor-testimonial-wrapper').parentElement.parentElement.parentElement.classList.add('gmd-contents')
-document.querySelector('.elementor-widget-wrap').parentElement.parentElement.parentElement.classList.add('gmd-contents')
-document.querySelector('.elementor-widget-container h6').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
+// document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
+// document.querySelector('.elementor-testimonial-wrapper').parentElement.parentElement.parentElement.classList.add('gmd-contents')
+// document.querySelector('.elementor-widget-wrap').parentElement.parentElement.parentElement.classList.add('gmd-contents')
+// document.querySelector('.elementor-widget-container h6').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-contents')
 
+document.querySelector('[data-elementor-type="footer"]').classList.add('gmd-contents')
+document.querySelector('[data-widget_type="bdt-advanced-divider.default"]').parentElement.classList.add('gmd-contents')
+document.querySelector('.elementor-top-section').classList.add('gmd-contents')
 document.querySelector('.hs-form-frame').parentElement.parentElement.classList.add('gmd-contents')
 document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
 document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
@@ -125,7 +128,7 @@ waitForElement('form', () => {
         // console.log(el)
         if (el)
             el.parentElement.classList.add('gmd-section');
-
+document.querySelector('.gmd-wrapper>div>div').classList.add('gmd-contents')
         document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
         el = document.querySelector('.gmd-widget');
         if (el)
