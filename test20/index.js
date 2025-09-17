@@ -77,13 +77,6 @@ document.querySelector('.hs-form-frame').parentElement.parentElement.classList.a
 document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
 document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
 
-el = document.querySelector('.gmd-section');
-if (el)
-    el.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-item');
-
-// el = document.querySelector('.gmd-item>div>div>p');
-// if(el)
-//     el.classList.add('gmd-demo');
 
 
 
@@ -129,51 +122,51 @@ waitForElement('form', () => {
         if (el)
             el.parentElement.classList.add('gmd-section');
 document.querySelector('.gmd-wrapper>div>div').classList.add('gmd-contents')
-        document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
-        el = document.querySelector('.gmd-widget');
-        if (el)
-            el.parentElement.classList.add('gmd-badge');
+document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
+el = document.querySelector('.gmd-widget');
+if (el)
+    el.parentElement.classList.add('gmd-badge');
 
 
-        document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
-            .forEach(input => {
-                if (input.dataset.done) return;
+document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
+.forEach(input => {
+    if (input.dataset.done) return;
                 input.dataset.done = true;
-
+                
                 input.addEventListener('focus', () => {
                     input.closest('.hs-form-field')?.classList.add('focus');
                 });
-
+                
                 input.addEventListener('blur', () => {
                     if (!input.value.trim()) {
                         input.closest('.hs-form-field')?.classList.remove('focus');
                     }
                 });
-
+                
                 if (input.value.trim()) {
                     input.closest('.hs-form-field')?.classList.add('focus');
                 }
             });
     }
-
-
+    
+    
     addListeners();
-
-
+    
+    
     new MutationObserver(addListeners).observe(document.body, {
         childList: true,
         subtree: true
     });
-
-
+    
+    
     const emailField = document.querySelector('.hs_email');
     const companyField = document.querySelector('.hs_company');
-
+    
     if (emailField && companyField) {
         emailField.insertAdjacentElement('afterend', companyField);
     }
-
-
+    
+    
     const btns = document.querySelector('.hs_phone span');
     if (btns) {
         btns.textContent = "Phone (optional)";
@@ -188,54 +181,67 @@ document.querySelector('.gmd-wrapper>div>div').classList.add('gmd-contents')
         if (!el.querySelector('input:focus, textarea:focus, select:focus')) {
             el.classList.remove('focus');
         }
+    });
+    
+    document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
+    .forEach(input => {
+        input.addEventListener('focusout', function () {
+            const parent = this.closest('.hs-form-field');
+            
+            setTimeout(() => {
+                if (this.value.trim() !== "") {
+                parent.classList.add('has-value');
+            } else {
+                parent.classList.remove('has-value');
+            }
+        }, 100);
+    });
 });
+
+});
+
+
+
+
+
+
+
+
 // document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
 //   .forEach(input => {
-//     input.addEventListener('focusout', function () {
-//       const parent = this.closest('.hs-form-field');
-//       if (this.value.trim() !== "") {
-//         parent.classList.add('has-value');
-//       } else {
+    //     input.addEventListener('focusout', function () {
+        //       const parent = this.closest('.hs-form-field');
+        //       if (this.value.trim() !== "") {
+            //         parent.classList.add('has-value');
+            //       } else {
 //         parent.classList.remove('has-value');
 //       }
 //     });
 //   });
 
-document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
-  .forEach(input => {
-    input.addEventListener('focusout', function () {
-      const parent = this.closest('.hs-form-field');
-      
-      setTimeout(() => {
-        if (this.value.trim() !== "") {
-          parent.classList.add('has-value');
-        } else {
-          parent.classList.remove('has-value');
-        }
-      }, 100);
-    });
-  });
 
 // document.querySelectorAll('.hs-form-field input, .hs-form-field textarea, .hs-form-field select')
 // .forEach(input => {
-//     input.addEventListener('blur', function () {
-//         if (this.value.trim() !== "") {
-//             this.parentElement.classList.add("has-value");
+    //     input.addEventListener('blur', function () {
+        //         if (this.value.trim() !== "") {
+            //             this.parentElement.classList.add("has-value");
 //         } else {
 //             this.parentElement.classList.remove("has-value");
 //         }
 //     });
-    
+
 //     if (input.value.trim() !== "") {
-//         input.parentElement.classList.add("has-value");
-//     }
-// });
-
-
-
-
-});
-
+    //         input.parentElement.classList.add("has-value");
+    //     }
+    // });
+    
+    // el = document.querySelector('.gmd-section');
+    // if (el)
+    //     el.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-item');
+    
+    // el = document.querySelector('.gmd-item>div>div>p');
+// if(el)
+//     el.classList.add('gmd-demo');
 
 
 //  const phoneInput = document.querySelector('input[type="tel"]');
@@ -243,13 +249,13 @@ document.querySelectorAll('.elementor-element .elementor-widget-container .hs-fo
     //     phoneInput.removeAttribute("value");
     //   }
     
-// const phoneInputs = document.querySelector('input[type="tel"]'); if (phoneInputs) { phoneInputs.removeAttribute("value"); }
-
-// const phone = document.querySelector('.hs_phone span');
-// const optional = document.querySelector('.hs_phone .hs-field-desc');
-
-// if(phone && optional){
-    //     phone.insertAdjacentElement('afterend',optional);
+    // const phoneInputs = document.querySelector('input[type="tel"]'); if (phoneInputs) { phoneInputs.removeAttribute("value"); }
+    
+    // const phone = document.querySelector('.hs_phone span');
+    // const optional = document.querySelector('.hs_phone .hs-field-desc');
+    
+    // if(phone && optional){
+        //     phone.insertAdjacentElement('afterend',optional);
     // }
     // // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-text')
     // document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('gmd-wrapper')    
