@@ -184,7 +184,9 @@
     gap: 0;
 
 }
-
+  .gmd-001 .gmd-image{
+     min-height: 91.3svh;
+  }
 /* body {
   margin: 0;
   background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1757571934/Mask_lcoiqg.png") !important;
