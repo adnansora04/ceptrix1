@@ -192,8 +192,17 @@
   background-size: cover;
   background-position: center top;
 } */
-
-
+@media (max-width: 2560px){
+    .gmd-001 .gmd-image {
+         background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758203893/BG-2560-2_1_s3ujsg.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+      background-size: 100% 100%;
+        background-color: #163B52 !important;
+        min-height: 91.3svh;
+    }
+}
+@media (max-width: 1440px){
 .gmd-001 .gmd-image {
     background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758101763/BG-1440-2_1_wz6ool.jpg) !important;
     background-repeat: no-repeat;
@@ -208,8 +217,9 @@
     align-items: center;
     box-sizing: border-box;
     background-size: 100% 100%;
+        background-color: #163B52 !important;
 }
-
+}
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
     color: #BE321C;
     font-family: 'neuzeit-grotesk';
