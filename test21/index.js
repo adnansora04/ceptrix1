@@ -1,4 +1,3 @@
-
 document.querySelector('[data-elementor-type="footer"]').classList.add('gmd-contents')
 document.querySelector('[data-widget_type="bdt-advanced-divider.default"]').parentElement.classList.add('gmd-contents')
 document.querySelector('.elementor-top-section').classList.add('gmd-contents')
@@ -45,7 +44,9 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 }
 
 waitForElement('form', () => {
+      document.body.classList.add('gmd-001');
     function addListeners() {
+        
         el = document.querySelector('.hs_email');
         // console.log(el)
         if (el) 
