@@ -200,10 +200,10 @@
     background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758203893/BG-2560-2_1_s3ujsg.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: 100% 100%;
+    background-size: 100%;
     background-color: #163B52 !important;
     /* min-height: 100svh; */
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
     padding: 32px 90px 0 90px;
 }
 
@@ -215,14 +215,14 @@
         /* padding-bottom: 124px; */
         /* padding-bottom: 122px; */
         /* min-height: 91.3svh; */
-        height: calc(100vh - 85px);
+        min-height: calc(100vh - 85px);
         padding: 40px 20px;
         padding: 32px 56.1px 0 57px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;    
         box-sizing: border-box;
-        background-size: 100% 100%;
+        background-size: 100%;
         background-color: #163B52 !important;
         overflow: scroll;
     }
@@ -517,7 +517,7 @@
 .gmd-001 .gmd-relay {
     width: 100%;
     max-width: 113px;
-    margin-left: 38px;
+    margin-left: 4px;
     margin-right: auto;
 }
 
@@ -607,7 +607,7 @@
     }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
-        padding-bottom: 11px;
+       padding-bottom: 15px;
     }
 
     /* .gmd-001 .gmd-wrapper {
@@ -615,7 +615,7 @@
     } */
 
     .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
-        left: 0px !important;
+               left: -2px !important;
     }
 
     /* .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg) {
@@ -624,7 +624,7 @@
     } */
 
     .gmd-001 .hs-form-field input {
-        padding: 15px 206px 14px 16px;
+                padding: 13px 206px 14px 16px;
     }
 
     .gmd-001 .gmd-logos {
@@ -678,7 +678,7 @@
     }
 
     .gmd-001 .gmd-relay {
-        margin-left: 22px;
+        margin-left: 4px;
         margin-right: auto;
     }
 
@@ -692,6 +692,11 @@
 
     .gmd-001 .inputs-list span {
         width: 120%
+    }
+    .gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"]{
+        top: -3px;
+    left: 1px;
+
     }
 }
 
@@ -820,7 +825,7 @@
     }
 
     .gmd-001 .gmd-wrapper {
-        padding-top: 41px;
+        padding-top: 0px;
         width: 100%;
         /* max-width: 320px; */
     }
@@ -848,7 +853,7 @@
     }
 
     .gmd-001 .gmd-smart {
-        padding-top: 9px;
+        padding-top: 50px;
     }
 
     .gmd-001 .gmd-next {

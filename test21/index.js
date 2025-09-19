@@ -222,7 +222,7 @@ document.querySelector('.gmd-container').insertAdjacentHTML("afterend", `
   </div>
 `);
 
-        document.querySelector('.gmd-wrapper').insertAdjacentHTML("beforebegin",`
+        document.querySelector('.gmd-wrapper').insertAdjacentHTML("afterbegin",`
             
             <div class="gmd-relay"><img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1758100973/Logo_-_Relay_kbgzvi.png"/></div>`);
 
