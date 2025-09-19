@@ -201,7 +201,8 @@
     background-size: cover;
       background-size: 100% 100%;
         background-color: #163B52 !important;
-        min-height: 100svh;
+        /* min-height: 100svh; */
+            height: calc(100vh - 70px);
     }
 
 @media (max-width: 1440px){
@@ -211,7 +212,8 @@
     background-size: cover;
     /* padding-bottom: 124px; */
     /* padding-bottom: 122px; */
-    min-height: 91.3svh;
+    /* min-height: 91.3svh; */
+            height: calc(100vh - 85px);
     padding: 40px 20px;
     padding: 32px 56.1px 0 57px;
     display: flex;
@@ -574,6 +576,8 @@
         /* padding-bottom: 207px; */
         padding: 27px 12px 1px 10px;
         background-color: #163B52 !important;
+        height: auto;
+        
     }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
@@ -786,6 +790,7 @@
         /* padding-bottom: 78px; */
         /* padding: 27px 20px; */
         padding: 25px 21px 0 16px;
+        height: auto;
     }
 
     .gmd-001 .gmd-wrapper {
