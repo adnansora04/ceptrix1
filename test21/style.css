@@ -184,7 +184,8 @@
     gap: 0;
 
 }
-  /* .gmd-001 .gmd-image{
+
+/* .gmd-001 .gmd-image{
      min-height: 91.3svh;
   } */
 /* body {
@@ -195,35 +196,39 @@
   background-position: center top;
 } */
 
-    .gmd-001 .gmd-image {
-         background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758203893/BG-2560-2_1_s3ujsg.jpg) !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-      background-size: 100% 100%;
-        background-color: #163B52 !important;
-        /* min-height: 100svh; */
-            height: calc(100vh - 70px);
-    }
-
-@media (max-width: 1440px){
 .gmd-001 .gmd-image {
-    background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758101763/BG-1440-2_1_wz6ool.jpg) !important;
+    background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758203893/BG-2560-2_1_s3ujsg.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
-    /* padding-bottom: 124px; */
-    /* padding-bottom: 122px; */
-    /* min-height: 91.3svh; */
-            height: calc(100vh - 85px);
-    padding: 40px 20px;
-    padding: 32px 56.1px 0 57px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
     background-size: 100% 100%;
+    background-color: #163B52 !important;
+    /* min-height: 100svh; */
+    height: calc(100vh - 70px);
+    padding: 32px 90px 0 90px;
+}
+
+@media (max-width: 1440px) {
+    .gmd-001 .gmd-image {
+        background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758101763/BG-1440-2_1_wz6ool.jpg) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* padding-bottom: 124px; */
+        /* padding-bottom: 122px; */
+        /* min-height: 91.3svh; */
+        height: calc(100vh - 85px);
+        padding: 40px 20px;
+        padding: 32px 56.1px 0 57px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background-size: 100% 100%;
         background-color: #163B52 !important;
+        overflow: scroll;
+    }
 }
-}
+
+
 .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label.hs-error-msg {
     color: #BE321C;
     font-family: 'neuzeit-grotesk';
@@ -444,21 +449,31 @@
 }
 
 .gmd-001 .footer {
-    background: #1F242A;
-    color: #ccc;
-    /* padding: 12px 40px; */
-    padding: 31px 90px;
+    padding: 31px 300px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    
-    width: 100%;
-    /* take full width */
-    max-width: 100%;
-    /* ignore container limits */
-    margin: 0;
-    padding-bottom: 38px;
+    justify-content: space-around;
+     background: #1F242A;
+        color: #ccc;
+}
+
+@media (max-width: 1440px) {
+    .gmd-001 .footer {
+        background: #1F242A;
+        color: #ccc;
+        /* padding: 12px 40px; */
+        padding: 31px 90px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+
+        width: 100%;
+        /* take full width */
+        max-width: 100%;
+        /* ignore container limits */
+        margin: 0;
+        padding-bottom: 38px;
+    }
 }
 
 .gmd-001 .footer-right {
@@ -491,12 +506,22 @@
     color: #fff;
 }
 
+/* .gmd-001 .gmd-relay {
+    width: 100%;
+    max-width: 113px;
+    margin-left: 555px;
+    margin-right: auto;
+} */
+
+/* @media (max-width: 1440px) { */
 .gmd-001 .gmd-relay {
     width: 100%;
     max-width: 113px;
     margin-left: 38px;
     margin-right: auto;
 }
+
+/* } */
 
 .gmd-001 .gmd-infor {
     color: #4F5B67;
@@ -508,10 +533,11 @@
     line-height: 150%;
     /* 27px */
 }
-.gmd-001 .hs_error_rollup{
+
+.gmd-001 .hs_error_rollup {
     /* position: absolute;
     top: 10px; */
-    border-radius:  4px;
+    border-radius: 4px;
     background: rgba(192, 43, 10, 0.04);
     padding: 8px 16px;
 }
@@ -531,15 +557,15 @@
     .gmd-001 .hs-form-field [name="company"] {
         padding-bottom: 16px;
     }
-    
+
     .gmd-001 .hs-form-field [name="email"] {
         padding-bottom: 16px;
     }
-    
+
     .gmd-001 .hs-form-field [name="lastname"] {
         padding-bottom: 16px;
     }
-    
+
     .gmd-001 .hs-form-field [name="firstname"] {
         padding-bottom: 16px;
     }
@@ -577,7 +603,7 @@
         padding: 27px 12px 1px 10px;
         background-color: #163B52 !important;
         height: auto;
-        
+
     }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
