@@ -213,9 +213,12 @@ document.querySelector('.gmd-container').insertAdjacentHTML("afterend", `
       <!-- Mobile (max 767px) -->
       <source media="(max-width: 767px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1758175093/Logo-Wrap-360_ghagca.png">
       
-      <!-- Tablet (768px - 1024px) -->
-      <source media="(max-width: 1024px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1758102726/Logo-Wrap-768_cjnph3.png">
+      <!--(1199px)-->
+      <source media="(max-width: 1199px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1758280161/Logo-Wrap-1024_kfahkg.png">
       
+      <!-- Tablet (991px) -->
+     <source media="(max-width: 991px)" srcset="https://res.cloudinary.com/diilhbcp9/image/upload/v1758282908/Logo-Wrap-768_1_vxdini.png">
+
       <!-- Desktop (default) -->
       <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1758091802/Logo-Wrap-1440_fpw6pa.png" alt="Responsive Logos">
     </picture>

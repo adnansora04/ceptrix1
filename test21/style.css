@@ -6,8 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 46px;
-    margin-bottom: 18px;
+    margin-top: 47px;
+    margin-bottom: 17px;
 }
 
 .gmd-001 .hs_submit .actions input {
@@ -86,7 +86,8 @@
     z-index: 2;
     cursor: pointer;
     border: 1px #E6E9EC;
-    top: 1px;
+    top: -1px;
+    left: 0px;
 
 }
 
@@ -142,8 +143,8 @@
 /* .gmd-001 .hs-form-field .input {} */
 
 .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
-    top: 0.6px !important;
-    left: 1px !important;
+    top: 0.9px !important;
+    left: -1px !important;
     cursor: pointer;
 }
 
@@ -203,8 +204,9 @@
     background-size: 100%;
     background-color: #163B52 !important;
     /* min-height: 100svh; */
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 78px);
     padding: 32px 90px 0 90px;
+    overflow: hidden;
 }
 
 @media (max-width: 1440px) {
@@ -220,11 +222,11 @@
         padding: 32px 56.1px 0 57px;
         display: flex;
         justify-content: center;
-        align-items: center;    
+        align-items: center;
         box-sizing: border-box;
         background-size: 100%;
         background-color: #163B52 !important;
-        overflow: scroll;
+         overflow: scroll;
     }
 }
 
@@ -333,7 +335,7 @@
 
 .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
     width: 100% !important;
-    padding-bottom: 7px;
+    padding-bottom: 9px;
 }
 
 .gmd-001 .hs_phone .hs-field-desc {
@@ -360,7 +362,7 @@
 }
 
 .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-    padding: 15px 15px;
+    padding: 13.7px 15px;
     width: 100% !important;
     /* max-width: 456px; */
 }
@@ -452,8 +454,8 @@
     padding: 31px 300px;
     display: flex;
     justify-content: space-around;
-     background: #1F242A;
-        color: #ccc;
+    background: #1F242A;
+    color: #ccc;
 }
 
 @media (max-width: 1440px) {
@@ -473,6 +475,7 @@
         /* ignore container limits */
         margin: 0;
         padding-bottom: 38px;
+       
     }
 }
 
@@ -553,8 +556,88 @@
     /* 18.9px */
 }
 
-@media (max-width: 1023px) {
-    .gmd-001 .hs-form-field [name="company"] {
+@media (max-width: 1199.98px) {
+    .gmd-001 .gmd-image {
+        background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758279989/BG-1440-2_2_yxwr3o.jpg) !important;
+        background-repeat: no-repeat !important;
+        /* background-size: cover !important; */
+        /* padding-bottom: 124px; */
+        /* padding-bottom: 122px; */
+        /* min-height: 91.3svh; */
+        min-height: calc(100vh - 85px);
+        padding: 40px 20px;
+        padding: 32px 56.1px 0 57px;
+        padding: 32px 5px 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background-size: 100%;
+        /* background-color: #163B52 !important; */
+        overflow: scroll;
+    }
+    .gmd-001 .gmd-image::after {
+               position: absolute;
+        content: "";
+        background-color: #163B52 !important;
+        width: 100%;
+        height: 20%;
+        z-index: -1;
+        bottom: 0px;
+    }
+
+
+    .gmd-001 .gmd-container {
+        display: flex;
+        gap: 75px;
+        padding-top: 34.1px;
+    }
+
+    .gmd-001 .gmd-smart {
+        padding-top: 41px;
+    }
+
+    .gmd-001 .gmd-next {
+        padding-top: 16px;
+        padding-bottom: 34px;
+        padding-right: 8px;
+    }
+
+    .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
+        width: 100% !important;
+        padding-bottom: 25px;
+    }
+
+    .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
+        top: 0.9px !important;
+        left: 1px !important;
+        cursor: pointer;
+    }
+
+    .gmd-001 .hs_submit .actions {
+        margin-top: 57px;
+        margin-bottom: 16.9px;
+    }
+
+    .gmd-001 .gmd-logos {
+        padding-top: 73px;
+        padding-bottom: 63.6px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .gmd-001 .footer {
+        padding: 31px 30px;
+    }
+
+    .gmd-001 .gmd-custom li {
+        width: 106%;
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    /* .gmd-001 .hs-form-field [name="company"] {
         padding-bottom: 16px;
     }
 
@@ -568,7 +651,7 @@
 
     .gmd-001 .hs-form-field [name="firstname"] {
         padding-bottom: 16px;
-    }
+    } */
 
     .gmd-001 .gmd-widget {
         padding: 0px 0px 12px 0px !important;
@@ -590,24 +673,33 @@
     }
 
     .gmd-001 .form-columns-1 .hs-form-field [type="tel"] {
-        padding: 13px 15px;
+        padding: 14px 15px;
     }
 
     .gmd-001 .gmd-image {
-        background: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1758177479/BG-768_1_kbafsw.jpg") !important;
+        background:  url("https://res.cloudinary.com/diilhbcp9/image/upload/v1758177479/BG-768_1_kbafsw.jpg"), linear-gradient(0deg, #163b52 0%, #163b52 100%) !important;
 
         background-repeat: no-repeat !important;
         background-size: cover;
         background-size: 100% !important;
         /* padding-bottom: 207px; */
         padding: 27px 12px 1px 10px;
-        background-color: #163B52 !important;
+        /* background-color: #163B52 !important; */
         height: auto;
 
     }
+     .gmd-001 .gmd-image::after {
+           content: "";
+        position: absolute;
+        background-color: #163B52 !important;
+        width: 100%;
+        height: 35%;
+        bottom: 0;
+        z-index: -1;
+    }
 
     .gmd-001 .hs_phone .hs-fieldtype-intl-phone {
-       padding-bottom: 15px;
+        padding-bottom: 15px;
     }
 
     /* .gmd-001 .gmd-wrapper {
@@ -615,21 +707,22 @@
     } */
 
     .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
-               left: -2px !important;
+        left: -2px !important;
     }
 
-    /* .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg) {
-        left: 16px;
-        top: 24px;
-    } */
+    .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg) {
+        left: 14px;
+        top: 29px;
+    }
 
     .gmd-001 .hs-form-field input {
-                padding: 13px 206px 14px 16px;
+        padding: 13px 206px 14px 16px;
     }
 
     .gmd-001 .gmd-logos {
         padding-top: 64px;
-        padding-bottom: 53px;
+        padding-bottom: 55px;
+        margin-left: -2px;
     }
 
     /* .gmd-001 .gmd-text{
@@ -640,6 +733,7 @@
         width: 100%;
         max-width: 708px;
         padding-top: 29px;
+        margin: 0 auto;
 
     }
 
@@ -661,7 +755,7 @@
         padding-left: 37px;
         background-position: 1px 3px;
         padding-bottom: 20px;
-        padding-right: 78px;
+        padding-right: 150px;
     }
 
     .gmd-001 .gmd-item {
@@ -673,8 +767,7 @@
     }
 
     .gmd-001 .footer {
-        padding: 32px 30px;
-
+        padding: 29px 28px;
     }
 
     .gmd-001 .gmd-relay {
@@ -687,15 +780,17 @@
     }
 
     .gmd-001 .footer-right a {
-        margin-left: 18px;
+        margin-left: 13px;
+        margin-right: 4px;
     }
 
     .gmd-001 .inputs-list span {
         width: 120%
     }
-    .gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"]{
+
+    .gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"] {
         top: -3px;
-    left: 1px;
+        left: 1px;
 
     }
 }
@@ -768,19 +863,19 @@
         padding-bottom: 11px;
     } */
     .gmd-001 .form-columns-2 .hs_firstname {
-        padding-bottom: 7px;
+        padding-bottom: 10px;
     }
 
     /* .gmd-001 .gmd-section .hs_email .input {
         padding-bottom: 11px;
     } */
     .gmd-001 .gmd-section .hs-email {
-        padding-bottom: 7px;
+        padding-bottom: 10px;
 
     }
 
     .gmd-001 .hs_submit .actions {
-        margin-top: 51.2px;
+        margin-top: 53.2px;
         margin-bottom: 0px;
     }
 
@@ -817,7 +912,7 @@
         background-repeat: no-repeat !important;
         background-color: #163B52 !important;
         background-size: cover;
-        background-size: 100% 100% !important;
+        background-size: 100% !important;
         /* padding-bottom: 78px; */
         /* padding: 27px 20px; */
         padding: 25px 21px 0 16px;
@@ -842,6 +937,8 @@
     .gmd-001 .gmd-logos {
         padding-top: 64px;
         padding-bottom: 56px;
+        padding-left: 2px;
+        padding-right: 0px;
     }
 
     /* .gmd-001 .gmd-next {
@@ -897,19 +994,39 @@
 
     .gmd-001 .footer {
         padding-top: 0px;
-        display: block;
+        /* display: block; */
         padding-left: 0px;
     }
 
     .gmd-001 .form-columns-1 .legal-consent-container input[type="checkbox"] {
         top: -2px;
+        left: -2px;
+
+    }
+
+    .gmd-001 .elementor-element .elementor-widget-container .hs-form-field label:not(.hs-error-msg) {
+        left: 16px;
+        top: 28px;
+
+    }
+
+    .gmd-001 .legal-consent-container .hs-form-booleancheckbox label {
+        left: 2px !important;
+        top: 3px !important;
+    }
+
+    .gmd-001 .footer-right a {
+        margin-left: 18px;
+        margin-right: 0px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 663px) {
     /* .gmd-001 .gmd-image{
                 background-size: 100% 76% !important;
     } */
+     
+
 }
 
 @media (max-width: 361px) {
@@ -918,7 +1035,32 @@
         max-width: 320px;
     }
 
+    .gmd-001 .footer {
+        padding-top: 0px;
+        display: block;
+        padding-left: 0px;
+    }
+
     .gmd-001 .gmd-image {
         background-size: 99.6% 60% !important;
     }
 }
+  /* .gmd-001 .gmd-image { */
+        /* background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758279989/BG-1440-2_2_yxwr3o.jpg) !important;
+        background-repeat: no-repeat !important; */
+        /* background-size: cover !important; */
+        /* padding-bottom: 124px; */
+        /* padding-bottom: 122px; */
+        /* min-height: 91.3svh; */
+        /* min-height: calc(100vh - 85px);
+        padding: 40px 20px;
+        padding: 32px 56.1px 0 57px;
+        padding: 32px 5px 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background-size: 100%;
+        background-color: #163B52 !important;
+        overflow: scroll; */
+    /* } */
