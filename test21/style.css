@@ -222,7 +222,7 @@
         padding: 32px 56.1px 0 57px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;    
         box-sizing: border-box;
         background-size: 100%;
         background-color: #163B52 !important;
@@ -447,7 +447,7 @@
 
 .gmd-001 .gmd-logos {
     padding-top: 72px;
-    padding-bottom: 63px;
+    /* padding-bottom: 57px; */
 }
 
 .gmd-001 .footer {
@@ -581,7 +581,7 @@
                position: absolute;
         content: "";
         /* background-color: #163B52 !important; */
-        background-color: #1e435c;
+        background-color: #163B52 !important;
         width: 100%;
         height: 20%;
         z-index: -1;
@@ -630,6 +630,7 @@
 
     .gmd-001 .footer {
         padding: 31px 30px;
+        padding-bottom: 40px;
     }
 
     .gmd-001 .gmd-custom li {
@@ -679,7 +680,7 @@
     }
 
     .gmd-001 .gmd-image {
-        background:  url("https://res.cloudinary.com/diilhbcp9/image/upload/v1758177479/BG-768_1_kbafsw.jpg"), linear-gradient(0deg, #163b52 0%, #163b52 100%) !important;
+        background:  url("https://res.cloudinary.com/diilhbcp9/image/upload/v1758177479/BG-768_1_kbafsw.jpg") !important;
 
         background-repeat: no-repeat !important;
         background-size: cover;
@@ -694,7 +695,7 @@
            content: "";
         position: absolute;
         /* background:linear-gradient(0deg, #163b52 0%, #163b52 100%)!important; */
-        background-color: #1e435c;
+        background-color: #163B52 !important;
         width: 100%;
         height: 35%;
         bottom: 0;
