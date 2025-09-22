@@ -226,7 +226,7 @@
         box-sizing: border-box;
         background-size: 100%;
         background-color: #163B52 !important;
-         overflow: scroll;
+         overflow: hidden;
     }
 }
 
@@ -575,11 +575,13 @@
         background-size: 100%;
         /* background-color: #163B52 !important; */
         overflow: scroll;
+        overflow-x: hidden;
     }
     .gmd-001 .gmd-image::after {
                position: absolute;
         content: "";
-        background-color: #163B52 !important;
+        /* background-color: #163B52 !important; */
+        background-color: #1e435c;
         width: 100%;
         height: 20%;
         z-index: -1;
@@ -691,7 +693,8 @@
      .gmd-001 .gmd-image::after {
            content: "";
         position: absolute;
-        background-color: #163B52 !important;
+        /* background:linear-gradient(0deg, #163b52 0%, #163b52 100%)!important; */
+        background-color: #1e435c;
         width: 100%;
         height: 35%;
         bottom: 0;
@@ -982,7 +985,8 @@
 
     .gmd-001 .footer-right {
         gap: 14px;
-        padding-top: 16px;
+        /* padding-top: 16px; */
+        padding-top: 30px;
         padding-left: 16px;
 
     }
@@ -1043,6 +1047,9 @@
 
     .gmd-001 .gmd-image {
         background-size: 99.6% 60% !important;
+    }
+    .gmd-001 .footer-right{
+                padding-top: 16px;
     }
 }
   /* .gmd-001 .gmd-image { */
