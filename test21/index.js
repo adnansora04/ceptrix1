@@ -2,31 +2,31 @@ document.querySelector('[data-elementor-type="footer"]').classList.add('gmd-sect
 document.querySelector('[data-widget_type="bdt-advanced-divider.default"]').parentElement.classList.add('gmd-section-hide')
 document.querySelector('.elementor-top-section').classList.add('gmd-section-hide')
 document.querySelector('.hs-form-frame').parentElement.parentElement.classList.add('gmd-section-hide')
-document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
-document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
+document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-heading-title')
+document.querySelector(".gmd-heading-title").parentElement.classList.add('gmd-main-container')
 
 
 
 
 document.querySelectorAll("p").forEach(p => {
     if (p.textContent.includes("Demo")) {
-        p.classList.add("gmd-hello");
+        p.classList.add("gmd-demo");
     }
 });
 
 // document.querySelector(':has(>.gmd-hello)').parentElement.parentElement.classList.add('gmd-item')
 
 // document.querySelector('.gmd-container>div.gmd-text>div:not(:first-child').classList.add('gmd-item')
-const btn = document.querySelector('.gmd-hello');
+const btn = document.querySelector('.gmd-demo');
 if (btn) {
     btn.textContent = "Get a Demo";
 }
 
-el = document.querySelector(':has(>.gmd-hello)');
+el = document.querySelector(':has(>.gmd-demo)');
 if (el)
-    el.parentElement.classList.add('gmd-widget');
+    el.parentElement.classList.add('gmd-demo-container');
 
-el = document.querySelector('.gmd-wrapper');
+el = document.querySelector('.gmd-main-container');
 if (el)
     el.parentElement.classList.add('gmd-image')
 
@@ -53,12 +53,12 @@ waitForElement('form', () => {
 // document.querySelector('.gmd-wrapper>div>div').classList.add('gmd-contents')
 // document.querySelector('.gmd-text>div .gmd-banner').parentElement.classList.add('gmd-contents')
 document.querySelector('.hs_phone').parentElement.classList.add('gmd-phone')
-document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
-el = document.querySelector('.gmd-widget');
+// document.querySelector('h1.elementor-heading-title').parentElement.parentElement.parentElement.classList.add('gmd-banner')
+el = document.querySelector('.gmd-demo-container');
 if (el)
     el.parentElement.classList.add('gmd-badge');
 
-document.querySelector('main .e-lazyloaded>div>div>div>div.elementor-element:not(:first-child)').classList.add('gmd-item')
+document.querySelector('main .e-lazyloaded>div>div>div>div.elementor-element:not(:first-child)').classList.add('gmd-form')
 
 
 document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
@@ -157,7 +157,7 @@ observer.observe(document.body, { childList: true, subtree: true });
 
 });
 
-document.querySelector('.gmd-text').insertAdjacentHTML("beforebegin",`
+document.querySelector('.gmd-heading-title').insertAdjacentHTML("beforebegin",`
     <div class="gmd-container">
  <div class="gmd-custom">
       <div class="gmd-smart">The Smart Radio Solution</div>
@@ -174,7 +174,7 @@ document.querySelector('.gmd-text').insertAdjacentHTML("beforebegin",`
 
 
 const text = document.querySelector('.gmd-container .gmd-custom');
-const container = document.querySelector('.gmd-text');
+const container = document.querySelector('.gmd-heading-title');
 
 if (text && container) {
     text.insertAdjacentElement('afterend', container);
@@ -226,7 +226,7 @@ document.querySelector('.gmd-container').insertAdjacentHTML("afterend", `
   </div>
 `);
 
-        document.querySelector('.gmd-wrapper').insertAdjacentHTML("afterbegin",`
+        document.querySelector('.gmd-main-container').insertAdjacentHTML("afterbegin",`
             
             <div class="gmd-relay"><img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1758100973/Logo_-_Relay_kbgzvi.png"/></div>`);
 
@@ -243,5 +243,5 @@ document.querySelector('.gmd-container').insertAdjacentHTML("afterend", `
 </div>
         `);
 
-    document.querySelector('.gmd-widget').insertAdjacentHTML("afterend",`
+    document.querySelector('.gmd-demo-container').insertAdjacentHTML("afterend",`
         <div class="gmd-infor">Information is saved as you enter it.</div>`)
