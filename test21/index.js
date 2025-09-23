@@ -1,7 +1,7 @@
-document.querySelector('[data-elementor-type="footer"]').classList.add('gmd-contents')
-document.querySelector('[data-widget_type="bdt-advanced-divider.default"]').parentElement.classList.add('gmd-contents')
-document.querySelector('.elementor-top-section').classList.add('gmd-contents')
-document.querySelector('.hs-form-frame').parentElement.parentElement.classList.add('gmd-contents')
+document.querySelector('[data-elementor-type="footer"]').classList.add('gmd-section-hide')
+document.querySelector('[data-widget_type="bdt-advanced-divider.default"]').parentElement.classList.add('gmd-section-hide')
+document.querySelector('.elementor-top-section').classList.add('gmd-section-hide')
+document.querySelector('.hs-form-frame').parentElement.parentElement.classList.add('gmd-section-hide')
 document.querySelector(".e-con-inner > .elementor-element:has(h1.elementor-heading-title)").classList.add('gmd-text')
 document.querySelector(".gmd-text").parentElement.classList.add('gmd-wrapper')
 
@@ -14,16 +14,15 @@ document.querySelectorAll("p").forEach(p => {
     }
 });
 
-document.querySelector(':has(>.gmd-hello)').parentElement.parentElement.classList.add('gmd-item')
+// document.querySelector(':has(>.gmd-hello)').parentElement.parentElement.classList.add('gmd-item')
 
-
-
-const btn = document.querySelector('.gmd-item>div>div>p');
+// document.querySelector('.gmd-container>div.gmd-text>div:not(:first-child').classList.add('gmd-item')
+const btn = document.querySelector('.gmd-hello');
 if (btn) {
     btn.textContent = "Get a Demo";
 }
 
-el = document.querySelector('.gmd-item>div>div>p');
+el = document.querySelector(':has(>.gmd-hello)');
 if (el)
     el.parentElement.classList.add('gmd-widget');
 
@@ -58,6 +57,8 @@ document.querySelector('h1.elementor-heading-title').parentElement.parentElement
 el = document.querySelector('.gmd-widget');
 if (el)
     el.parentElement.classList.add('gmd-badge');
+
+document.querySelector('main .e-lazyloaded>div>div>div>div.elementor-element:not(:first-child)').classList.add('gmd-item')
 
 
 document.querySelectorAll('.elementor-element .elementor-widget-container .hs-form-field input')
