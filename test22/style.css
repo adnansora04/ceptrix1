@@ -414,7 +414,8 @@
 
     .gmd-001 main>div>div:first-child {
         background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758720512/Video_1_tcoph9.png) !important;
-        margin-bottom: 265px;
+        /* margin-bottom: 265px; */
+                margin-bottom: 261px;
     }
 
     .gmd-001 .swiper-wrapper {
@@ -423,8 +424,12 @@
         -webkit-overflow-scrolling: touch;
         justify-content: flex-start;
         gap: 16px;
-        padding-bottom: 17.9px;
+        /* padding-bottom: 17.9px; */
+        padding-bottom: 21.9px;
 
+    }
+    .gmd-001 .swiper-slides svg{
+        max-width: 900px;
     }
 
     .gmd-001 .swiper-slides {
@@ -575,7 +580,8 @@
     }
 
     .gmd-001 main>div>div:first-child {
-        margin-bottom: 101px;
+        /* margin-bottom: 101px; */
+        margin-bottom: 119px;
         background: #1A292A;
         background-image: none !important;
     }
@@ -588,6 +594,9 @@
     .gmd-001 main>div>div:first-child>div {
         padding-top: 14px;
     }
+    .gmd-001 .swiper-slides svg{
+        max-width: 675px;
+    }
 
     .gmd-001 .select-btn {
         top: 9px;
@@ -595,7 +604,8 @@
     }
 
     .gmd-001 .swiper-wrapper {
-        padding-bottom: 18px;
+        /* padding-bottom: 18px; */ 
+        padding-bottom: 0px;
     }
 
     .gmd-001 .industry-box span {
