@@ -428,9 +428,7 @@
         padding-bottom: 21.9px;
 
     }
-    .gmd-001 .swiper-slides svg{
-        max-width: 900px;
-    }
+   
 
     .gmd-001 .swiper-slides {
         display: inline-block;
@@ -472,6 +470,11 @@
     }
     .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page{
         gap: 9px;
+    }
+}
+@media (max-width:900.98px){
+ .gmd-001 .swiper-slides svg{
+        max-width: 900px;
     }
 }
 
@@ -594,9 +597,7 @@
     .gmd-001 main>div>div:first-child>div {
         padding-top: 14px;
     }
-    .gmd-001 .swiper-slides svg{
-        max-width: 675px;
-    }
+   
 
     .gmd-001 .select-btn {
         top: 9px;
@@ -618,4 +619,10 @@
         margin-top: 14px;
     }
 
+}
+
+@media(max-width: 640.98px){
+     .gmd-001 .swiper-slides svg{
+        max-width: 675px;
+    }
 }
