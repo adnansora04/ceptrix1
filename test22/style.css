@@ -134,8 +134,8 @@
     left: 9px;
     width: 20px;
     height: 20px;
-    /* border: 2px solid #1DB1BA; */
-        border: 1px solid #173B52;
+    border: 1px solid #1DB1BA;
+        /* border: 1px solid #173B52; */
     background: transparent;
     border-radius: 4px;
     cursor: pointer;
@@ -144,8 +144,14 @@
 
 .gmd-001 .select-btn.active {
     background: #60DFE6;
+    border: 1px solid #173B52;
     /* position: relative; */
 }
+
+.gmd-001 .industry-box:hover .gmd-page svg path {
+    stroke: #fff;
+}
+
 
 .gmd-001 .select-btn.active::after {
     content: "";
@@ -321,13 +327,11 @@
     content: none;
 }
 
-.gmd-001 .gmd-page svg path:hover {
-    stroke: #fff;
-}
 
-.gmd-001 .select-btn:hover {
+.gmd-001 .industry-box:hover .select-btn {
     border: 1px solid #FFF;
 }
+
 
 /* .gmd-001 #hide-header:not(:first-child) {
     display: none;
