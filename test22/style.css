@@ -423,6 +423,7 @@
         justify-content: flex-start;
         gap: 16px;
         padding-bottom: 17.9px;
+
     }
 
     .gmd-001 .swiper-slides {
@@ -548,7 +549,13 @@
         margin-top: 24px;
     }
 
-   
+    .gmd-001 .email-form {
+        max-width: 321px;
+    }
+
+    .gmd-001 .email-form .input-container a {
+        padding: 19.3px 41px;
+    }
 
     .gmd-001 .email-form .input-container input {
         padding: 15px 19px;
@@ -601,9 +608,3 @@
     }
 
 }
-
-/* @media (max-width: 562.98px){
-    
-
-    
-}    */
