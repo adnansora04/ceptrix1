@@ -101,9 +101,11 @@
 }
 
 .gmd-001 .industry-box:hover {
-    background: linear-gradient(180deg,
-            rgba(0, 242, 242, 0.6) 0%,
-            rgba(29, 177, 186, 0.25) 100%);
+   border-radius: 8px;
+border: 1px solid #1DB1BA;
+background: linear-gradient(180deg, rgba(29, 177, 186, 0.70) 0%, rgba(29, 177, 186, 0.20) 100%);
+box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.24);
+backdrop-filter: blur(12px);
 }
 
 .gmd-001 .industry-box span {
