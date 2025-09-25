@@ -126,6 +126,15 @@ Warehouse & Logistics</span>
         `)
         document.querySelector('main >div>div:first-child.e-lazyloaded').classList.add('gmd-cont')
 
+document.querySelectorAll(".industry-box").forEach(box => {
+  box.addEventListener("click", (e) => {
+    if (e.target.classList.contains("select-btn")) return;
+
+    const btn = box.querySelector(".select-btn");
+    btn.click(); 
+  });
+});
+
 document.querySelectorAll(".select-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -142,6 +151,7 @@ document.querySelectorAll(".select-btn").forEach(btn => {
     paths.forEach(path => path.classList.toggle("active"));
   });
 });
+
 
 
 
