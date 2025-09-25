@@ -364,7 +364,12 @@
     padding-top: 7px;
     gap: 33px;
 }
-
+@media (max-width: 1200.98px){
+    
+    .gmd-001 .swiper-wrapper{
+         overflow-x: auto;
+    }
+}
 
 @media (max-width: 1023.98px) {
     .gmd-001 .gmd-logo img {
