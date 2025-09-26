@@ -58,12 +58,13 @@
 }
 
 .gmd-001 .industry-container {
-  display: grid;
+    display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
+    gap: 11.6px;
     /* margin: 40px auto; */
-   margin-top: 25px;
-    margin-bottom: 45.2px;
+    margin-top: 26px;
+    margin-bottom: 44.2px;
+
 }
 
 .gmd-001 .industry-box {
@@ -76,7 +77,7 @@
     font-size: 16px;
     font-weight: 500;
     text-align: center;
-    padding: 4px 12px;
+    padding: 4px 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -101,11 +102,11 @@
 }
 
 .gmd-001 .industry-box:hover {
-   border-radius: 8px;
-border: 1px solid #1DB1BA;
-background: linear-gradient(180deg, rgba(29, 177, 186, 0.70) 0%, rgba(29, 177, 186, 0.20) 100%);
-box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.24);
-backdrop-filter: blur(12px);
+    border-radius: 8px;
+    border: 1px solid #1DB1BA;
+    background: linear-gradient(180deg, rgba(29, 177, 186, 0.70) 0%, rgba(29, 177, 186, 0.20) 100%);
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(12px);
 }
 
 .gmd-001 .industry-box span {
@@ -127,17 +128,17 @@ backdrop-filter: blur(12px);
 }
 
 .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page svg {
-    margin-top: 11px;
+    margin-top: 10px;
 }
 
 .gmd-001 .select-btn {
     position: absolute;
-    top: 7px;
-    left: 9px;
+    top: 7.4px;
+    left: 7.1px;
     width: 20px;
     height: 20px;
     border: 1px solid #1DB1BA;
-        /* border: 1px solid #173B52; */
+    /* border: 1px solid #173B52; */
     background: transparent;
     border-radius: 4px;
     cursor: pointer;
@@ -168,7 +169,7 @@ backdrop-filter: blur(12px);
 }
 
 .gmd-001 .email-form {
-      margin: 0 auto;
+    margin: 0 auto;
     width: 100%;
     max-width: 553px;
 }
@@ -187,17 +188,28 @@ backdrop-filter: blur(12px);
 }
 
 .gmd-001 .email-form .input-container input {
-  flex: 1;
+    flex: 1;
     border: none;
     padding: 19.4px 23px;
     font-size: 18px;
-    padding: 17px 24px 14px 24px;
+    padding: 15px 24px 14px 24px;
     outline: none;
-    color: #000;
+    /* color: #000; */
     border-radius: 99px 0 0 99px;
-    background: var(--White, #FFF);
+    background: #FFF;
     box-shadow: 0 20px 50px 0 rgba(0, 9, 43, 0.05);
+    color: #173B52;
+    font-family: 'neuzeit-grotesk';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 27px */
 
+}
+
+.gmd-001 .email-form .input-container input#emailInput::placeholder {
+    color: #686E77A3;
 }
 
 /* 
@@ -210,7 +222,7 @@ backdrop-filter: blur(12px);
 }
 
 .gmd-001 .email-form .input-container a {
-      color: #FFF;
+    color: #FFF;
     text-align: center;
     font-family: 'neuzeit-grotesk';
     font-size: 18px;
@@ -363,19 +375,23 @@ backdrop-filter: blur(12px);
 }
 
 .gmd-001 main>div>div:first-child>div {
-padding-top: 48px;
+    padding-top: 48px;
     gap: 0;
     padding-bottom: 235.8px;
 }
 
 .gmd-001 main>div>div:first-child>div>div>div>div:first-child {
-     padding-top: 7px;
+    padding-top: 7px;
     gap: 35px;
 }
-@media (max-width: 1200.98px){
-    
-    .gmd-001 .swiper-wrapper{
-         overflow-x: auto;
+.gmd-001 .swiper-slides svg{
+    padding:0 31px
+}
+
+@media (max-width: 1200.98px) {
+
+    .gmd-001 .swiper-wrapper {
+        overflow-x: auto;
     }
 }
 
@@ -386,12 +402,12 @@ padding-top: 48px;
     }
 
     .gmd-001 .industry-container {
-             
-         grid-template-columns: repeat(3, 1fr);
+
+        grid-template-columns: repeat(3, 1fr);
         gap: 11px;
         margin-bottom: 45px;
-         /* margin: 40px auto;  */
-         margin-top: 27px; 
+        /* margin: 40px auto;  */
+        margin-top: 27px;
     }
 
     .gmd-001 .footer-right {
@@ -429,7 +445,7 @@ padding-top: 48px;
     .gmd-001 main>div>div:first-child {
         background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1758720512/Video_1_tcoph9.png) !important;
         /* margin-bottom: 263px; */
-                margin-bottom: 261px;
+        margin-bottom: 261px;
     }
 
     .gmd-001 .swiper-wrapper {
@@ -442,7 +458,7 @@ padding-top: 48px;
         padding-bottom: 21.9px;
 
     }
-   
+
 
     .gmd-001 .swiper-slides {
         display: inline-block;
@@ -455,11 +471,11 @@ padding-top: 48px;
     }
 
     .gmd-001 main>div>div:first-child>div {
-                padding-top: 37px;
+        padding-top: 37px;
         gap: 0;
-            padding-bottom: 171.6px;
+        padding-bottom: 171.6px;
         /* padding-bottom: 167.6px; */
-        
+
         /* padding-top: 40px;
         gap: 0;
         padding-bottom: 171.6px; */
@@ -484,24 +500,32 @@ padding-top: 48px;
     .gmd-001 .industry-box:nth-child(5) {
         padding: 7px 25px;
     }
-    .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page svg{
+
+    .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page svg {
         margin-top: 11px;
     }
-    .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page{
+
+    .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page {
         gap: 9px;
     }
-    .gmd-001 .email-form .input-container a{
-            padding: 14.1px 39.7px;
+
+    .gmd-001 .email-form .input-container a {
+        padding: 14.1px 39.7px;
     }
-    .gmd-001 .email-form .input-container input{
-            padding: 17px 24px 14px 24px;
+
+    .gmd-001 .email-form .input-container input {
+        padding: 15px 24px 14px 24px;
+    }
+     .gmd-001 .elementor-widget-heading >div:first-child{
+        overflow:visible;
     }
 }
-@media (max-width:900.98px){
- .gmd-001 .swiper-slides svg{
+
+@media (max-width:900.98px) {
+    .gmd-001 .swiper-slides svg {
         max-width: 900px;
     }
-    
+
 }
 
 @media (max-width: 767.98px) {
@@ -511,7 +535,7 @@ padding-top: 48px;
     }
 
     .gmd-001 .industry-container {
-          grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 7px;
         margin-top: 3px;
         margin-bottom: 31px;
@@ -590,20 +614,20 @@ padding-top: 48px;
 
     .gmd-001 .email-form .input-container a {
         /* padding: 19.3px 41px; */
-                padding: 18.3px 41px;
+        padding: 18.3px 41px;
     }
 
     .gmd-001 .email-form .input-container input {
-        padding: 15px 19px;
+        padding: 14.1px 19px;
         border-radius: 100px;
         border: 4px solid rgba(255, 255, 255, 0.20);
         background: var(--White, #FFF);
         box-shadow: 0 20px 50px 0 rgba(0, 9, 43, 0.05);
     }
-
+   
     .gmd-001 .gmd-logo {
         /* top: 679.2px; */
-                top: 675.2px;
+        top: 675.2px;
     }
 
     .gmd-001 main>div>div:first-child>div {
@@ -615,7 +639,7 @@ padding-top: 48px;
         margin-bottom: 118.8px;
         background: #1A292A;
         background-image: none !important;
-        
+
     }
 
     .gmd-001 .footer-right a {
@@ -627,7 +651,7 @@ padding-top: 48px;
         /* padding-top: 14px; */
         padding-top: 9px;
     }
-   
+
 
     .gmd-001 .select-btn {
         top: 9px;
@@ -635,24 +659,26 @@ padding-top: 48px;
     }
 
     .gmd-001 .swiper-wrapper {
-        /* padding-bottom: 18px; */ 
+        /* padding-bottom: 18px; */
         padding-bottom: 0px;
     }
 
     .gmd-001 .industry-box span {
         font-size: 14px;
     }
-        .gmd-001 .industry-box:nth-child(5) {
+
+    .gmd-001 .industry-box:nth-child(5) {
         padding: 2px 8.2px;
     }
-        .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page svg {
+
+    .gmd-001 .industry-container .industry-box:nth-child(5) .gmd-page svg {
         margin-top: 14px;
     }
 
 }
 
-@media(max-width: 640.98px){
-     .gmd-001 .swiper-slides svg{
+@media(max-width: 640.98px) {
+    .gmd-001 .swiper-slides svg {
         max-width: 675px;
     }
 }

@@ -13,7 +13,7 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     setTimeout(() => clearInterval(check), timeout);
 }
 
-waitForElement('body', () => {
+waitForElement('.home', () => {
   
   document.body.classList.add('gmd-001');
 
@@ -60,8 +60,8 @@ if (button) {
    <button class="select-btn"></button>
     <!-- Education -->
     <div class="gmd-page">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-      <path d="M22.3328 9.99999V16M6.33281 12.5V16C6.33281 16.7956 6.96495 17.5587 8.09017 18.1213C9.21538 18.6839 10.7415 19 12.3328 19C13.9241 19 15.4502 18.6839 16.5754 18.1213C17.7007 17.5587 18.3328 16.7956 18.3328 16V12.5M21.7528 10.922C21.9318 10.843 22.0837 10.7133 22.1897 10.5488C22.2957 10.3843 22.3512 10.1924 22.3491 9.99673C22.3471 9.80108 22.2877 9.61031 22.1784 9.44807C22.069 9.28584 21.9144 9.15925 21.7338 9.08399L13.1628 5.17999C12.9022 5.06114 12.6192 4.99963 12.3328 4.99963C12.0464 4.99963 11.7634 5.06114 11.5028 5.17999L2.93281 9.07999C2.75477 9.15796 2.60332 9.28613 2.49697 9.44881C2.39062 9.61149 2.33398 9.80163 2.33398 9.99599C2.33398 10.1903 2.39062 10.3805 2.49697 10.5432C2.60332 10.7059 2.75477 10.834 2.93281 10.912L11.5028 14.82C11.7634 14.9388 12.0464 15.0003 12.3328 15.0003C12.6192 15.0003 12.9022 14.9388 13.1628 14.82L21.7528 10.922Z" stroke="#173B52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none" style="color:#1DB1BA">
+      <path d="M22.3328 9.99999V16M6.33281 12.5V16C6.33281 16.7956 6.96495 17.5587 8.09017 18.1213C9.21538 18.6839 10.7415 19 12.3328 19C13.9241 19 15.4502 18.6839 16.5754 18.1213C17.7007 17.5587 18.3328 16.7956 18.3328 16V12.5M21.7528 10.922C21.9318 10.843 22.0837 10.7133 22.1897 10.5488C22.2957 10.3843 22.3512 10.1924 22.3491 9.99673C22.3471 9.80108 22.2877 9.61031 22.1784 9.44807C22.069 9.28584 21.9144 9.15925 21.7338 9.08399L13.1628 5.17999C12.9022 5.06114 12.6192 4.99963 12.3328 4.99963C12.0464 4.99963 11.7634 5.06114 11.5028 5.17999L2.93281 9.07999C2.75477 9.15796 2.60332 9.28613 2.49697 9.44881C2.39062 9.61149 2.33398 9.80163 2.33398 9.99599C2.33398 10.1903 2.39062 10.3805 2.49697 10.5432C2.60332 10.7059 2.75477 10.834 2.93281 10.912L11.5028 14.82C11.7634 14.9388 12.0464 15.0003 12.3328 15.0003C12.6192 15.0003 12.9022 14.9388 13.1628 14.82L21.7528 10.922Z" stroke="#1DB1BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <span>Education</span>
     </div>
@@ -126,31 +126,97 @@ Warehouse & Logistics</span>
         `)
         document.querySelector('main >div>div:first-child.e-lazyloaded').classList.add('gmd-cont')
 
+
+
 document.querySelectorAll(".industry-box").forEach(box => {
   box.addEventListener("click", (e) => {
     if (e.target.classList.contains("select-btn")) return;
-
     const btn = box.querySelector(".select-btn");
-    btn.click(); 
+    btn.click();
   });
 });
 
 document.querySelectorAll(".select-btn").forEach(btn => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
-
     const box = btn.closest(".industry-box");
-    box.classList.toggle("active");
-
-    btn.classList.toggle("active");
-
     const span = box.querySelector("span");
+    const industryName = span ? span.textContent.trim() : "";
+
+
+    box.classList.toggle("active");
+    btn.classList.toggle("active");
     if (span) span.classList.toggle("active");
 
     const paths = box.querySelectorAll("svg path");
     paths.forEach(path => path.classList.toggle("active"));
+
+    let selectedIndustriesStr = localStorage.getItem("selectedIndustries") || "";
+    let selectedIndustries = selectedIndustriesStr ? selectedIndustriesStr.split(",") : [];
+
+    if (box.classList.contains("active")) {
+      if (!selectedIndustries.includes(industryName)) {
+        selectedIndustries.push(industryName);
+      }
+    } else {
+      selectedIndustries = selectedIndustries.filter(item => item !== industryName);
+    }
+
+    localStorage.setItem("selectedIndustries", selectedIndustries.join(","));
+
+    if (selectedIndustries.length === 1) {
+      console.log(`Your selected industry is ${selectedIndustries[0]}`);
+    } else if (selectedIndustries.length > 1) {
+      console.log(`Your selected industries are ${selectedIndustries.join(", ")}`);
+    } else {
+      console.log("No industry selected");
+    }
   });
 });
+
+
+if (window.location.href.includes("contact-sales")) {
+
+  if (selectedIndustries.length === 1) {
+    console.log(`Your selected industry is ${selectedIndustries[0]}`);
+  } else if (selectedIndustries.length > 1) {
+    console.log(`Your selected industries are ${selectedIndustries.join(", ")}`);
+  } else {
+    console.log("No industry selected");
+  }
+}
+
+
+
+
+
+
+
+// document.querySelectorAll(".industry-box").forEach(box => {
+//   box.addEventListener("click", (e) => {
+//     if (e.target.classList.contains("select-btn")) return;
+
+//     const btn = box.querySelector(".select-btn");
+//     btn.click(); 
+//   });
+// });
+
+// document.querySelectorAll(".select-btn").forEach(btn => {
+//   btn.addEventListener("click", (e) => {
+//     e.stopPropagation();
+
+//     const box = btn.closest(".industry-box");
+//     box.classList.toggle("active");
+
+//     btn.classList.toggle("active");
+
+//     const span = box.querySelector("span");
+//     if (span) span.classList.toggle("active");
+
+//     const paths = box.querySelectorAll("svg path");
+//     paths.forEach(path => path.classList.toggle("active"));
+//   });
+// });
 
 
 
@@ -169,11 +235,17 @@ demoBtn.addEventListener('click', function(e) {
     inputContainer.classList.add('error');
   } else {
     inputContainer.classList.remove('error');
+
+    e.preventDefault(); 
+
+    const targetUrl = demoBtn.getAttribute("href") + `?email=${encodeURIComponent(emailValue)}`;
+    window.location.href = targetUrl;
   }
 });
 
 
-})
+
+
         // document.querySelector('.fadeInUp').parentElement.parentElement.parentElement.classList.add('gmd-none')
 // document.querySelectorAll(".select-btn").forEach(btn => {
 //   btn.addEventListener("click", () => {
@@ -357,7 +429,7 @@ document.querySelector('main>div>div:first-child').insertAdjacentHTML("afterend"
   </div>
 </div>
         `);
-
+})
     
 //   <div class="swiper-wrapper">
 //       <div class="swiper-slides"><img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1758631610/Logo_1_3_bg3rs0.png"/></div>
