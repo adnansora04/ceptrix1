@@ -97,6 +97,12 @@
     color: #173B52;
 }
 
+.gmd-001 .industry-box span.active:hover {
+    color: #fff !important;
+}
+.gmd-001 .industry-box.active:hover span {
+    color: #fff !important;
+}
 .gmd-001 .gmd-page svg path.active {
     stroke: #173B52;
 }
@@ -107,6 +113,7 @@
     background: linear-gradient(180deg, rgba(29, 177, 186, 0.70) 0%, rgba(29, 177, 186, 0.20) 100%);
     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.24);
     backdrop-filter: blur(12px);
+    color: #fff ;
 }
 
 .gmd-001 .industry-box span {
@@ -206,6 +213,16 @@
     line-height: 150%;
     /* 27px */
 
+}
+
+.gmd-001 .email-form .input-container input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: #173B52 !important;
+   font-family: 'neuzeit-grotesk';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+      box-shadow: 0 20px 50px 0 rgba(0, 9, 43, 0.05);
 }
 
 .gmd-001 .email-form .input-container input#emailInput::placeholder {

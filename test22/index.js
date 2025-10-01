@@ -129,57 +129,88 @@ Warehouse & Logistics</span>
         document.querySelector('main >div>div:first-child.e-lazyloaded').classList.add('gmd-cont')
     
         
-        let selectedIndustries = []; 
+  let selectedIndustries = []; 
 
-  document.querySelectorAll(".industry-box").forEach(box => {
-    box.addEventListener("click", (e) => {
-      if (e.target.classList.contains("select-btn")) return;
-      const btn = box.querySelector(".select-btn");
-      btn.click();
-    });
-  });
+function activateBox(box, industryName) {
+  const btn = box.querySelector(".select-btn");
+  const span = box.querySelector("span");
+  const paths = box.querySelectorAll("svg path");
 
-  document.querySelectorAll(".select-btn").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const box = btn.closest(".industry-box");
-      const span = box.querySelector("span");
-      const industryName = span ? span.textContent.trim() : "";
+  box.classList.add("active");
+  if (btn) btn.classList.add("active");
+  if (span) span.classList.add("active");
+  paths.forEach(path => path.classList.add("active"));
 
-      box.classList.toggle("active");
-      btn.classList.toggle("active");
-      if (span) span.classList.toggle("active");
-
-      const paths = box.querySelectorAll("svg path");
-      paths.forEach(path => path.classList.toggle("active"));
-
-
-      if (box.classList.contains("active")) {
-        if (!selectedIndustries.includes(industryName)) {
-          selectedIndustries.push(industryName);
-        }
-      } else {
-        selectedIndustries = selectedIndustries.filter(item => item !== industryName);
-      }
-
-    
-      localStorage.setItem("selectedIndustries", selectedIndustries);
-    });
-  });
-
-  
-  if (window.location.pathname === '/contact-sales/') {
-    let selectedIndustriesStr = localStorage.getItem("selectedIndustries") || "";
-    let selectedIndustries = selectedIndustriesStr ? selectedIndustriesStr.split(",") : [];
-
-    if (selectedIndustries.length === 1) {
-      console.log(`Your selected industry is ${selectedIndustries[0]}`);
-    } else if (selectedIndustries.length > 1) { 
-      console.log(`Your selected industries are ${selectedIndustries}`);
-    } else {
-      console.log("No industry selected");
-    }
+  if (!selectedIndustries.includes(industryName)) {
+    selectedIndustries.push(industryName);
   }
+}
+
+
+function deactivateBox(box, industryName) {
+  const btn = box.querySelector(".select-btn");
+  const span = box.querySelector("span");
+  const paths = box.querySelectorAll("svg path");
+
+  box.classList.remove("active");
+  if (btn) btn.classList.remove("active");
+  if (span) span.classList.remove("active");
+  paths.forEach(path => path.classList.remove("active"));
+
+  selectedIndustries = selectedIndustries.filter(item => item !== industryName);
+}
+
+
+document.querySelectorAll(".industry-box").forEach(box => {
+  const span = box.querySelector("span");
+  const industryName = span ? span.textContent.trim() : "";
+
+
+  const stored = localStorage.getItem("selectedIndustries") || "";
+  const storedIndustries = stored ? stored.split(",") : [];
+  if (storedIndustries.includes(industryName)) {
+    activateBox(box, industryName);
+  }
+
+
+  box.addEventListener("click", (e) => {
+    if (e.target.classList.contains("select-btn")) return;
+    const btn = box.querySelector(".select-btn");
+    if (btn) btn.click();
+  });
+});
+
+
+document.querySelectorAll(".select-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const box = btn.closest(".industry-box");
+    const span = box.querySelector("span");
+    const industryName = span ? span.textContent.trim() : "";
+
+    if (box.classList.contains("active")) {
+      deactivateBox(box, industryName);
+    } else {
+      activateBox(box, industryName);
+    }
+
+    localStorage.setItem("selectedIndustries", selectedIndustries);
+  });
+});
+
+
+if (window.location.pathname === '/contact-sales/') {
+  const selectedIndustriesStr = localStorage.getItem("selectedIndustries") || "";
+  const selectedIndustries = selectedIndustriesStr ? selectedIndustriesStr.split(",") : [];
+
+  if (selectedIndustries.length === 1) {
+    console.log(`Your selected industry is ${selectedIndustries[0]}`);
+  } else if (selectedIndustries.length > 1) { 
+    console.log(`Your selected industries are ${selectedIndustries}`);  
+  } else {
+    console.log("No industry selected");
+  }
+}
 
 
 
