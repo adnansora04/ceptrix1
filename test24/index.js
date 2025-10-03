@@ -68,10 +68,18 @@ Els.forEach(el => {
 
 const [first, second] = document.querySelectorAll('span.woocommerce-Price-currencySymbol');
 
+
+if (first) {
+  first.classList.add('hide-currency');
+  first.parentNode.insertAdjacentText('beforeend', ',-');
+}
+
+
 if (second) {
   second.classList.add('hide-currency');
-   second.parentNode.insertAdjacentText('beforeend', ',-');
+  second.parentNode.insertAdjacentText('beforeend', ',-');
 }
+
 
 let pric = document.querySelector('.totaalregel #custom-kassakorting');
 if (pric) {
