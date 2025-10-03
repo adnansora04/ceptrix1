@@ -1,23 +1,33 @@
 
   document.body.classList.add('gmd-001');
-let priceEl = document.querySelector('.totaalregel #custom-regular-price');
-if (priceEl) {
-  priceEl.textContent = priceEl.textContent.replace("€", "").trim();
+
+let selectors = [
+  '.totaalregel #custom-regular-price',
+  '.totaalregel #custom-kassakorting',
+  '.totaalregel #custom-sale-price'
+];
+
+
+function cleanPrices() {
+  selectors.forEach(sel => {
+    let el = document.querySelector(sel);
+    if (el) {
+      el.textContent = el.textContent.replace("€", "").trim();
+    }
+  });
 }
 
+cleanPrices();
 
-let priceEls = document.querySelector('.totaalregel #custom-kassakorting');
-if (priceEls) {
-  priceEls.textContent = priceEls.textContent.replace("€", "").trim();
+
+const target = document.querySelector('.totaalregel');
+if (target) {
+  const observer = new MutationObserver(() => {
+
+    setTimeout(cleanPrices, 50);
+  });
+  observer.observe(target, { childList: true, subtree: true, characterData: true });
 }
-
-
-
-let priceE = document.querySelector('.totaalregel #custom-sale-price');
-if (priceE) {
-  priceE.textContent = priceE.textContent.replace("€", "").trim();
-}
-
 
 
 
