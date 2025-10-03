@@ -7,3 +7,12 @@
 .gmd-001 .hide-currency{
     display: none;
 }
+
+.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount::after {
+  content: ',-';
+}
+
+.gmd-001 .hide-currency::after {
+    content: ',-';
+ 
+}

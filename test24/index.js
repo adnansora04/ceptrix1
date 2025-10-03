@@ -22,9 +22,11 @@ if (priceE) {
 
 let price = document.querySelector('.wc-pao-subtotal-line .price span');
 if (price) {
-  price.textContent = price.textContent.replace("€", "").trim();
+  price.textContent = price.textContent
+    .replace("€", "")         
+    .replace(/,-$/, "")        
+    .trim() + ",-";            
 }
-
 
 let Els = document.querySelectorAll('.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount .woocommerce-Price-currencySymbol');
 
@@ -36,6 +38,7 @@ const [first, second] = document.querySelectorAll('span.woocommerce-Price-curren
 
 if (second) {
   second.classList.add('hide-currency');
+   second.parentNode.insertAdjacentText('beforeend', ',-');
 }
 
 let pric = document.querySelector('.totaalregel #custom-kassakorting');
