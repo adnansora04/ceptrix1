@@ -20,13 +20,23 @@ if (priceE) {
 
 
 
-let price = document.querySelector('.wc-pao-subtotal-line .price span');
-if (price) {
-  price.textContent = price.textContent
-    .replace("€", "")         
-    .replace(/,-$/, "")        
-    .trim() + ",-";            
+
+function cleanPrice() {
+  let price = document.querySelector('.wc-pao-subtotal-line .price span');
+  if (price) {
+    price.textContent = price.textContent
+      .replace("€", "")       
+      .replace(/,-$/, "")      
+      .trim() + ",-";         
+  }
 }
+
+
+cleanPrice();
+
+document.querySelector('select').addEventListener('change', () => {
+  setTimeout(cleanPrice, 200);  
+});
 
     // let Els = document.querySelectorAll('.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount .woocommerce-Price-currencySymbol');
 
