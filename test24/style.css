@@ -1,0 +1,9 @@
+.gmd-001 .custom-prijs-overzicht strong .in3-euro{
+    display: none;
+}
+/* .gmd-001 .woocommerce-Price-currencySymbol:nth-of-type(2) {
+  display: none;
+} */
+.gmd-001 .hide-currency{
+    display: none;
+}
