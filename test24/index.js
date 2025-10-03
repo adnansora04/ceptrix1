@@ -28,11 +28,23 @@ if (price) {
     .trim() + ",-";            
 }
 
-let Els = document.querySelectorAll('.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount .woocommerce-Price-currencySymbol');
+    // let Els = document.querySelectorAll('.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount .woocommerce-Price-currencySymbol');
+
+    // Els.forEach(el => {
+    // el.textContent = el.textContent.replace("€", "").trim();
+    // });
+    let Els = document.querySelectorAll('.elementor-grid .astra-shop-summary-wrap .price .woocommerce-Price-amount');
 
 Els.forEach(el => {
-  el.textContent = el.textContent.replace("€", "").trim();
+    let price = el.textContent.replace("€", "").trim();
+
+    if (!price.endsWith(",-")) {
+        price += ',-';
+    }
+
+    el.textContent = price;
 });
+
 
 const [first, second] = document.querySelectorAll('span.woocommerce-Price-currencySymbol');
 
