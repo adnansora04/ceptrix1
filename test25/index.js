@@ -143,8 +143,6 @@ document.head.appendChild(swiperScript);
       disableOnInteraction: false,
     },
   });
-
-
     
     duplicateBannerContentForMobile();
     updateButtonText();
@@ -201,7 +199,7 @@ btnObserver.observe(document.body, {
       <span class="product-price"></span>
       </div>
       <div class="buy-now-container">
-        <a href="https://pf-dev-testing-tc.myshopify.com/checkouts/cn/hWN3pjgyiF4GIhopRN4PKmhg/en-at">BUY NOW</a>
+        <a href="" >BUY NOW</a>
       </div>
       
     `;
@@ -216,3 +214,16 @@ btnObserver.observe(document.body, {
       targetEl.textContent = priceEl.textContent.trim();
     }
   }
+
+ document.addEventListener('click', (event) => {
+   
+    if (event.target.matches('.buy-now-container a')) {
+        event.preventDefault(); 
+
+        
+        const shopifyButton = document.querySelector('.shopify-payment-button__button');
+        if (shopifyButton) {
+            shopifyButton.click();
+        }
+    }
+});
