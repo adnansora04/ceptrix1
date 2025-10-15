@@ -345,7 +345,13 @@
 
 @media(max-width: 610.98px) {
     .sticky-related-product .buy-now-container a {
-               padding: 16.8px 28.4px;
+          display: inline-block;
+    max-width: 160px;
+    padding: 16px 16px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 16.4px 16px;
+    min-width: 137px;
     }
 
     .sticky-related-product .product-name {
