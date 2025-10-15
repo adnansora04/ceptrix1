@@ -26,33 +26,6 @@ observer.observe(document.body, { childList: true, subtree: true });
 
 
 
-const newImage = 'https://res.cloudinary.com/dnubjkv3c/image/upload/v1729513287/slide3_bul892.png';
-
-// Function to update banner image
-function updateBannerImage() {
-  const banner = document.querySelector('.banner__media');
-  if (banner) {
-    banner.innerHTML = `<img src="${newImage}" />`;
-    return true;
-  }
-  return false;
-}
-
-// Try updating immediately
-if (!updateBannerImage()) {
-  // If banner doesn't exist yet, use MutationObserver
-  const bannerObserver = new MutationObserver((mutations, observer) => {
-    if (updateBannerImage()) {
-      observer.disconnect(); // Stop observing once updated
-    }
-  });
-
-  bannerObserver.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-}
-
 
 
 function updateButtonText(container = document) {
@@ -65,7 +38,7 @@ function updateButtonText(container = document) {
       btn.setAttribute('data-original-text', originalText);
     }
 
-    if (window.innerWidth >= 769) {
+    if (window.innerWidth >= 749) {
       btn.textContent = "Shop Now";
     } else {
       btn.textContent = btn.getAttribute('data-original-text');
@@ -75,7 +48,7 @@ function updateButtonText(container = document) {
 
 
 function duplicateBannerContentForMobile() {
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 749) {
     const originalContent = document.querySelector('.gmd-001 .banner__content');
     const bannerImage = document.querySelector('.gmd-001 .banner__media .banner-swiper');
 
@@ -94,7 +67,7 @@ updateButtonText();
 duplicateBannerContentForMobile();
 
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 749) {
     document.querySelectorAll('.gmd-001 .banner__content.duplicate').forEach(el => el.remove());
   }
 
@@ -166,20 +139,7 @@ btnObserver.observe(document.body, {
   subtree: true
 });
 
-// autoplay: {
-//   delay: 2500,   
-//   disableOnInteraction: false,
-// },
-// document.querySelector('.banner__media img ').insertAdjacentHTML("afterend",`
 
-//     <div> 
-//         <div>
-//             <div class="gmd-content"> Generated test data </div>
-//             <a class="gmd-button">shop now  </a>
-//         </div>
-//     </div>
-
-//     `)
 
 
 
@@ -224,3 +184,47 @@ document.querySelector('.image-with-text__text-item h2')?.insertAdjacentHTML("af
     </div>
 `);
 
+
+// const newImage = 'https://res.cloudinary.com/dnubjkv3c/image/upload/v1729513287/slide3_bul892.png';
+
+// // Function to update banner image
+// function updateBannerImage() {
+//   const banner = document.querySelector('.banner__media');
+//   if (banner) {
+//     banner.innerHTML = `<img src="${newImage}" />`;
+//     return true;
+//   }
+//   return false;
+// }
+
+// // Try updating immediately
+// if (!updateBannerImage()) {
+//   // If banner doesn't exist yet, use MutationObserver
+//   const bannerObserver = new MutationObserver((mutations, observer) => {
+//     if (updateBannerImage()) {
+//       observer.disconnect(); // Stop observing once updated
+//     }
+//   });
+
+//   bannerObserver.observe(document.body, {
+//     childList: true,
+//     subtree: true
+//   });
+// }
+
+
+
+// autoplay: {
+//   delay: 2500,   
+//   disableOnInteraction: false,
+// },
+// document.querySelector('.banner__media img ').insertAdjacentHTML("afterend",`
+
+//     <div> 
+//         <div>
+//             <div class="gmd-content"> Generated test data </div>
+//             <a class="gmd-button">shop now  </a>
+//         </div>
+//     </div>
+
+//     `)

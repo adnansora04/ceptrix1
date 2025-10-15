@@ -291,6 +291,10 @@
 /* .gmd-001 #launcher-wrapper {
     display: none;
 } */
+ .gmd-001 .banner__buttons .button:after{
+    border-radius: 8px;
+    box-shadow: none;
+ }
 
 .sticky-related-product .buy-now-container {
     /* padding: 16px 10px; */
