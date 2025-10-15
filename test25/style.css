@@ -280,10 +280,10 @@
     background: #000;
     /* padding: 6px 88px; */
     /* padding: 5px 82px; */
-        padding-top: 3px;
-    padding-bottom: 6px;
+           padding-top: 3.7px;
+    padding-bottom: 5.3px;
     padding-left: 81px;
-    padding-right: 82px;
+    padding-right: 81.3px;
     text-decoration: none;
 
 }
@@ -365,4 +365,10 @@
 
 .gmd-001 .dry-text {
     display: block;
+}
+
+@media(max-width:1152.98px){
+    .gmd-001 .dry-text{
+        display:contents;
+    }
 }
