@@ -10,14 +10,13 @@ if (moveEl && target) {
 const links = document.querySelectorAll('.card-body .table__title .link-discrete');
 
 links.forEach(link => {
-  let clickedOnce = false; // 🔁 Track click count
+  let clickedOnce = false; 
 
   link.addEventListener('click', (e) => {
     e.preventDefault();
 
     let dropdownContent = link.nextElementSibling;
 
-    // Create dropdown only if it doesn't exist
     if (!dropdownContent || !dropdownContent.classList.contains('custom-dropdown-content')) {
       dropdownContent = document.createElement('div');
       dropdownContent.className = 'custom-dropdown-content';
@@ -28,7 +27,6 @@ links.forEach(link => {
     const isShown = dropdownContent.classList.toggle('show');
 
     if (isShown) {
-      // On first click: insert container & contents
       if (!document.querySelector('.gmd-container')) {
         dropdownContent.insertAdjacentHTML("beforebegin", `
           <div class="gmd-container">
@@ -40,7 +38,6 @@ links.forEach(link => {
       moveDropdown();
       moveRows();
 
-      // Add arrow
       if (!dropdownContent.nextElementSibling || !dropdownContent.nextElementSibling.classList.contains('arrow')) {
         dropdownContent.insertAdjacentHTML("afterend", `
           <span class="arrow">
@@ -51,21 +48,18 @@ links.forEach(link => {
         `);
       }
 
-      // 👉 If this is second click, add active class
       if (clickedOnce) {
         document.querySelector('.gmd-container')?.classList.add('active');
       }
 
-      // ✅ Mark that first click has happened
       clickedOnce = true;
 
     } else {
-      // Hide dropdown
       const arrow = dropdownContent.nextElementSibling;
       if (arrow && arrow.classList.contains('arrow')) arrow.remove();
 
       document.querySelector('.gmd-container')?.classList.remove('active');
-      clickedOnce = false; // Reset click state
+      clickedOnce = false;
     }
   });
 });
