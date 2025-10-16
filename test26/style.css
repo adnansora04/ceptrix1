@@ -76,7 +76,11 @@
 
   width: 100%;
   max-width: 100%;
-
+    transition: 
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0.4s; 
+  
 }
 
 .gmd-container {
@@ -93,6 +97,13 @@
   padding: 13px 17px;
   max-width: 100%;
   width: 100%;
+    opacity: 1;
+    transform: translateY(0);
+   transition: 
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0s linear 0s;
+  pointer-events: auto;
 }
 
 .gmd-container .row {
@@ -101,15 +112,29 @@
   margin-bottom: 0 !important;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  /* transition: max-height 0.3s ease, padding 0.3s ease; */
+  
+    transform: scaleY(0);
+  transform-origin: top;
+  overflow: hidden;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  
 }
+
 
 .gmd-container.active .row {
-  max-height: 500px;
-  padding: 17px;
+    max-height: 500px;
+    padding: 0px 17px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    transform: scaleY(1);
+  opacity: 1;
 }
 
-
+.text-danger{
+  padding-left: 22px;
+}
 
 
 .gmd-container.active .custom-dropdown-content {

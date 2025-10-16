@@ -122,6 +122,31 @@ const observers = new MutationObserver(() => {
 
 observers.observe(document.body, { childList: true, subtree: true });
 
+function updateGmdRowPadding() {
+  const gmdRow = document.querySelector('.gmd-container.active .row');
+
+  if (gmdRow) {
+    const hasError = document.querySelectorAll('.text-danger').length > 0;
+
+    if (hasError) {
+      gmdRow.style.paddingBottom = '0px';
+    } else {
+
+      gmdRow.style.paddingLeft = '';
+    }
+  }
+}
+
+updateGmdRowPadding();
+
+const observe = new MutationObserver(() => {
+  updateGmdRowPadding();
+});
+
+observe.observe(document.body, {
+  childList: true,
+  subtree: true
+});
 
 
 // document.querySelectorAll('.card-body .table__title:has(.link-discrete)').forEach(el => {
