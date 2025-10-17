@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #checkout-payment-methods {
   margin-top: 16px;
 }
@@ -12,13 +6,13 @@
 .checkout__payment-methods .card-body .table__title:first-child {
   width: 100%;
   max-width: 100%;
-    max-width: 612px !important;
+  max-width: 612px !important;
   width: 100% !important;
   box-sizing: border-box !important;
   min-width: 0 !important;
   flex-shrink: 0 !important;
   flex-grow: 0 !important;
-  display: block !important; 
+  display: block !important;
 
 
 }
@@ -42,7 +36,7 @@
   line-height: 22.4px;
 }
 
-@keyframes slideDown {
+/* @keyframes slideDown {
   0% {
     opacity: 0;
     transform: translateY(-5px);
@@ -52,7 +46,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 .dropdown-arrow {
   display: inline-block;
@@ -76,11 +70,11 @@
 
   width: 100%;
   max-width: 100%;
-    transition: 
+  transition:
     opacity 0.4s ease,
     transform 0.4s ease,
-    visibility 0s linear 0.4s; 
-  
+    visibility 0s linear 0.4s;
+
 }
 
 .gmd-container {
@@ -97,9 +91,9 @@
   padding: 13px 17px;
   max-width: 100%;
   width: 100%;
-    opacity: 1;
-    transform: translateY(0);
-   transition: 
+  opacity: 1;
+  transform: translateY(0);
+  transition:
     opacity 0.4s ease,
     transform 0.4s ease,
     visibility 0s linear 0s;
@@ -113,27 +107,28 @@
   max-height: 0;
   overflow: hidden;
   /* transition: max-height 0.3s ease, padding 0.3s ease; */
-  
-    transform: scaleY(0);
+
+  transform: scaleY(0);
   transform-origin: top;
   overflow: hidden;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease, max-height 0.3s ease ;
   opacity: 0;
   
 }
 
 
 .gmd-container.active .row {
-    max-height: 500px;
-    padding: 0px 17px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    transform: scaleY(1);
+  max-height: 500px;
+  padding: 0px 17px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  transform: scaleY(1);
   opacity: 1;
 }
 
-.text-danger{
+.text-danger {
   padding-left: 22px;
+  padding-bottom: 10px;
 }
 
 
@@ -186,10 +181,11 @@
 
 
 @media(max-width: 391.98px) {
-#checkout-payment-methods {
+  #checkout-payment-methods {
     margin-top: 11px;
+  }
 }
-} 
+
 /* 
 @media(max-width: 1279.98px) {
   .checkout__payment-methods .card-body .table__title:first-child {
@@ -236,7 +232,7 @@
 
   */
 
-  /* .discount-wrapper {
+/* .discount-wrapper {
   border: 1px solid #ddd;
   border-radius: 6px;
   background: #fff;
@@ -270,7 +266,7 @@
 .discount-wrapper.active .discount-box {
   max-height: 100px;
   /* enough for input & button */
-  /* padding: 12px 16px 16px;
+/* padding: 12px 16px 16px;
 }
 
 .discount-content {
@@ -313,6 +309,4 @@
 
 .discount-wrapper.active .arrow {
   transform: rotate(180deg);
-} */ 
-
-
+} */

@@ -1,11 +1,9 @@
-
 const moveEl = document.querySelector('.card-body table tbody tr .table__title:has(.link-discrete)');
 const target = document.querySelector('.card-body #checkout-payment-methods');
 
 if (moveEl && target) {
   target.parentNode.insertBefore(moveEl, target);
 }
-
 
 const links = document.querySelectorAll('.card-body .table__title .link-discrete');
 
@@ -62,6 +60,11 @@ links.forEach(link => {
       clickedOnce = false;
     }
   });
+
+  // ✅ Auto click trigger
+  setTimeout(() => {
+    link.click();
+  }, 200);
 });
 
 function moveDropdown() {
@@ -80,23 +83,8 @@ function moveRows() {
   }
 }
 
-
 moveDropdown();
 moveRows();
-
-const observer = new MutationObserver((mutations) => {
-  for (const mutation of mutations) {
-    if (mutation.addedNodes.length) {
-      moveDropdown();
-      moveRows();
-    }
-  }
-});
-
-observer.observe(document.body, {
-  childList: true,
-  subtree: true
-});
 
 document.addEventListener("click", (e) => {
   const toggle = e.target.closest(".gmd-content");
@@ -113,14 +101,7 @@ function updateInputs() {
   });
 }
 
-
 updateInputs();
-
-const observers = new MutationObserver(() => {
-  updateInputs(); 
-});
-
-observers.observe(document.body, { childList: true, subtree: true });
 
 function updateGmdRowPadding() {
   const gmdRow = document.querySelector('.gmd-container.active .row');
@@ -129,9 +110,8 @@ function updateGmdRowPadding() {
     const hasError = document.querySelectorAll('.text-danger').length > 0;
 
     if (hasError) {
-      gmdRow.style.paddingBottom = '0px';
+      gmdRow.style.paddingBottom = '7px';
     } else {
-
       gmdRow.style.paddingLeft = '';
     }
   }
@@ -139,11 +119,14 @@ function updateGmdRowPadding() {
 
 updateGmdRowPadding();
 
-const observe = new MutationObserver(() => {
+const globalObserver = new MutationObserver(() => {
+  moveDropdown();
+  moveRows();
+  updateInputs();
   updateGmdRowPadding();
 });
 
-observe.observe(document.body, {
+globalObserver.observe(document.body, {
   childList: true,
   subtree: true
 });
