@@ -13,6 +13,24 @@
   z-index: 9999;
 
 }
+.gmd-001 .cart-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gmd-001 .cart-popup-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
 
 .gmd-001 .cart-popup.active {
   top: 171px;
