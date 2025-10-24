@@ -1,9 +1,9 @@
 document.body.classList.add('gmd-001');
 if (document.querySelector('.product-template-default')) {
 
-  const popup = document.createElement('div');
-  popup.className = 'cart-popup';
-  popup.innerHTML = `
+    const popup = document.createElement('div');
+    popup.className = 'cart-popup';
+    popup.innerHTML = `
       <div class="cart-popup-inner">
     <div class="cart-popup-content">
         <div class="cart-popup-left">
@@ -85,27 +85,44 @@ if (document.querySelector('.product-template-default')) {
          </div>
         `;
 
-  document.body.appendChild(popup);
-popup.classList.add('active');
+    document.body.appendChild(popup);
+
+    setTimeout(() => popup.classList.add('active'), 100);
+
+   popup.querySelector('.cart-popup-close').addEventListener('click', () => {
+  popup.classList.remove('active');
+  popup.remove();
+});
+popup.querySelector('.continue-link').addEventListener('click', (e) => {
+  e.preventDefault(); 
+  popup.remove();
+});
 
 
-  popup.querySelector('.cart-popup-close').addEventListener('click', () => {
+const leftBtn = popup.querySelector('.cart-image-left');
+const rightBtn = popup.querySelector('.cart-image-right');
+
+leftBtn.addEventListener('click', (e) => {
+  productsContainer.scrollLeft -= getScrollAmount();
+  e.stopPropagation();
+});
+
+rightBtn.addEventListener('click', (e) => {
+  productsContainer.scrollLeft += getScrollAmount();
+  e.stopPropagation(); 
+});
+
+document.addEventListener('click', function handleOutsideClick(e) {
+  const inner = popup.querySelector('.cart-popup-inner');
+
+  if (!inner.contains(e.target)) {
     popup.classList.remove('active');
     popup.remove();
-  });
-  popup.querySelector('.continue-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    popup.remove();
-  });
-  document.addEventListener('click', function handleOutsideClick(e) {
-    const inner = popup.querySelector('.cart-popup-inner');
-    if (!inner.contains(e.target)) {
-      popup.classList.remove('active');
-      popup.remove();
-      document.removeEventListener('click', handleOutsideClick);
-    }
-  });
+    document.removeEventListener('click', handleOutsideClick);
+  }
+});
 
+  
 }
 
 
@@ -113,30 +130,37 @@ const firstCart = document.querySelector('.cart-popu-text');
 const upSells = document.querySelectorAll('.up-sells ul');
 
 upSells.forEach(ul => {
-  firstCart.insertAdjacentElement('afterend', ul.cloneNode(true));
+    firstCart.insertAdjacentElement('afterend', ul.cloneNode(true));
 });
 
 
-  const productsContainer = document.querySelector('.cart-popup-bottom .products');
-  const leftBtn = document.querySelector('.cart-image-left');
-  const rightBtn = document.querySelector('.cart-image-right');
+const productsContainer = document.querySelector('.cart-popup-bottom .products');
+const leftBtn = document.querySelector('.cart-image-left');
+const rightBtn = document.querySelector('.cart-image-right');
 
-  function getScrollAmount() {
-    const firstProduct = productsContainer.querySelector('.product');
-    return firstProduct ? firstProduct.offsetWidth + 10 : 200;
-  }
-
-  rightBtn.onclick = () => productsContainer.scrollLeft += getScrollAmount();
-  leftBtn.onclick = () => productsContainer.scrollLeft -= getScrollAmount();
-
-
-  
-const priceEl = document.querySelector('.product-summary .product_title');
-const targetEl = document.querySelector('.cart-popup-product');
-
-if (priceEl && targetEl) {
-  targetEl.textContent = priceEl.textContent.trim();
+function getScrollAmount() {
+  const firstProduct = productsContainer.querySelector('.product');
+  return firstProduct ? firstProduct.offsetWidth + 10 : 200; 
 }
+
+// rightBtn.onclick = () => productsContainer.scrollLeft += getScrollAmount();
+// leftBtn.onclick  = () => productsContainer.scrollLeft -= getScrollAmount();
+
+
+
+
+
+
+
+
+
+
+  const priceEl = document.querySelector('.product-summary .product_title');
+  const targetEl = document.querySelector('.cart-popup-product');
+
+  if (priceEl && targetEl) {
+    targetEl.textContent = priceEl.textContent.trim();
+  }
 
 
 
