@@ -92,30 +92,34 @@
   document.body.appendChild(overlay);
   document.body.appendChild(popup);
 
- // Show popup + overlay immediately
 overlay.classList.add('active');
 popup.classList.add('active');
 
-// Common close function
 function closePopup() {
   popup.classList.remove('active');
   overlay.classList.remove('active');
 
-  // Hide and remove instantly after animation
   popup.remove();
   overlay.style.display = 'none';
   overlay.remove();
 }
 
-    popup.querySelector('.cart-popup-close').addEventListener('click', () => {
-    popup.classList.remove('active');
-    popup.remove();
-  });
-  popup.querySelector('.continue-link').addEventListener('click', (e) => {
-    e.preventDefault(); 
-    popup.remove();
-  });
+popup.querySelector('.cart-popup-close').addEventListener('click', () => {
+  closePopup(); 
+});
 
+popup.querySelector('.continue-link').addEventListener('click', (e) => {
+  e.preventDefault(); 
+  closePopup();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (popup && document.body.contains(popup)) {
+      closePopup(); 
+    }
+  }
+});
 
   const leftBtn = popup.querySelector('.cart-image-left');
   const rightBtn = popup.querySelector('.cart-image-right');
