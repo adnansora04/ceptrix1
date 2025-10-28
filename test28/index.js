@@ -114,33 +114,46 @@ function showCartPopup() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closePopup();
   });
+setTimeout(() => {
+  const productsContainer = document.querySelector('.cart-popup-bottom .products');
+  const leftBtn = document.querySelector('.cart-image-left');
+  const rightBtn = document.querySelector('.cart-image-right');
+  const popup = document.querySelector('.cart-popup');
+  const overlay = document.querySelector('.cart-popup-overlay');
 
-  const productsContainer = popup.querySelector('.cart-popup-bottom .products');
-const leftBtn = popup.querySelector('.cart-image-left');
-const rightBtn = popup.querySelector('.cart-image-right');
+  if (!productsContainer) {
+    console.error(' not found )');
+    return;
+  }
 
-function getScrollAmount() {
-  const firstProduct = productsContainer?.querySelector('.product');
-  return firstProduct ? firstProduct.offsetWidth + 10 : 200;
-}
-
-if (leftBtn && rightBtn && productsContainer) {
-  leftBtn.addEventListener('click', (e) => {
-    productsContainer.scrollLeft -= getScrollAmount();
-    e.stopPropagation();
-  });
-
-  rightBtn.addEventListener('click', (e) => {
-    productsContainer.scrollLeft += getScrollAmount();
-    e.stopPropagation();
-  });
-}
-
-overlay.addEventListener('click', closePopup);
-popup.addEventListener('click', (e) => e.stopPropagation());
-
+ 
+  function getScrollAmount() {
+    const firstProduct = productsContainer?.querySelector('.product');
+    return firstProduct ? firstProduct.offsetWidth + 10 : 200;
+  }
 
   
+  leftBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    productsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+  });
+
+  rightBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    productsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+  });
+
+  overlay?.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    popup?.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    overlay.remove(); 
+  });
+
+  
+  popup?.addEventListener('click', (e) => e.stopPropagation());
+}, 500);
+
 
 
 const priceEl = document.querySelector('.product-summary .product_title');

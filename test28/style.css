@@ -288,6 +288,21 @@ body.no-scroll {
   font-weight: 600;
   line-height: 28px;
 }
+.gmd-001 .cart-popup-bottom .products li .price-and-cart .price del{
+      opacity: 0.5;
+    position: relative;
+    text-decoration: none;
+}
+.gmd-001 .cart-popup-bottom .products li .price-and-cart .price del::before{
+  border-top: 1px solid;
+    border-color: inherit;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: rotate(10deg);
+}
 
 .gmd-001 .cart-popup-bottom .products li .price span bdi span {
   color: #412AAD;
