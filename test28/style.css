@@ -8,27 +8,12 @@
   background: #251970;
   color: #fff;
   border-radius: 8px;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
-  /* transition: top 0.3s ease; */
   z-index: 9999;
-   /* overflow: scroll;         
-  scrollbar-width: none; */
   margin-top: 10.8%;
- max-height: none; /* limit na rakho */
+ max-height: none;
   overflow: visible;
 }
-/* .cart-popup::-webkit-scrollbar {
-  width: 6px;
-}
-.cart-popup::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-} */
 
-
-/* .cart-popup::-webkit-scrollbar {
-  display: none;            
-} */
 .gmd-001 .cart-popup-overlay {
   display: none;
   position: fixed;
@@ -38,11 +23,8 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 9998;
-  /* opacity: 0; */
   transition: opacity 0.3s ease;
   justify-content: center;
-     /* overflow: scroll;        
-  scrollbar-width: none; */
     align-items: flex-start; 
   overflow-y: auto; 
   scrollbar-width: none;
@@ -51,7 +33,7 @@
 
 .gmd-001 .cart-popup-overlay.active {
   display: flex;
-  /* opacity: 1; */
+
 }
 
 .gmd-001 .cart-popup-overlay::-webkit-scrollbar {
@@ -67,6 +49,7 @@
 
 .gmd-001 .cart-popup-bottom .products {
   scroll-behavior: smooth;
+  
 }
 body.no-scroll {
   overflow: hidden;
@@ -247,12 +230,21 @@ body.no-scroll {
  /* max-height: calc(80vh - 100px); */
     /*overflow-y: auto; */
       padding-bottom: 0;
+          border-radius: 0 0 4px 4px;
 }
 
 .gmd-001 .cart-popup-bottom::-webkit-scrollbar {
   width: 6px;
 }
 
+.gmd-001 .cart-popup-bottom .woocommerce ul.products li.product .price ins{
+  text-decoration: none; 
+  border-bottom: none;
+}
+.gmd-001 .cart-popup-bottom ul li .price-and-cart ins{
+  text-decoration: none; 
+  border-bottom: none;
+}
 .gmd-001 .cart-popup-bottom::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 4px;
@@ -274,7 +266,7 @@ body.no-scroll {
 .gmd-001 .cart-popup-bottom .products li h2 {
   color: #131316;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 13px !important;
   font-style: normal;
   font-weight: 500;
   line-height: 21px;
@@ -302,6 +294,7 @@ body.no-scroll {
     right: 0;
     top: 50%;
     transform: rotate(10deg);
+        color: #412AAD;
 }
 
 .gmd-001 .cart-popup-bottom .products li .price span bdi span {
@@ -397,7 +390,20 @@ body.no-scroll {
   overflow-x: auto;
   scroll-behavior: smooth;
   margin-bottom: 0 !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
+.gmd-001 .cart-popup-bottom .products {
+ user-select: none;       /* prevent text/image selection */
+  -webkit-user-drag: none;
+  cursor: grab;
+}
+
+.gmd-001 .cart-popup-bottom .products.dragging {
+  cursor: grabbing;
+}
+
+
 
 .gmd-001 .products::-webkit-scrollbar {
   display: none;
@@ -427,7 +433,7 @@ background: #EAEAFD;
 @media (max-width: 951px) {
 
  .gmd-001 .cart-popup{
-    width: calc(92% + 30px);
+    /* width: calc(92% + 30px); */
   }
 
 }
@@ -446,8 +452,10 @@ background: #EAEAFD;
  
 }
 
-@media (max-width: 940px) {
-  
+@media (max-width: 790px) {
+   .gmd-001 .cart-popup-right{
+    gap: 10px;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -491,11 +499,12 @@ background: #EAEAFD;
   }
   .gmd-001 .cart-popup-bottom .products .product{
      flex: 0 0 calc(50% - 10px);
-     min-width: 165px;
+     min-width: 145px;
   }
   .gmd-001 .cart-popup-content {
     display: block;
   }
+ 
 
   .gmd-001 .cart-popup-close {
     position: absolute;
@@ -527,14 +536,28 @@ background: #EAEAFD;
     padding-bottom: 21px;
   }
 .gmd-001 .cart-popup{
-    width: calc(90% + 30px);
+    /* width: calc(90% + 30px); */
   }
 }
 
-@media (max-width: 635.98px) {
+@media (max-width: 417.98px) {
   .gmd-001 .cart-popup{
-    width: calc(87% + 30px);
+    /* width: calc(87% + 30px); */
   }
+    .gmd-001 .cart-popup-bottom .products li .price-btw {
+    display: block;
+    align-items: center;
+  }
+    .gmd-001 .cart-popup-bottom .products .price-and-cart .woocommerce-LoopProduct-link {
+    width: 100%;
+    max-width: 102px;
+  }
+  .gmd-001 .cart-popup-bottom .products .price-and-cart .button{
+    padding: 12px;
+        margin-top: 95px !important;
+    margin-bottom: 41px !important;
+  }
+
   
 }
 @media (max-width: 435.98px) {
@@ -543,3 +566,10 @@ background: #EAEAFD;
   }
 
 }
+
+/* @media (max-width:376.98px){
+  .cart-popup-bottom .products li img{
+    width: 100%;
+    max-width: 150px;
+  }
+} */

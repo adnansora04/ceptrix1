@@ -135,12 +135,12 @@ setTimeout(() => {
   
   leftBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    productsContainer.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+    productsContainer.scrollBy({ left: -getScrollAmount() });
   });
 
   rightBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    productsContainer.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+    productsContainer.scrollBy({ left: getScrollAmount() });
   });
 
   overlay?.addEventListener('click', () => {
@@ -182,6 +182,49 @@ const upSells = document.querySelectorAll('.up-sells ul');
 upSells.forEach(ul => {
   firstCart.insertAdjacentElement('afterend', ul.cloneNode(true));
 });
+
+
+
+// const productsContainer = document.querySelector('.cart-popup-bottom .products');
+// let isDown = false;
+// let startX;
+// let scrollLeft;
+// let isScrolling = false;
+
+// productsContainer.addEventListener('mousedown', (e) => {
+//   isDown = true;
+//   productsContainer.classList.add('dragging');
+//   startX = e.pageX - productsContainer.offsetLeft;
+//   scrollLeft = productsContainer.scrollLeft;
+// });
+
+// productsContainer.addEventListener('mouseleave', () => {
+//   isDown = false;
+//   productsContainer.classList.remove('dragging');
+// });
+
+// productsContainer.addEventListener('mouseup', () => {
+//   isDown = false;
+//   productsContainer.classList.remove('dragging');
+// });
+
+// productsContainer.addEventListener('mousemove', (e) => {
+//   if (!isDown) return;
+//   e.preventDefault();
+
+//   const x = e.pageX - productsContainer.offsetLeft;
+//   const walk = (x - startX) * 1.2; // adjust scroll speed
+
+//   if (!isScrolling) {
+//     isScrolling = true;
+//     requestAnimationFrame(() => {
+//       productsContainer.scrollLeft = scrollLeft - walk;
+//       isScrolling = false;
+//     });
+//   }
+// });
+
+
 }
 
 // const productsContainer = document.querySelector('.cart-popup-bottom .products');
