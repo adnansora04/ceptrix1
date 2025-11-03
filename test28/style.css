@@ -679,13 +679,13 @@ body.no-scroll {
 @media (max-width: 967px) {
   .gmd-001 .cart-image-right {
     left: auto;
-    right: 10px;
-    top: 83%;
+    right: -14px;
+    top: 90%;
   }
 
   .gmd-001 .cart-image-left {
-    left: 10px;
-    top: 83%;
+    left: -14px;
+    top: 90%;
   }
 
   /* .cart-popup .cart-image-container .cart-image-left svg{
