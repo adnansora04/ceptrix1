@@ -187,10 +187,20 @@ if (firstCart && upSells.length) {
         prevEl: '.cart-image-left'
       },
       breakpoints: {
-        320: { slidesPerView: 2 },   
-        768: { slidesPerView: 3 },   
-        1200: { slidesPerView: 4 }   
-      }
+  320: {          
+    slidesPerView: 2,
+    spaceBetween: 10
+  },
+  768: {          
+    slidesPerView: 3,
+    spaceBetween: 15
+  },
+  992: {          
+    slidesPerView: 4,
+    spaceBetween: 20
+  }
+}
+
     });
   };
 }
