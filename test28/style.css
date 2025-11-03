@@ -90,7 +90,7 @@ body.no-scroll {
 
 .gmd-001 .continue-link {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none !important;
   font-size: 14px;
   color: #FFF;
   font-family: Inter;
@@ -456,7 +456,7 @@ background: #EAEAFD;
   max-width: 26px;
  } */
   .cart-popup .cart-image-container svg{
-     max-width: 74px;
+     max-width: 74px; 
     height: 74px;
     width: 100%;
   }
