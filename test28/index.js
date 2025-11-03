@@ -71,6 +71,7 @@ function showCartPopup() {
   </defs>
 </svg>
         </div>
+        
         <div class="cart-image-right">
         <svg xmlns="http://www.w3.org/2000/svg" width="74" height="84" viewBox="0 0 74 84" fill="none">
   <g filter="url(#filter0_d_1023_499)">
@@ -184,45 +185,6 @@ upSells.forEach(ul => {
 });
 
 
-
-// const productsContainer = document.querySelector('.cart-popup-bottom .products');
-// let isDown = false;
-// let startX;
-// let scrollLeft;
-// let isScrolling = false;
-
-// productsContainer.addEventListener('mousedown', (e) => {
-//   isDown = true;
-//   productsContainer.classList.add('dragging');
-//   startX = e.pageX - productsContainer.offsetLeft;
-//   scrollLeft = productsContainer.scrollLeft;
-// });
-
-// productsContainer.addEventListener('mouseleave', () => {
-//   isDown = false;
-//   productsContainer.classList.remove('dragging');
-// });
-
-// productsContainer.addEventListener('mouseup', () => {
-//   isDown = false;
-//   productsContainer.classList.remove('dragging');
-// });
-
-// productsContainer.addEventListener('mousemove', (e) => {
-//   if (!isDown) return;
-//   e.preventDefault();
-
-//   const x = e.pageX - productsContainer.offsetLeft;
-//   const walk = (x - startX) * 1.2; // adjust scroll speed
-
-//   if (!isScrolling) {
-//     isScrolling = true;
-//     requestAnimationFrame(() => {
-//       productsContainer.scrollLeft = scrollLeft - walk;
-//       isScrolling = false;
-//     });
-//   }
-// });
 
 
 }
