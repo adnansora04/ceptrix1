@@ -77,54 +77,15 @@ function showCartPopup() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closePopup();
   });
-  // ✅ Click outside popup → close
+ 
   overlay.addEventListener('click', (e) => {
     if (!popup.contains(e.target)) {
       closePopup();
     }
   });
 
-  // ❌ Prevent inside clicks from closing popup
-  popup.addEventListener('click', (e) => e.stopPropagation());
-// setTimeout(() => {
-//   const productsContainer = document.querySelector('.cart-popup-bottom .products');
-//   const leftBtn = document.querySelector('.cart-image-left');
-//   const rightBtn = document.querySelector('.cart-image-right');
-//   const popup = document.querySelector('.cart-popup');
-//   const overlay = document.querySelector('.cart-popup-overlay');
-
-//   if (!productsContainer) {
-//     console.error(' not found )');
-//     return;
-//   }
-
  
-//   function getScrollAmount() {
-//     const firstProduct = productsContainer?.querySelector('.product');
-//     return firstProduct ? firstProduct.offsetWidth + 10 : 200;
-//   }
-
-  
-//   leftBtn?.addEventListener('click', (e) => {
-//     e.stopPropagation();
-//     productsContainer.scrollBy({ left: -getScrollAmount() });
-//   });
-
-//   rightBtn?.addEventListener('click', (e) => {
-//     e.stopPropagation();
-//     productsContainer.scrollBy({ left: getScrollAmount() });
-//   });
-
-  // overlay?.addEventListener('click', () => {
-  //   overlay.classList.remove('active');
-  //   popup?.classList.remove('active');
-  //   document.body.classList.remove('no-scroll');
-  //   overlay.remove(); 
-  // });
-
-  
-//   popup?.addEventListener('click', (e) => e.stopPropagation());
-// }, 500);
+  popup.addEventListener('click', (e) => e.stopPropagation());
 
 
 
@@ -260,3 +221,6 @@ if (firstCart && upSells.length) {
 
 
 // document.querySelector('.cart-popup-bottom .products li .price').parentElement.classList.add('cart-product')
+
+
+
