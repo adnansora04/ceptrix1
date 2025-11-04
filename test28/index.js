@@ -101,13 +101,13 @@ if (priceEl && targetEl) {
 
 
 
-const cartButtons = document.querySelectorAll('.cart button');
-cartButtons.forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    showPopup();
-  });
-});
+// const cartButtons = document.querySelectorAll('.cart button');
+// cartButtons.forEach(btn => {
+//   btn.addEventListener('click', e => {
+//     e.preventDefault();
+//     showPopup();
+//   });
+// });
 const firstCart = document.querySelector('.cart-popu-text');
 const upSells = document.querySelectorAll('.up-sells ul');
 
