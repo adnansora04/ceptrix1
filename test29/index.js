@@ -1,19 +1,4 @@
-function waitForElement(selector, callback, intervalTime = 100, timeout = 10000) {
-  const startTime = Date.now();
-  const interval = setInterval(() => {
-    const elements = document.querySelectorAll(selector);
-    if (elements.length > 0) {
-      clearInterval(interval);
-      callback(elements);
-    } else if (Date.now() - startTime > timeout) {
-      clearInterval(interval);
-      console.warn(`waitForElement: Timed out waiting for ${selector}`);
-    }
-  }, intervalTime);
-}
 
-
-waitForElement('.module-product', () => {
 document.body.classList.add('gmd-001')
 
 const swiperCSS = document.createElement("link");
@@ -25,7 +10,7 @@ document.head.appendChild(swiperCSS);
 const swiperJS = document.createElement("script");
 swiperJS.src = "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js";
 swiperJS.onload = () => {
-  const headerTop = document.querySelector("header .top");
+  const headerTop = document.querySelector(".module-product header .top");
   if (!headerTop) return;
 
   headerTop.insertAdjacentHTML(
@@ -123,7 +108,7 @@ document.head.appendChild(swiperJS);
 
 
 
-
+if (document.querySelector('.module-product')) {
 
 const stickyBar = document.createElement('div');
 stickyBar.className = 'sticky-bar';
@@ -186,11 +171,11 @@ if (target) {
   stickyBar.style.display = 'flex';
 }
 
+}
 
 
 
-
-const categoryLink = document.querySelector('header .top .container .row:first-child .col a');
+const categoryLink = document.querySelector(' .module-product header .top .container .row:first-child .col a');
 
 if (categoryLink) {
   categoryLink.insertAdjacentHTML('afterend', `
@@ -204,8 +189,8 @@ if (categoryLink) {
   `);
 }
 
-const botUl = document.querySelector('.bot ul');
-const mainContainer = document.querySelector('.main-container');
+const botUl = document.querySelector('.module-product .bot ul');
+const mainContainer = document.querySelector('.module-product .main-container');
 
 if (botUl && mainContainer) {
 
@@ -257,4 +242,4 @@ stickyBtns.forEach(btn => {
 });
 
 
-})
+// })
