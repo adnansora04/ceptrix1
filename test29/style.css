@@ -51,7 +51,7 @@ line-height: normal;
     margin-right: auto;
 }
 
-/* Equal width slides */
+
 .headerInfoSwiper .swiper-slide {
     /* width: 25% !important;
     flex: 0 0 25% !important;
@@ -234,7 +234,6 @@ header .top .container {
     align-items: center;
     gap: 12px;
     position: relative;
-    /* 👈 Needed so cloned-menu positions relative to this */
     cursor: pointer;
 }
 
@@ -243,7 +242,6 @@ header .top .container {
     display: none;
     position: absolute;
     top: 100%;
-    /* show below main-container */
     left: 0;
     background: #FFF;
     border-radius: 0 0 2px 2px;
@@ -260,7 +258,7 @@ header .top .container {
 
 }
 
-/* Show dropdown on hover */
+
 .main-container:hover .cloned-menu {
     display: flex;
     width: 100%;
@@ -273,7 +271,7 @@ header .top .container {
 
 }
 
-/* Dropdown links */
+
 .main-container .cloned-menu li a {
     color: #395E9B;
     text-decoration: none;
@@ -293,7 +291,6 @@ header .top .container {
     font-style: normal;
     font-weight: 700;
     line-height: 24px;
-    /* 171.429% */
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-skip-ink: auto;
@@ -305,7 +302,7 @@ header .top .container {
     border-radius: 4px; */
 }
 
-/* Submenu alignment fix */
+
 .cloned-menu li {
     position: relative;
     height: 100%;
@@ -339,15 +336,15 @@ font-family: Montserrat;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
-line-height: 24px; /* 171.429% */
+line-height: 24px;
 }
 
-/* Hover to show submenu */
+
 .cloned-menu li:hover>.dropdown-menu {
     display: flex;
 }
 
-/* Optional: tweak hover styling */
+
 .cloned-menu li:hover>a {
     /* background: #f5f7fa;
   border-radius: 4px; */
