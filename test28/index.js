@@ -3,18 +3,15 @@ const addToCartButtons = document.querySelectorAll('.product-template-default .s
 
 addToCartButtons.forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    e.preventDefault(); 
+    // e.preventDefault(); 
     showCartPopup();
   });
 });
 
 function showCartPopup() {
-  const overlay = document.createElement('div');
-  overlay.className = 'cart-popup-overlay active';
-
-  const popup = document.createElement('div');
-  popup.className = 'cart-popup active';
-  popup.innerHTML = `
+  const popupHTML = `
+   <div class="cart-popup-overlay active">
+    <div class="cart-popup active">
            <div class="cart-popup-content">
         <div class="cart-popup-left">
           <span class="cart-popup-title">
@@ -54,30 +51,44 @@ function showCartPopup() {
       <div class="cart-image-container">
       
       </div>
+          </div>
+  </div>
   `;
 
-  overlay.appendChild(popup);
-  document.body.appendChild(overlay);
-  document.body.classList.add('no-scroll');
+  // overlay.appendChild(popup);
+  // document.body.appendChild(overlay);
 
-  function closePopup() {
-    overlay.classList.remove('active');
-    popup.classList.remove('active');
-    overlay.remove();
-    document.body.classList.remove('no-scroll');
-  }
-
-  popup.querySelector('.cart-popup-close').addEventListener('click', closePopup);
-  popup.querySelector('.continue-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    closePopup();
-  });
+document.body.insertAdjacentHTML('beforeend', popupHTML);
+document.body.classList.add('no-scroll');
 
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closePopup();
-  });
- 
+const overlay = document.querySelector('.cart-popup-overlay');
+const popup = overlay.querySelector('.cart-popup');
+
+
+function closePopup() {
+  overlay.classList.remove('active');
+  popup.classList.remove('active');
+  overlay.remove(); 
+  document.body.classList.remove('no-scroll');
+}
+
+
+popup.querySelector('.cart-popup-close')?.addEventListener('click', closePopup);
+popup.querySelector('.continue-link')?.addEventListener('click', (e) => {
+  e.preventDefault();
+  closePopup();
+});
+
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePopup();
+});
+
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) closePopup();
+});
+
   overlay.addEventListener('click', (e) => {
     if (!popup.contains(e.target)) {
       closePopup();
@@ -122,9 +133,8 @@ if (firstCart && upSells.length) {
   swiperJS.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
   document.head.appendChild(swiperJS);
 
-  const swiperContainer = document.createElement('div');
-  swiperContainer.className = 'swiper cart-swiper';
-  swiperContainer.innerHTML = `
+  const swiperHTML = `
+   <div class="swiper cart-swiper">
     <div class="swiper-wrapper"></div>
       <div class="cart-image-left">
         <svg xmlns="http://www.w3.org/2000/svg" width="76" height="84" viewBox="0 0 76 84" fill="none">
@@ -165,18 +175,20 @@ if (firstCart && upSells.length) {
   </defs>
 </svg>
         </div>
+          </div>
   `;
 
-  upSells.forEach(ul => {
-    ul.querySelectorAll('li').forEach(li => {
-      const slide = document.createElement('div');
-      slide.className = 'swiper-slide';
-      slide.appendChild(li.cloneNode(true));
-      swiperContainer.querySelector('.swiper-wrapper').appendChild(slide);
-    });
-  });
+  firstCart.insertAdjacentHTML('afterend', swiperHTML);
 
-  firstCart.insertAdjacentElement('afterend', swiperContainer);
+
+const swiperContainer = document.querySelector('.cart-swiper .swiper-wrapper');
+
+upSells.forEach(ul => {
+  ul.querySelectorAll('li').forEach(li => {
+    const slideHTML = `<div class="swiper-slide">${li.outerHTML}</div>`;
+    swiperContainer.insertAdjacentHTML('beforeend', slideHTML);
+  });
+});
 
   swiperJS.onload = () => {
     new Swiper('.cart-swiper', {
@@ -205,6 +217,17 @@ if (firstCart && upSells.length) {
   };
 }
 
+document.querySelectorAll('.gmd-001 .cart-popup .swiper .swiper-wrapper .swiper-slide li .stock')
+  .forEach(stockEl => {
+    if (stockEl.textContent.trim() === 'Niet op voorraad') {
+      stockEl.style.color = '#6C737F';
+      stockEl.style.fontFamily = 'Inter';
+      stockEl.style.fontSize = '14px';
+      stockEl.style.fontStyle = 'normal';
+      stockEl.style.fontWeight = '400';
+      stockEl.style.lineHeight = '20px';
+    }
+  });
 
 
 }
