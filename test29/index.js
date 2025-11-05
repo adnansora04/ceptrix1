@@ -163,7 +163,6 @@ if (target) {
       }
     });
   }, {
-    threshold: 0 
   });
 
   observer.observe(target);
