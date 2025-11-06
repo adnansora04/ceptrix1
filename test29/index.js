@@ -1,4 +1,19 @@
 
+
+  
+function waitForElement(selector, callback, interval = 50, timeout = 10000) {
+    const check = setInterval(() => {
+        const el = document.querySelector(selector);
+        if (el) {
+            clearInterval(check);
+            callback(el);
+        }
+    }, interval);
+    setTimeout(() => clearInterval(check), timeout);
+}
+
+waitForElement(' .module-product', () => {
+
 document.body.classList.add('gmd-001')
 
 const swiperCSS = document.createElement("link");
@@ -252,4 +267,4 @@ targets.forEach((target, i) => {
 
 
 
-// })
+})
