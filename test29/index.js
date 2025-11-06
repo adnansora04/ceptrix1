@@ -241,4 +241,15 @@ stickyBtns.forEach(btn => {
 });
 
 
+const hamburgers = document.querySelectorAll('.bot .hamburger');
+const targets = document.querySelectorAll('.top .container .row .col:not(:first-of-type) ');
+
+// Move each hamburger after each .row (or the first one if only one exists)
+targets.forEach((target, i) => {
+  const hamburger = hamburgers[i] || hamburgers[0]; // use first if fewer hamburgers
+  if (hamburger) target.insertAdjacentElement('afterend', hamburger);
+});
+
+
+
 // })
