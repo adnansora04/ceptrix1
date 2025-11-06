@@ -514,17 +514,39 @@ line-height: 14px; /* 100% */
     .top .container .row .hamburger .hamburger-box .hamburger-inner::before{
         border-radius: 4px;
 background: #000 !important;
+width: 19px;
     }
     .top .container .row .hamburger .hamburger-box .hamburger-inner::after{
         border-radius: 4px;
 background: #000 !important;
+width: 19px;
     }
     .top .container .row .hamburger .hamburger-box .hamburger-inner{
         border-radius: 4px;
 background: #000 !important;
+width: 19px;
     }
     header div.bot>span{
         display: none;
+    }
+    header .top .container .row:first-child .col{
+        gap: 0;
+    }
+    .header-searchbar{
+        border-right: 1px solid rgba(0, 0, 0, 0.15);
+border-left: 1px solid rgba(0, 0, 0, 0.15);
+padding-right: 16px;
+    }
+    .top .container .row .hamburger .hamburger-box{
+        width: 24px;
+    }
+    .top .container .row .hamburger{
+                padding: 5px 5px 5px 5px;
+        margin: 5px 15px 5px 0;
+        height: 32px;
+    }
+     .sticky-bar {
+        z-index: 1;
     }
 }
 
@@ -533,7 +555,7 @@ background: #000 !important;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        z-index: 1;
+       
     }
 
     .sticky-price {
