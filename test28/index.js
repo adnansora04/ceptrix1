@@ -220,7 +220,7 @@ upSells.forEach(ul => {
 document.querySelectorAll('.gmd-001 .cart-popup .swiper .swiper-wrapper .swiper-slide li .stock')
   .forEach(stockEl => {
     if (stockEl.textContent.trim() === 'Niet op voorraad') {
-      stockEl.style.color = '#6C737F';
+      stockEl.style.color = '#a90f09';
       stockEl.style.fontFamily = 'Inter';
       stockEl.style.fontSize = '14px';
       stockEl.style.fontStyle = 'normal';
@@ -229,7 +229,7 @@ document.querySelectorAll('.gmd-001 .cart-popup .swiper .swiper-wrapper .swiper-
     }
   });
 
-
+    
 }
 
 // const productsContainer = document.querySelector('.cart-popup-bottom .products');
