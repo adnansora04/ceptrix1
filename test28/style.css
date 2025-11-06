@@ -669,10 +669,13 @@ body.no-scroll {
   }
 }
 
-@media (max-width: 951px) {
+@media (max-width: 991px) {
 
   .gmd-001 .cart-popup {
     /* width: calc(92% + 30px); */
+  }
+  .gmd-001 .cart-popup .swiper-slide{
+    margin-right: 17px !important;
   }
 
 }
@@ -810,6 +813,9 @@ body.no-scroll {
   }
   .gmd-001 .cart-popup-overlay{
         padding: 20px 15px 15px;
+  }
+  .gmd-001 .cart-popup .swiper-slide{
+    margin-right: 15px !important;
   }
 }
 
