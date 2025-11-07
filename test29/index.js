@@ -265,6 +265,53 @@ targets.forEach((target, i) => {
   if (hamburger) target.insertAdjacentElement('afterend', hamburger);
 });
 
+const h1 = document.querySelector('.product-item h1');
+const target = document.querySelector('.product-item div:has(.image-carousel):not(.row)');
 
+if (h1 && target) {
+  target.insertAdjacentElement('afterbegin', h1);
+}
+
+
+
+
+const score = document.querySelector('.product-item .score');
+const heading = document.querySelector('.product-item h1');
+
+if (score && heading) {
+  heading.insertAdjacentElement('afterend', score);
+}
+
+
+const total = document.querySelector('.product-item .score .total');
+if (total) {
+  const br = total.querySelector('br');
+  if (br) br.remove();
+}
+
+
+const item = document.querySelector('.product-item');
+const usps = item.querySelector('.usps');
+const info = item.querySelector('.info-wrapper');
+
+if (usps && info) {
+  usps.insertAdjacentElement('afterend', info);
+}
+
+
+const paymentMethods = document.querySelector('.payments-methods');
+if (paymentMethods) {
+  paymentMethods.insertAdjacentHTML('afterend', `
+    <div class="usps-box">
+      <ul class="usps-list">
+        <li> Voor 16:00 besteld = <strong>dezelfde dag verzonden</strong></li>
+        <li> <strong>76.000+ tevreden klanten</strong> gingen je voor</li>
+        <li> <strong>Gratis</strong> achteraf betalen met Klarna</li>
+        <li> <strong>Makkelijk retourneren</strong> binnen 14 dagen</li>
+      </ul>
+    </div>
+  `);
+}
 
 })
+
